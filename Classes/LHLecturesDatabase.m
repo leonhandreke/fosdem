@@ -49,12 +49,29 @@ static LHLecturesDatabase *mainLecturesDatabase = nil;
         while (currentDictionary = [dictionaryEnumetator nextObject]) {
             [lectures addObject: [[LHLecturesDatabase alloc] initWithDictionary: currentDictionary]];
         }
-        
-        
     }
     return self;
 }
 
+- (NSArray *) uniqueDays {
+
+    NSEnumerator *lecturesEnumerator = [lectures objectEnumerator];
+    LHLecture *currentLecture;
+    
+    NSMutableArray *uniqueDays = [NSMutableArray array];
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    
+    while (currentLecture = [lecturesEnumerator nextObject]) {
+        NSDateComponents *dateComponents = [calendar components: (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate: [currentLecture startDate]];
+        
+        NSEnumerator *uniqueDaysEnumerator = [uniqueDays objectEnumerator];
+        NSDate *currentUniqueDay;
+        
+        while (currentUniqueDays = [uniqueDaysEnumerator nextObject]) {
+            
+        }        
+    }
+}
 
 + (NSString *) lecturesDatabaseLocation {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
