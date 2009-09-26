@@ -11,7 +11,7 @@
 
 @implementation LHLecture
 
-@synthesize title, speaker, descriptionPage, startDate, duration;
+@synthesize title, speaker, descriptionPage, startDate, endDate;
 
 - (LHLecture *)init {
     if (self = [super init]) {
@@ -19,7 +19,7 @@
         [self setSpeaker: @""];
         [self setDescriptionPage: @""];
         [self setStartDate: [NSDate date]];
-        [self setDuration: 0];
+        [self setEndDate: [NSDate date]];
     }
     return self;
 }
@@ -30,7 +30,7 @@
         [self setSpeaker: [dictionary valueForKey: @"speaker"]];
         [self setDescriptionPage: [dictionary valueForKey: @"descriptionPage"]];
         [self setStartDate: [dictionary valueForKey: @"startDate"]];
-        [self setDuration: [(NSNumber *)[dictionary valueForKey: @"duration"] doubleValue]];
+        [self setEndDate: [dictionary valueForKey: @"endDate"]];
     }
     return self;
 }

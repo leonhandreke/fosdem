@@ -17,6 +17,7 @@
 		35FAD470106E790F009863F8 /* LHLecturesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FAD46F106E790F009863F8 /* LHLecturesTableViewController.xib */; };
 		35FAD475106E79A7009863F8 /* LHLecturesDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD474106E79A7009863F8 /* LHLecturesDatabase.m */; };
 		35FAD478106E79B7009863F8 /* LHLecture.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD477106E79B7009863F8 /* LHLecture.m */; };
+		35FAD49B106E7F01009863F8 /* lecturesDatabase.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35FAD49A106E7F01009863F8 /* lecturesDatabase.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		35FAD474106E79A7009863F8 /* LHLecturesDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHLecturesDatabase.m; sourceTree = "<group>"; };
 		35FAD476106E79B7009863F8 /* LHLecture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHLecture.h; sourceTree = "<group>"; };
 		35FAD477106E79B7009863F8 /* LHLecture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHLecture.m; sourceTree = "<group>"; };
+		35FAD49A106E7F01009863F8 /* lecturesDatabase.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lecturesDatabase.plist; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* fosdem-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "fosdem-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* fosdem-Info.plist */,
 				35FAD46F106E790F009863F8 /* LHLecturesTableViewController.xib */,
+				35FAD49A106E7F01009863F8 /* lecturesDatabase.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			files = (
 				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
 				35FAD470106E790F009863F8 /* LHLecturesTableViewController.xib in Resources */,
+				35FAD49B106E7F01009863F8 /* lecturesDatabase.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

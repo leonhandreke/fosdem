@@ -11,20 +11,22 @@
 
 @interface LHLecture : NSObject {
 
+    NSString *uuid;
+    
     NSString *title;
     NSString *speaker;
     
     NSString *descriptionPage;
     
     NSDate *startDate;
-    NSTimeInterval duration;
+    NSDate *endDate;
 }
 
 @property (copy) NSString *title;
 @property (copy) NSString *speaker;
 @property (copy) NSString *descriptionPage;
 @property (copy) NSDate *startDate;
-@property (assign) NSTimeInterval duration;
+@property (copy) NSDate *endDate;
 
 
 @end

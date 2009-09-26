@@ -13,12 +13,14 @@
 
 @synthesize window;
 @synthesize tabBarController;
+@synthesize navigationController;
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
     
     // Add the tab bar controller's current view as a subview of the window
-    [window addSubview:tabBarController.view];
+    [window addSubview:navigationController.view];
+    [navigationController pushViewController: tabBarController animated: NO];
 }
 
 

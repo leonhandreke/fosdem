@@ -11,6 +11,13 @@
 
 @interface LHLecturesDatabase : NSObject {
 
+    NSMutableArray *lectures;
 }
 
++ (NSString *) lecturesDatabaseLocation;
++ (LHLecturesDatabase *) sharedLecturesDatabase;
+
+- (LHLecturesDatabase*) initWithDictionary: (NSDictionary *) dictionary;
+
+@property (assign) NSMutableArray *lectures;
 @end
