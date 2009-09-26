@@ -2,6 +2,7 @@
 build/*
 *.pbxuser
 *.mode1v3
+*.perspective*
 
 # old skool
 .svn
