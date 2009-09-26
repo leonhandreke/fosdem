@@ -13,6 +13,10 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
+		35FAD46E106E78EF009863F8 /* LHLecturesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD46D106E78EF009863F8 /* LHLecturesTableViewController.m */; };
+		35FAD470106E790F009863F8 /* LHLecturesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FAD46F106E790F009863F8 /* LHLecturesTableViewController.xib */; };
+		35FAD475106E79A7009863F8 /* LHLecturesDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD474106E79A7009863F8 /* LHLecturesDatabase.m */; };
+		35FAD478106E79B7009863F8 /* LHLecture.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD477106E79B7009863F8 /* LHLecture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,13 @@
 		28A0AB4B0D9B1048005BE974 /* fosdem_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fosdem_Prefix.pch; sourceTree = "<group>"; };
 		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		35FAD46C106E78EF009863F8 /* LHLecturesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHLecturesTableViewController.h; sourceTree = "<group>"; };
+		35FAD46D106E78EF009863F8 /* LHLecturesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHLecturesTableViewController.m; sourceTree = "<group>"; };
+		35FAD46F106E790F009863F8 /* LHLecturesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LHLecturesTableViewController.xib; sourceTree = "<group>"; };
+		35FAD473106E79A7009863F8 /* LHLecturesDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHLecturesDatabase.h; sourceTree = "<group>"; };
+		35FAD474106E79A7009863F8 /* LHLecturesDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHLecturesDatabase.m; sourceTree = "<group>"; };
+		35FAD476106E79B7009863F8 /* LHLecture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHLecture.h; sourceTree = "<group>"; };
+		35FAD477106E79B7009863F8 /* LHLecture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHLecture.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* fosdem-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "fosdem-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +58,12 @@
 			children = (
 				1D3623240D0F684500981E51 /* fosdemAppDelegate.h */,
 				1D3623250D0F684500981E51 /* fosdemAppDelegate.m */,
+				35FAD46C106E78EF009863F8 /* LHLecturesTableViewController.h */,
+				35FAD46D106E78EF009863F8 /* LHLecturesTableViewController.m */,
+				35FAD473106E79A7009863F8 /* LHLecturesDatabase.h */,
+				35FAD474106E79A7009863F8 /* LHLecturesDatabase.m */,
+				35FAD476106E79B7009863F8 /* LHLecture.h */,
+				35FAD477106E79B7009863F8 /* LHLecture.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -85,6 +102,7 @@
 			children = (
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* fosdem-Info.plist */,
+				35FAD46F106E790F009863F8 /* LHLecturesTableViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -142,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
+				35FAD470106E790F009863F8 /* LHLecturesTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +173,9 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* fosdemAppDelegate.m in Sources */,
+				35FAD46E106E78EF009863F8 /* LHLecturesTableViewController.m in Sources */,
+				35FAD475106E79A7009863F8 /* LHLecturesDatabase.m in Sources */,
+				35FAD478106E79B7009863F8 /* LHLecture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
