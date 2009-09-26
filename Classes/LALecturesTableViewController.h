@@ -1,5 +1,5 @@
 //
-//  LHLecturesTableViewController.h
+//  LALecturesTableViewController.h
 //  fosdem
 //
 //  Created by Leon on 9/26/09.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface LHLecturesTableViewController : UITableViewController {
+@interface LALecturesTableViewController : UITableViewController {
 
 }
 

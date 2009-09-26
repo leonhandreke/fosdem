@@ -1,5 +1,5 @@
 //
-//  LHLecture.h
+//  LALecture.h
 //  fosdem
 //
 //  Created by Leon on 9/26/09.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface LHLecture : NSObject {
+@interface LALecture : NSObject {
 
     NSString *uuid;
     

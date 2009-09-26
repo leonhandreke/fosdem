@@ -1,45 +1,45 @@
 //
-//  LHLecturesDatabase.m
+//  LALecturesDatabase.m
 //  fosdem
 //
 //  Created by Leon on 9/26/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "LHLecturesDatabase.h"
+#import "LALecturesDatabase.h"
 
 
-@implementation LHLecturesDatabase
+@implementation LALecturesDatabase
 
 
 @synthesize lectures;
 
-static LHLecturesDatabase *mainLecturesDatabase = nil;
+static LALecturesDatabase *mainLecturesDatabase = nil;
 
-+ (LHLecturesDatabase *) sharedLecturesDatabase
++ (LALecturesDatabase *) sharedLecturesDatabase
 {
 	if(mainLecturesDatabase == nil) {
         // Try to load from the resource bundle first
         NSDictionary *lecturesDictionary = [NSDictionary dictionaryWithContentsOfFile: [self lecturesDatabaseLocation]];
         if (lecturesDictionary != nil) {
-            mainLecturesDatabase = [[LHLecturesDatabase alloc] initWithDictionary: lecturesDictionary];
+            mainLecturesDatabase = [[LALecturesDatabase alloc] initWithDictionary: lecturesDictionary];
         }
         else {
-            mainLecturesDatabase = [[LHLecturesDatabase alloc] init];
+            mainLecturesDatabase = [[LALecturesDatabase alloc] init];
         }		
     }
     return mainLecturesDatabase;	
 }
 
 
-- (LHLecturesDatabase*) init {
+- (LALecturesDatabase*) init {
     if (self = [super init]) {
         lectures = [[NSMutableArray alloc] init];        
     }
     return self;
 }
 
-- (LHLecturesDatabase*) initWithDictionary: (NSDictionary *) dictionary {
+- (LALecturesDatabase*) initWithDictionary: (NSDictionary *) dictionary {
     if (self = [super init]) {
         lectures = [[NSMutableArray alloc] init];
         
@@ -47,7 +47,7 @@ static LHLecturesDatabase *mainLecturesDatabase = nil;
         NSDictionary *currentDictionary;
         
         while (currentDictionary = [dictionaryEnumetator nextObject]) {
-            [lectures addObject: [[LHLecturesDatabase alloc] initWithDictionary: currentDictionary]];
+            [lectures addObject: [[LALecturesDatabase alloc] initWithDictionary: currentDictionary]];
         }
     }
     return self;
@@ -56,7 +56,7 @@ static LHLecturesDatabase *mainLecturesDatabase = nil;
 - (NSArray *) uniqueDays {
 
     NSEnumerator *lecturesEnumerator = [lectures objectEnumerator];
-    LHLecture *currentLecture;
+    LALecture *currentLecture;
     
     NSMutableArray *uniqueDays = [NSMutableArray array];
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];

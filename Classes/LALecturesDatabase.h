@@ -1,5 +1,5 @@
 //
-//  LHLecturesDatabase.h
+//  LALecturesDatabase.h
 //  fosdem
 //
 //  Created by Leon on 9/26/09.
@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-#import "LHLecture.h"
+#import "LALecture.h"
 
-@interface LHLecturesDatabase : NSObject {
+@interface LALecturesDatabase : NSObject {
 
     NSMutableArray *lectures;
 }
 
 + (NSString *) lecturesDatabaseLocation;
-+ (LHLecturesDatabase *) sharedLecturesDatabase;
++ (LALecturesDatabase *) sharedLecturesDatabase;
 
-- (LHLecturesDatabase*) initWithDictionary: (NSDictionary *) dictionary;
+- (LALecturesDatabase*) initWithDictionary: (NSDictionary *) dictionary;
 
 @property (assign) NSMutableArray *lectures;
 @end
