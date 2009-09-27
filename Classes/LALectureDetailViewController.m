@@ -29,14 +29,22 @@
     [super viewDidLoad];
     
     TKOverviewHeaderView *overviewHeaderView = [[TKOverviewHeaderView alloc] init];
-    UIFont *titleFont = [UIFont fontWithName: @"Helvetica-Bold" size: 13];
-    [[overviewHeaderView title] setText: [lecture title]];
-    [[overviewHeaderView title] setAdjustsFontSizeToFitWidth: NO];
-    [[overviewHeaderView title] setFont: titleFont];
     
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+   
+    [[overviewHeaderView title] setText: [lecture speaker]];
 
-    [[overviewHeaderView subtitle] setText: [lecture speaker]];
-
+    [dateFormatter setDateFormat: @"EEEE"];
+    NSString *dayString = [dateFormatter stringFromDate: [lecture startDate]];
+    [dateFormatter setDateFormat: @"H:mm"];
+    NSString *timeString = [NSString stringWithFormat: @"%@ - %@", [dateFormatter stringFromDate: [lecture startDate]], [dateFormatter stringFromDate: [lecture endDate]]];
+    
+    [[overviewHeaderView subtitle] setText: [NSString stringWithFormat: @"%@, %@", dayString, timeString]];
+    
+    
+    [[overviewHeaderView indicator] setColor: TKOverviewIndicatorViewColorBlue];
+    [[overviewHeaderView indicator] setText: [lecture track]];
+    
     [headerHolderView addSubview: overviewHeaderView];
     
     NSString *resourcePath = [[NSBundle mainBundle] bundlePath];

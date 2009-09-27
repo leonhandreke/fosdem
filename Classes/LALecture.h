@@ -16,6 +16,8 @@
     NSString *title;
     NSString *speaker;
     
+    NSString *track;
+    
     NSString *descriptionPage;
     
     NSDate *startDate;
@@ -24,6 +26,7 @@
 
 @property (copy) NSString *title;
 @property (copy) NSString *speaker;
+@property (copy) NSString *track;
 @property (copy) NSString *descriptionPage;
 @property (copy) NSDate *startDate;
 @property (copy) NSDate *endDate;

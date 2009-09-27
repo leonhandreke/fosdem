@@ -6,6 +6,8 @@
 	<dict>
 		<key>uuid</key>
 		<string>f33aea59-f0a9-4e2d-9d80-dfbb86ea7a91</string>
+		<key>track</key>
+		<string>Kernel</string>
 		<key>title</key>
 		<string>Syslinux and the dynamic x86 boot process</string>
 		<key>speaker</key>
@@ -15,12 +17,14 @@
 		<key>endDate</key>
 		<date>2009-02-07T14:00:00Z</date>
 		<key>descriptionPage</key>
-		<string></string>
+		<string>&lt;html&gt;      &lt;head&gt;&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;descriptionPage.css&quot; /&gt;&lt;/head&gt;           &lt;body&gt;             &lt;div class=&quot;title&quot;&gt;Syslinux and the dynamic x86 boot process&lt;/div&gt;             &lt;img src=&quot;http://archive.fosdem.org/2009/schedule/images/speaker-478-128x128.jpg&quot; /&gt;             &lt;div class=&quot;abstract&quot;&gt;&lt;p&gt;This talk will discuss the x86 boot process, how to make it work in a dynamic system, and the tradeoffs between versatility and reliability. It will also discuss the Syslinux modular interface and how to use it to quickly add new features with a minimum of coding.&lt;/p&gt;&lt;/div&gt;             &lt;div class=&quot;description&quot;&gt;&lt;p&gt;Originally written during an all-night hacking session in 1994 with the intent to better support the then-ubiquitous install boot floppies, Syslinux has evolved over the years into a widely used boot loader suite with an advanced modular interface, with emphasis on ease of use and reliability. It is now the most commonly used x86 bootloader for removable media, and is increasingly used for conventional hard disk booting as well.&lt;/p&gt;             &lt;/div&gt;     &lt;/body&gt; &lt;/html&gt;</string>
 	</dict>
 	<key>006a67f5-4b12-4862-a4f3-ce95118d44f2</key>
 	<dict>
 		<key>uuid</key>
 		<string>006a67f5-4b12-4862-a4f3-ce95118d44f2</string>
+		<key>track</key>
+		<string>Keynotes</string>
 		<key>title</key>
 		<string>Google Summer of Code: A Behind the Scenes Look at Large Scale Community Management</string>
 		<key>speaker</key>
@@ -30,7 +34,7 @@
 		<key>endDate</key>
 		<date>2009-02-08T17:15:00Z</date>
 		<key>descriptionPage</key>
-		<string></string>
+		<string>&lt;html&gt;      &lt;head&gt;&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;descriptionPage.css&quot; /&gt;&lt;/head&gt;           &lt;body&gt;             &lt;div class=&quot;title&quot;&gt;Google Summer of Code: A Behind the Scenes Look at Large Scale Community Management&lt;/div&gt;             &lt;img src=&quot;http://archive.fosdem.org/2009/schedule/images/speaker-469-128x128.jpg&quot; /&gt;             &lt;div class=&quot;abstract&quot;&gt;&lt;p&gt;Ever wondered what it takes to make a community of more than 180 F/LOSS projects and 5,000+ geeks create great software?&lt;/p&gt;&lt;/div&gt;             &lt;div class=&quot;description&quot;&gt;&lt;p&gt;In this talk, Leslie Hawthorn will explore the successes and setbacks of &lt;a href=&quot;http://code.google.com/soc/&quot;&gt;Google Summer of Code&lt;/a&gt;, the first global program designed to introduce University students to Free and Open Source software development practices and methodologies. Leslie will discuss the program&apos;s inception, history, and impact, and the evolving requirements for managing a large scale global community.  She will share lessons learned during the past three years as the program&apos;s Community Manager, with an eye to providing audience members with strategies for organizing their own community participation initiative, and provide attendees with an update on &lt;a href=&quot;http://code.google.com/p/soc/&quot;&gt;Melange&lt;/a&gt;, the new work flow application designed to manage *Google Summer of Code* - or similar programs - and Google&apos;s first Open Source project developed in the open from the first commit.&lt;/p&gt;&lt;/div&gt;     &lt;/body&gt; &lt;/html&gt; </string>
 	</dict>
 </dict>
 </plist>

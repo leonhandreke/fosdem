@@ -11,12 +11,13 @@
 
 @implementation LALecture
 
-@synthesize title, speaker, descriptionPage, startDate, endDate;
+@synthesize title, speaker, track, descriptionPage, startDate, endDate;
 
 - (LALecture *)init {
     if (self = [super init]) {
         [self setTitle: @""];
         [self setSpeaker: @""];
+        [self setTrack: @""];
         [self setDescriptionPage: @""];
         [self setStartDate: [NSDate date]];
         [self setEndDate: [NSDate date]];
@@ -28,6 +29,7 @@
     if (self = [self init]) {
         [self setTitle: [dictionary valueForKey: @"title"]];
         [self setSpeaker: [dictionary valueForKey: @"speaker"]];
+        [self setTrack: [dictionary valueForKey: @"track"]];
         [self setDescriptionPage: [dictionary valueForKey: @"descriptionPage"]];
         [self setStartDate: [dictionary valueForKey: @"startDate"]];
         [self setEndDate: [dictionary valueForKey: @"endDate"]];

@@ -21,6 +21,8 @@
 		35D23A9A106F7BBB003D9E0A /* TKOverviewIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D23A94106F7BBB003D9E0A /* TKOverviewIndicatorView.m */; };
 		35D23A9E106F7F31003D9E0A /* LALectureDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D23A9C106F7F31003D9E0A /* LALectureDetailViewController.m */; };
 		35D23A9F106F7F31003D9E0A /* LALectureDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D23A9D106F7F31003D9E0A /* LALectureDetailViewController.xib */; };
+		35D23B81106F87C3003D9E0A /* descriptionPage.css in Resources */ = {isa = PBXBuildFile; fileRef = 35D23B80106F87C3003D9E0A /* descriptionPage.css */; };
+		35D23BC9106F8DD3003D9E0A /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 35D23BC8106F8DD3003D9E0A /* TapkuLibrary.bundle */; };
 		35FAD46E106E78EF009863F8 /* LALecturesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD46D106E78EF009863F8 /* LALecturesTableViewController.m */; };
 		35FAD470106E790F009863F8 /* LALecturesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FAD46F106E790F009863F8 /* LALecturesTableViewController.xib */; };
 		35FAD475106E79A7009863F8 /* LALecturesDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD474106E79A7009863F8 /* LALecturesDatabase.m */; };
@@ -53,6 +55,8 @@
 		35D23A9B106F7F31003D9E0A /* LALectureDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LALectureDetailViewController.h; sourceTree = "<group>"; };
 		35D23A9C106F7F31003D9E0A /* LALectureDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LALectureDetailViewController.m; sourceTree = "<group>"; };
 		35D23A9D106F7F31003D9E0A /* LALectureDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LALectureDetailViewController.xib; path = Classes/LALectureDetailViewController.xib; sourceTree = "<group>"; };
+		35D23B80106F87C3003D9E0A /* descriptionPage.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = descriptionPage.css; sourceTree = "<group>"; };
+		35D23BC8106F8DD3003D9E0A /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../tapkulibrary/TapkuLibrary/TapkuLibrary.bundle; sourceTree = SOURCE_ROOT; };
 		35FAD46C106E78EF009863F8 /* LALecturesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LALecturesTableViewController.h; sourceTree = "<group>"; };
 		35FAD46D106E78EF009863F8 /* LALecturesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LALecturesTableViewController.m; sourceTree = "<group>"; };
 		35FAD46F106E790F009863F8 /* LALecturesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LALecturesTableViewController.xib; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				35D23BC8106F8DD3003D9E0A /* TapkuLibrary.bundle */,
+				35D23B80106F87C3003D9E0A /* descriptionPage.css */,
 				35D23A9D106F7F31003D9E0A /* LALectureDetailViewController.xib */,
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* fosdem-Info.plist */,
@@ -212,6 +218,8 @@
 				35FAD470106E790F009863F8 /* LALecturesTableViewController.xib in Resources */,
 				35FAD49B106E7F01009863F8 /* lecturesDatabase.plist in Resources */,
 				35D23A9F106F7F31003D9E0A /* LALectureDetailViewController.xib in Resources */,
+				35D23B81106F87C3003D9E0A /* descriptionPage.css in Resources */,
+				35D23BC9106F8DD3003D9E0A /* TapkuLibrary.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

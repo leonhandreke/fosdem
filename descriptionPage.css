@@ -1,0 +1,29 @@
+body {
+	list-style-position: outside;
+	list-style-type: disc;
+	font-family: Helvetica;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 13pt;
+}
+
+.abstract {
+	font-size: 10pt;
+	text-align: justify;
+}
+
+.description {
+	font-size: 10pt;
+	text-align: justify;
+}
+
+img {
+	margin: 8px;
+	border-color: black;
+	border-style: solid;
+	border-width: 1px;
+	float: right;
+}
+
