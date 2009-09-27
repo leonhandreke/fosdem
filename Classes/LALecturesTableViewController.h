@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "LALectureDetailViewController.h"
+
 #import "LALecturesDatabase.h"
 #import "LALecture.h"
 

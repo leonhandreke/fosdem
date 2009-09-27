@@ -23,7 +23,6 @@ static LALecturesDatabase *mainLecturesDatabase = nil;
         NSDictionary *lecturesDictionary = [NSDictionary dictionaryWithContentsOfFile: [self lecturesDatabaseLocation]];
         if (lecturesDictionary != nil) {
             mainLecturesDatabase = [[LALecturesDatabase alloc] initWithDictionary: lecturesDictionary];
-            NSLog(@"%@", [mainLecturesDatabase uniqueDays]);
         }
         else {
             mainLecturesDatabase = [[LALecturesDatabase alloc] init];

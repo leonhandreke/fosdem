@@ -110,8 +110,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"LectureCell";
-    
-    NSDate *sectionDay = [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] objectAtIndex: indexPath.section];
+
     
     LALecture *lecture = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView)
@@ -120,6 +119,7 @@
     }
 	else
 	{
+        NSDate *sectionDay = [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] objectAtIndex: indexPath.section];
         lecture = [[[LALecturesDatabase sharedLecturesDatabase] lecturesOnDay: sectionDay] objectAtIndex: indexPath.row];
     }
     
@@ -160,6 +160,23 @@
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
+    
+    LALecture *selectedLecture = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+	{
+        selectedLecture = [filteredLectures objectAtIndex:indexPath.row];
+    }
+	else
+	{
+        NSDate *sectionDay = [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] objectAtIndex: indexPath.section];
+        selectedLecture = [[[LALecturesDatabase sharedLecturesDatabase] lecturesOnDay: sectionDay] objectAtIndex: indexPath.row];
+    }
+    
+    LALectureDetailViewController *lectureDetailViewController = [[LALectureDetailViewController alloc] initWithNibName: @"LALectureDetailViewController" bundle: [NSBundle mainBundle]];
+    [lectureDetailViewController setLecture: selectedLecture];
+    [[self navigationController] pushViewController: lectureDetailViewController animated: YES];
+    [lectureDetailViewController release];
+    
 }
 
 
