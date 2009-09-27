@@ -12,7 +12,6 @@
 #import "LALecture.h"
 
 @interface LALecturesTableViewController : UITableViewController {
-
+    NSMutableArray *filteredLectures;
 }
-
 @end
