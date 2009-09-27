@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "LALecturesDatabase.h"
+#import "LALecture.h"
 
 @interface LALecturesTableViewController : UITableViewController {
 

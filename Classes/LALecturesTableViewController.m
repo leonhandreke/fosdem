@@ -26,7 +26,7 @@
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [[[self tabBarController] navigationItem] setTitle: NSLocalizedString(@"Lectures", @"Lectures")];
+    //[[[self tabBarController] navigationItem] setTitle: NSLocalizedString(@"Lectures", @"Lectures")];
 }
 
 
@@ -75,31 +75,48 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] count];
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    NSDate *sectionDay = [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] objectAtIndex: section];
+    return [[[LALecturesDatabase sharedLecturesDatabase] lecturesOnDay: sectionDay] count];
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"LectureCell";
+    
+    NSDate *sectionDay = [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] objectAtIndex: indexPath.section];
+    LALecture *cellLecture = [[[LALecturesDatabase sharedLecturesDatabase] lecturesOnDay: sectionDay] objectAtIndex: indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Set up the cell...
 	
+    [[cell textLabel] setText: [cellLecture title]];
+    [[cell detailTextLabel] setText: [cellLecture speaker]];
+    [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
+    
     return cell;
 }
 
+- (NSString *)tableView: (UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSDate *sectionDay = [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] objectAtIndex: section];
+    
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    [dateFormatter setTimeStyle: NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle: NSDateFormatterMediumStyle];
+    return [dateFormatter stringFromDate: sectionDay];
+    
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.

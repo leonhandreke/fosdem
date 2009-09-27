@@ -23,6 +23,7 @@ static LALecturesDatabase *mainLecturesDatabase = nil;
         NSDictionary *lecturesDictionary = [NSDictionary dictionaryWithContentsOfFile: [self lecturesDatabaseLocation]];
         if (lecturesDictionary != nil) {
             mainLecturesDatabase = [[LALecturesDatabase alloc] initWithDictionary: lecturesDictionary];
+            NSLog(@"%@", [mainLecturesDatabase uniqueDays]);
         }
         else {
             mainLecturesDatabase = [[LALecturesDatabase alloc] init];
@@ -42,12 +43,11 @@ static LALecturesDatabase *mainLecturesDatabase = nil;
 - (LALecturesDatabase*) initWithDictionary: (NSDictionary *) dictionary {
     if (self = [super init]) {
         lectures = [[NSMutableArray alloc] init];
-        
         NSEnumerator *dictionaryEnumetator = [[dictionary allValues] objectEnumerator];
         NSDictionary *currentDictionary;
         
         while (currentDictionary = [dictionaryEnumetator nextObject]) {
-            [lectures addObject: [[LALecturesDatabase alloc] initWithDictionary: currentDictionary]];
+            [lectures addObject: [[LALecture alloc] initWithDictionary: currentDictionary]];
         }
     }
     return self;
@@ -55,22 +55,75 @@ static LALecturesDatabase *mainLecturesDatabase = nil;
 
 - (NSArray *) uniqueDays {
 
+    if (cachedUniqueDays != nil) {
+        return cachedUniqueDays;
+    }
+    
     NSEnumerator *lecturesEnumerator = [lectures objectEnumerator];
     LALecture *currentLecture;
     
-    NSMutableArray *uniqueDays = [NSMutableArray array];
+    NSMutableArray *uniqueDays = [[NSMutableArray alloc] init];
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
     
     while (currentLecture = [lecturesEnumerator nextObject]) {
-        NSDateComponents *dateComponents = [calendar components: (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate: [currentLecture startDate]];
+        NSDateComponents *currentLectureDateComponents = [calendar components: (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate: [currentLecture startDate]];
+        
+        // In case there is no unique day yet we just add it straight away
+        if ([uniqueDays count] == 0) {
+            [currentLectureDateComponents setSecond: 0];
+            [currentLectureDateComponents setMinute: 0];
+            [currentLectureDateComponents setHour: 0];
+            
+            [uniqueDays addObject: [calendar dateFromComponents: currentLectureDateComponents]];
+        }
         
         NSEnumerator *uniqueDaysEnumerator = [uniqueDays objectEnumerator];
         NSDate *currentUniqueDay;
         
-        while (currentUniqueDays = [uniqueDaysEnumerator nextObject]) {
-            
+        while (currentUniqueDay = [uniqueDaysEnumerator nextObject]) {
+            NSDateComponents *uniqueDayDateComponents = [calendar components: (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate: currentUniqueDay];
+            if([uniqueDayDateComponents day] == [currentLectureDateComponents day] && \
+               [uniqueDayDateComponents month] == [currentLectureDateComponents month] && \
+               [uniqueDayDateComponents year] == [currentLectureDateComponents year]) {
+                // Same date - obviously (imagine Ali-G voice here...)
+            }
+            else {
+                // Same shit, different day
+                [currentLectureDateComponents setSecond: 0];
+                [currentLectureDateComponents setMinute: 0];
+                [currentLectureDateComponents setHour: 0];
+                
+                [uniqueDays addObject: [calendar dateFromComponents: currentLectureDateComponents]];
+                // We have found that the lecture has a unique day - we no longer need to go through all the other unique days
+                break;
+            }
         }        
     }
+    
+    cachedUniqueDays = uniqueDays;
+    return uniqueDays;
+}
+
+- (NSArray *) lecturesOnDay: (NSDate *) dayDate {
+    NSEnumerator *lecturesEnumerator = [lectures objectEnumerator];
+    LALecture *currentLecture;
+    
+    NSMutableArray *lecturesOnDay = [NSMutableArray array];
+    
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    
+    while (currentLecture = [lecturesEnumerator nextObject]) {
+        NSDateComponents *currentLectureDateComponents = [calendar components: (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate: [currentLecture startDate]];
+        NSDateComponents *lectureDateComponents = [calendar components: (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate: dayDate];
+        
+        if([lectureDateComponents day] == [currentLectureDateComponents day] && \
+           [lectureDateComponents month] == [currentLectureDateComponents month] && \
+           [lectureDateComponents year] == [currentLectureDateComponents year]) {
+            // Obviously the lecture is on the same day
+            [lecturesOnDay addObject: currentLecture];
+        }
+    }    
+    return lecturesOnDay;
 }
 
 + (NSString *) lecturesDatabaseLocation {

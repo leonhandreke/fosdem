@@ -13,6 +13,9 @@
 @interface LALecturesDatabase : NSObject {
 
     NSMutableArray *lectures;
+    
+    //Caching CPU-intensive operations
+    NSArray *cachedUniqueDays;
 }
 
 + (NSString *) lecturesDatabaseLocation;
@@ -20,5 +23,9 @@
 
 - (LALecturesDatabase*) initWithDictionary: (NSDictionary *) dictionary;
 
+- (NSArray *) uniqueDays;
+- (NSArray *) lecturesOnDay: (NSDate *) dayDate;
+
 @property (assign) NSMutableArray *lectures;
+
 @end
