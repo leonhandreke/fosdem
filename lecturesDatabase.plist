@@ -11,9 +11,24 @@
 		<key>speaker</key>
 		<string>H. Peter Anvin</string>
 		<key>startDate</key>
-		<date>2009-09-26T17:01:21Z</date>
+		<date>2009-02-07T13:00:00Z</date>
 		<key>endDate</key>
-		<date>2009-09-26T17:01:23Z</date>
+		<date>2009-02-07T14:00:00Z</date>
+		<key>descriptionPage</key>
+		<string></string>
+	</dict>
+	<key>006a67f5-4b12-4862-a4f3-ce95118d44f2</key>
+	<dict>
+		<key>uuid</key>
+		<string>006a67f5-4b12-4862-a4f3-ce95118d44f2</string>
+		<key>title</key>
+		<string>Google Summer of Code: A Behind the Scenes Look at Large Scale Community Management</string>
+		<key>speaker</key>
+		<string>Leslie Hawthorn</string>
+		<key>startDate</key>
+		<date>2009-02-08T16:15:00Z</date>
+		<key>endDate</key>
+		<date>2009-02-08T17:15:00Z</date>
 		<key>descriptionPage</key>
 		<string></string>
 	</dict>

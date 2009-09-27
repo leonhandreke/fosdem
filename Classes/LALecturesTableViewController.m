@@ -148,8 +148,7 @@
         NSDate *sectionDay = [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] objectAtIndex: section];
         
         NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
-        [dateFormatter setTimeStyle: NSDateFormatterNoStyle];
-        [dateFormatter setDateStyle: NSDateFormatterMediumStyle];
+        [dateFormatter setDateFormat: @"EEEE, MMMM d"];
         return [dateFormatter stringFromDate: sectionDay];
     }
     

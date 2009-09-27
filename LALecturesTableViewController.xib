@@ -36,7 +36,7 @@
 				<int key="NSvFlags">274</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUISearchBar" id="756247122">
+					<object class="IBUISearchBar" id="773930537">
 						<reference key="NSNextResponder" ref="803014421"/>
 						<int key="NSvFlags">290</int>
 						<string key="NSFrameSize">{320, 88}</string>
@@ -44,7 +44,6 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUIContentMode">3</int>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
-						<bool key="IBShowsCancelButton">YES</bool>
 						<object class="IBUITextInputTraits" key="IBTextInputTraits"/>
 						<object class="NSArray" key="IBScopeButtonTitles">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -71,7 +70,7 @@
 				<float key="IBUIRowHeight">4.400000e+01</float>
 				<float key="IBUISectionHeaderHeight">2.200000e+01</float>
 				<float key="IBUISectionFooterHeight">2.200000e+01</float>
-				<reference key="IBUITableHeaderView" ref="756247122"/>
+				<reference key="IBUITableHeaderView" ref="773930537"/>
 			</object>
 			<object class="IBUISearchDisplayController" id="859741472"/>
 		</object>
@@ -146,7 +145,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">searchBar</string>
 						<reference key="source" ref="859741472"/>
-						<reference key="destination" ref="756247122"/>
+						<reference key="destination" ref="773930537"/>
 					</object>
 					<int key="connectionID">17</int>
 				</object>
@@ -176,7 +175,7 @@
 						<reference key="object" ref="803014421"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="756247122"/>
+							<reference ref="773930537"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -187,7 +186,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">16</int>
-						<reference key="object" ref="756247122"/>
+						<reference key="object" ref="773930537"/>
 						<reference key="parent" ref="803014421"/>
 					</object>
 				</object>
