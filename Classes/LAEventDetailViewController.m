@@ -1,17 +1,17 @@
 //
-//  LALectureDetailViewController.m
+//  LAEventDetailViewController.m
 //  fosdem
 //
 //  Created by Leon on 9/27/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "LALectureDetailViewController.h"
+#import "LAEventDetailViewController.h"
 
 
-@implementation LALectureDetailViewController
+@implementation LAEventDetailViewController
 
-@synthesize lecture;
+@synthesize event;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -32,24 +32,24 @@
     
     NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
    
-    [[overviewHeaderView title] setText: [lecture speaker]];
+    [[overviewHeaderView title] setText: [event speaker]];
 
     [dateFormatter setDateFormat: @"EEEE"];
-    NSString *dayString = [dateFormatter stringFromDate: [lecture startDate]];
+    NSString *dayString = [dateFormatter stringFromDate: [event startDate]];
     [dateFormatter setDateFormat: @"H:mm"];
-    NSString *timeString = [NSString stringWithFormat: @"%@ - %@", [dateFormatter stringFromDate: [lecture startDate]], [dateFormatter stringFromDate: [lecture endDate]]];
+    NSString *timeString = [NSString stringWithFormat: @"%@ - %@", [dateFormatter stringFromDate: [event startDate]], [dateFormatter stringFromDate: [event endDate]]];
     
     [[overviewHeaderView subtitle] setText: [NSString stringWithFormat: @"%@, %@", dayString, timeString]];
     
     
     [[overviewHeaderView indicator] setColor: TKOverviewIndicatorViewColorBlue];
-    [[overviewHeaderView indicator] setText: [lecture track]];
+    [[overviewHeaderView indicator] setText: [event track]];
     
     [headerHolderView addSubview: overviewHeaderView];
     
     NSString *resourcePath = [[NSBundle mainBundle] bundlePath];
     NSURL *resourceURL = [NSURL fileURLWithPath: resourcePath];
-    [webView loadHTMLString: [lecture descriptionPage] baseURL: resourceURL];
+    [webView loadHTMLString: [event descriptionPage] baseURL: resourceURL];
 }
 
 

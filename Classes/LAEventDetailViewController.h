@@ -1,5 +1,5 @@
 //
-//  LALectureDetailViewController.h
+//  LAEventDetailViewController.h
 //  fosdem
 //
 //  Created by Leon on 9/27/09.
@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 #import "TKOverviewHeaderView.h"
-#import "LALecture.h"
+#import "LAEvent.h"
 
-@interface LALectureDetailViewController : UIViewController {
+@interface LAEventDetailViewController : UIViewController {
 
-    LALecture *lecture;
+    LAEvent *event;
     IBOutlet UIView *headerHolderView;
     IBOutlet UIWebView *webView;
     
@@ -21,5 +21,5 @@
 
 - (BOOL)hidesBottomBarWhenPushed;
 
-@property (assign) LALecture *lecture;
+@property (assign) LAEvent *event;
 @end

@@ -1,15 +1,15 @@
 //
-//  LALecturesTableViewController.m
+//  LAEventsTableViewController.m
 //  fosdem
 //
 //  Created by Leon on 9/26/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "LALecturesTableViewController.h"
+#import "LAEventsTableViewController.h"
 
 
-@implementation LALecturesTableViewController
+@implementation LAEventsTableViewController
 
 /*
  - (id)initWithStyle:(UITableViewStyle)style {
@@ -24,11 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    filteredLectures = [[NSMutableArray alloc] init];
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    //[[[self tabBarController] navigationItem] setTitle: NSLocalizedString(@"Lectures", @"Lectures")];
+    filteredEvents = [[NSMutableArray alloc] init];
+    //[[NSNotificationCenter defaultCenter] addObserver: [self tableView] selector: @selector(reloadData) name: @"LAEventsDatabaseUpdated" object: nil];
 }
 
 
@@ -84,7 +81,7 @@
     }
 	else
 	{
-        return [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] count];
+        return [[[LAEventDatabase sharedEventsDatabase] uniqueDays] count];
     }
     
 }
@@ -95,12 +92,12 @@
     
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
-        return [filteredLectures count];
+        return [filteredEvents count];
     }
 	else
 	{
-        NSDate *sectionDay = [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] objectAtIndex: section];
-        return [[[LALecturesDatabase sharedLecturesDatabase] lecturesOnDay: sectionDay] count];
+        NSDate *sectionDay = [[[LAEventDatabase sharedEventsDatabase] uniqueDays] objectAtIndex: section];
+        return [[[LAEventDatabase sharedEventsDatabase] eventsOnDay: sectionDay] count];
     }
     
 }
@@ -109,18 +106,18 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"LectureCell";
+    static NSString *CellIdentifier = @"EventCell";
 
     
-    LALecture *lecture = nil;
+    LAEvent *event = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
-        lecture = [filteredLectures objectAtIndex:indexPath.row];
+        event = [filteredEvents objectAtIndex:indexPath.row];
     }
 	else
 	{
-        NSDate *sectionDay = [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] objectAtIndex: indexPath.section];
-        lecture = [[[LALecturesDatabase sharedLecturesDatabase] lecturesOnDay: sectionDay] objectAtIndex: indexPath.row];
+        NSDate *sectionDay = [[[LAEventDatabase sharedEventsDatabase] uniqueDays] objectAtIndex: indexPath.section];
+        event = [[[LAEventDatabase sharedEventsDatabase] eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
     }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -130,8 +127,8 @@
     
     // Set up the cell...
 	
-    [[cell textLabel] setText: [lecture title]];
-    [[cell detailTextLabel] setText: [lecture speaker]];
+    [[cell textLabel] setText: [event title]];
+    [[cell detailTextLabel] setText: [event speaker]];
     [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
@@ -145,7 +142,7 @@
     }
 	else
 	{
-        NSDate *sectionDay = [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] objectAtIndex: section];
+        NSDate *sectionDay = [[[LAEventDatabase sharedEventsDatabase] uniqueDays] objectAtIndex: section];
         
         NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
         [dateFormatter setDateFormat: @"EEEE, MMMM d"];
@@ -161,21 +158,21 @@
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
     
-    LALecture *selectedLecture = nil;
+    LAEvent *selectedEvent = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
-        selectedLecture = [filteredLectures objectAtIndex:indexPath.row];
+        selectedEvent = [filteredEvents objectAtIndex:indexPath.row];
     }
 	else
 	{
-        NSDate *sectionDay = [[[LALecturesDatabase sharedLecturesDatabase] uniqueDays] objectAtIndex: indexPath.section];
-        selectedLecture = [[[LALecturesDatabase sharedLecturesDatabase] lecturesOnDay: sectionDay] objectAtIndex: indexPath.row];
+        NSDate *sectionDay = [[[LAEventDatabase sharedEventsDatabase] uniqueDays] objectAtIndex: indexPath.section];
+        selectedEvent = [[[LAEventDatabase sharedEventsDatabase] eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
     }
     
-    LALectureDetailViewController *lectureDetailViewController = [[LALectureDetailViewController alloc] initWithNibName: @"LALectureDetailViewController" bundle: [NSBundle mainBundle]];
-    [lectureDetailViewController setLecture: selectedLecture];
-    [[self navigationController] pushViewController: lectureDetailViewController animated: YES];
-    [lectureDetailViewController release];
+    LAEventDetailViewController *eventDetailViewController = [[LAEventDetailViewController alloc] initWithNibName: @"LAEventDetailViewController" bundle: [NSBundle mainBundle]];
+    [eventDetailViewController setEvent: selectedEvent];
+    [[self navigationController] pushViewController: eventDetailViewController animated: YES];
+    [eventDetailViewController release];
     
 }
 
@@ -229,29 +226,29 @@
 	 Update the filtered array based on the search text and scope.
 	 */
 	
-	[filteredLectures removeAllObjects]; // First clear the filtered array.
+	[filteredEvents removeAllObjects]; // First clear the filtered array.
 	
 	/*
-	 Search the main list for lectures whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
+	 Search the main list for events whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
 	 */
-	for (LALecture *lecture in [[LALecturesDatabase sharedLecturesDatabase] lectures])
+	for (LAEvent *event in [[LAEventDatabase sharedEventsDatabase] events])
 	{
 		
-        NSRange titleResult = [[lecture title] rangeOfString: searchText options: (NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)];
-        NSRange speakerResult = [[lecture speaker] rangeOfString: searchText options: (NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)];
-        NSRange descriptionResult = [[lecture speaker] rangeOfString: searchText options: (NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)];
+        NSRange titleResult = [[event title] rangeOfString: searchText options: (NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)];
+        NSRange speakerResult = [[event speaker] rangeOfString: searchText options: (NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)];
+        NSRange descriptionResult = [[event speaker] rangeOfString: searchText options: (NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)];
         
         if ([scope isEqualToString: @"All"] && (titleResult.location != NSNotFound || speakerResult.location != NSNotFound || descriptionResult.location != NSNotFound))
         {
-            [filteredLectures addObject:lecture];
+            [filteredEvents addObject:event];
         }
         if ([scope isEqualToString: @"Title"] && titleResult.location != NSNotFound)
         {
-            [filteredLectures addObject:lecture];
+            [filteredEvents addObject:event];
         }
         if ([scope isEqualToString: @"Speaker"] && speakerResult.location != NSNotFound)
         {
-            [filteredLectures addObject:lecture];
+            [filteredEvents addObject:event];
         }        
     }
 }
@@ -282,7 +279,7 @@
 
 
 - (void)dealloc {
-    [filteredLectures release];
+    [filteredEvents release];
     [super dealloc];
 }
 
