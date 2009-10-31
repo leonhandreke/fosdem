@@ -28,18 +28,18 @@
     NSDate *endDate;
 }
 
-@property (assign) NSString *identifier;
-@property (assign) NSString *title;
-@property (assign) NSString *subtitle;
-@property (assign) NSString *speaker;
-@property (assign) NSString *room;
-@property (assign) NSString *track;
-@property (assign) NSString *type;
-@property (assign) NSString *contentAbstract;
-@property (assign) NSString *contentDescription;
+@property (copy) NSString *identifier;
+@property (copy) NSString *title;
+@property (copy) NSString *subtitle;
+@property (copy) NSString *speaker;
+@property (copy) NSString *room;
+@property (copy) NSString *track;
+@property (copy) NSString *type;
+@property (copy) NSString *contentAbstract;
+@property (copy) NSString *contentDescription;
 
-@property (assign) NSDate *startDate;
-@property (assign) NSDate *endDate;
+@property (copy) NSDate *startDate;
+@property (copy) NSDate *endDate;
 
 
 @end

@@ -91,7 +91,7 @@
             eventEndDate = [[currentEvent startDate] addTimeInterval: duration];
         }
         else {
-            eventEndDate = [NSDate date];
+            eventEndDate = [[NSDate alloc] init];
         }
 
         [currentEvent setEndDate: eventEndDate];

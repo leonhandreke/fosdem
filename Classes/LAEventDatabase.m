@@ -83,37 +83,36 @@ static LAEventDatabase *mainEventsDatabase = nil;
     
     while (currentEvent = [eventsEnumerator nextObject]) {
         NSDateComponents *currentEventDateComponents = [calendar components: (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate: [currentEvent startDate]];
+
+        // We have the date of the event. Now we have to loop through the existing unique dates to see if there already is a date like that.
+        NSEnumerator *uniqueDaysEnumerator = [uniqueDays objectEnumerator];
+        NSDate *currentUniqueDay;
         
-        // In case there is no unique day yet we just add it straight away
-        if ([uniqueDays count] == 0) {
+        BOOL foundMatchingDay = NO;
+        
+        while (currentUniqueDay = [uniqueDaysEnumerator nextObject]) {
+            NSDateComponents *uniqueDayDateComponents = [calendar components: (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate: currentUniqueDay];
+            // Does the current looped unique day match the one we have from the event?
+            if([uniqueDayDateComponents day] == [currentEventDateComponents day] && \
+               [uniqueDayDateComponents month] == [currentEventDateComponents month] && \
+               [uniqueDayDateComponents year] == [currentEventDateComponents year]) {
+                // Our event does not have a unique date
+                foundMatchingDay = YES;
+                break;
+                
+            }
+        }
+        
+        // If the day was already in the uniqueDays, we would have found it by now
+        if (!foundMatchingDay) {
+            // The event day is unique! Let's insert it!
+            // Same shit, different day
             [currentEventDateComponents setSecond: 0];
             [currentEventDateComponents setMinute: 0];
             [currentEventDateComponents setHour: 0];
             
             [uniqueDays addObject: [calendar dateFromComponents: currentEventDateComponents]];
         }
-        
-        NSEnumerator *uniqueDaysEnumerator = [uniqueDays objectEnumerator];
-        NSDate *currentUniqueDay;
-        
-        while (currentUniqueDay = [uniqueDaysEnumerator nextObject]) {
-            NSDateComponents *uniqueDayDateComponents = [calendar components: (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate: currentUniqueDay];
-            if([uniqueDayDateComponents day] == [currentEventDateComponents day] && \
-               [uniqueDayDateComponents month] == [currentEventDateComponents month] && \
-               [uniqueDayDateComponents year] == [currentEventDateComponents year]) {
-                // Same date - obviously (imagine Ali-G voice here...)
-            }
-            else {
-                // Same shit, different day
-                [currentEventDateComponents setSecond: 0];
-                [currentEventDateComponents setMinute: 0];
-                [currentEventDateComponents setHour: 0];
-                
-                [uniqueDays addObject: [calendar dateFromComponents: currentEventDateComponents]];
-                // We have found that the event has a unique day - we no longer need to go through all the other unique days
-                break;
-            }
-        }        
     }
     
     cachedUniqueDays = uniqueDays;

@@ -81,6 +81,7 @@
     }
 	else
 	{
+        NSLog(@"%d", [[[LAEventDatabase sharedEventsDatabase] uniqueDays] count]);
         return [[[LAEventDatabase sharedEventsDatabase] uniqueDays] count];
     }
     
@@ -105,6 +106,7 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     
     static NSString *CellIdentifier = @"EventCell";
 
@@ -145,7 +147,7 @@
         NSDate *sectionDay = [[[LAEventDatabase sharedEventsDatabase] uniqueDays] objectAtIndex: section];
         
         NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
-        [dateFormatter setDateFormat: @"EEEE, MMMM d"];
+        [dateFormatter setDateFormat: @"EEEE, MMMM d yyyy"];
         return [dateFormatter stringFromDate: sectionDay];
     }
     
