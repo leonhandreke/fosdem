@@ -35,7 +35,8 @@ static LAEventDatabase *mainEventsDatabase = nil;
 
 - (LAEventDatabase*) init {
     if (self = [super init]) {
-        events = [[NSMutableArray alloc] init];        
+        events = [[NSMutableArray alloc] init];
+        eventsOnDayCache = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -120,6 +121,15 @@ static LAEventDatabase *mainEventsDatabase = nil;
 }
 
 - (NSArray *) eventsOnDay: (NSDate *) dayDate {
+	
+	NSString *dictKey = [[NSString alloc] initWithString: [NSString stringWithFormat: @"%@", dayDate]];
+		
+	if ([eventsOnDayCache objectForKey: dictKey] != NULL) {
+	
+		return [eventsOnDayCache objectForKey: dictKey];
+	
+	}
+	
     NSEnumerator *eventsEnumerator = [events objectEnumerator];
     LAEvent *currentEvent;
     
@@ -137,7 +147,10 @@ static LAEventDatabase *mainEventsDatabase = nil;
             // Obviously the event is on the same day
             [eventsOnDay addObject: currentEvent];
         }
-    }    
+    }
+	
+	[eventsOnDayCache setObject: eventsOnDay forKey: dictKey];
+	NSLog(@"BOOM");
     return eventsOnDay;
 }
 
