@@ -155,7 +155,7 @@ static LAEventDatabase *mainEventsDatabase = nil;
 }
 
 -(NSArray *) tracks {
-
+	
 	NSEnumerator *eventsEnumerator = [events objectEnumerator];
     LAEvent *currentEvent;
     
@@ -171,6 +171,25 @@ static LAEventDatabase *mainEventsDatabase = nil;
 	
 	return tracks;
 
+}
+
+-(NSArray *) eventsForTrack: (NSString*) trackName {
+	
+	NSEnumerator *eventsEnumerator = [events objectEnumerator];
+    LAEvent *currentEvent;
+    
+    NSMutableArray *eventsForTrackName = [NSMutableArray array];
+	
+	while (currentEvent = [eventsEnumerator nextObject]){
+		
+		if (![[currentEvent track] isEqualToString: trackName]) {
+			[eventsForTrackName addObject: currentEvent];
+		}
+		
+	}
+		
+	return eventsForTrackName;
+	
 }
 
 + (NSString *) eventDatabaseLocation {

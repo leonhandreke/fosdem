@@ -32,6 +32,7 @@
 - (NSArray *) eventsOnDay: (NSDate *) dayDate;
 
 -(NSArray *) tracks;
+-(NSArray *) eventsForTrack: (NSString*) trackName;
 
 @property (assign) NSMutableArray *events;
 
