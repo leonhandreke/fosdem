@@ -49,7 +49,7 @@
     
     NSString *resourcePath = [[NSBundle mainBundle] bundlePath];
     NSURL *resourceURL = [NSURL fileURLWithPath: resourcePath];
-    [webView loadHTMLString: [event descriptionPage] baseURL: resourceURL];
+    [webView loadHTMLString: [event contentDescription] baseURL: resourceURL];
 }
 
 
