@@ -31,6 +31,8 @@
 - (NSArray *) uniqueDays;
 - (NSArray *) eventsOnDay: (NSDate *) dayDate;
 
+-(NSArray *) tracks;
+
 @property (assign) NSMutableArray *events;
 
 @end

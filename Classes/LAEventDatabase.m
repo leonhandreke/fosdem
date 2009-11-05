@@ -154,6 +154,25 @@ static LAEventDatabase *mainEventsDatabase = nil;
     return eventsOnDay;
 }
 
+-(NSArray *) tracks {
+
+	NSEnumerator *eventsEnumerator = [events objectEnumerator];
+    LAEvent *currentEvent;
+    
+    NSMutableArray *tracks = [NSMutableArray array];
+	
+	while (currentEvent = [eventsEnumerator nextObject]){
+	
+		if (![tracks containsObject: [NSString stringWithFormat: @"%@", [currentEvent track]]]) {
+			[tracks addObject: [NSString stringWithFormat: @"%@", [currentEvent track]]];
+		}
+	
+	}
+	
+	return tracks;
+
+}
+
 + (NSString *) eventDatabaseLocation {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cachesDirectory = [paths objectAtIndex:0];
