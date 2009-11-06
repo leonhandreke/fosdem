@@ -34,6 +34,6 @@
 -(NSArray *) tracks;
 -(NSArray *) eventsForTrack: (NSString*) trackName;
 
-@property (assign) NSMutableArray *events;
+@property (copy) NSMutableArray *events;
 
 @end

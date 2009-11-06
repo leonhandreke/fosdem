@@ -11,6 +11,8 @@
 
 @implementation LAEventsTableViewController
 
+@synthesize eventDatabase;
+
 /*
  - (id)initWithStyle:(UITableViewStyle)style {
  // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -81,8 +83,8 @@
     }
 	else
 	{
-        NSLog(@"%d", [[[LAEventDatabase sharedEventsDatabase] uniqueDays] count]);
-        return [[[LAEventDatabase sharedEventsDatabase] uniqueDays] count];
+        NSLog(@"%d", [[eventDatabase uniqueDays] count]);
+        return [[eventDatabase uniqueDays] count];
     }
     
 }
@@ -97,8 +99,8 @@
     }
 	else
 	{
-        NSDate *sectionDay = [[[LAEventDatabase sharedEventsDatabase] uniqueDays] objectAtIndex: section];
-        return [[[LAEventDatabase sharedEventsDatabase] eventsOnDay: sectionDay] count];
+        NSDate *sectionDay = [[eventDatabase uniqueDays] objectAtIndex: section];
+        return [[eventDatabase eventsOnDay: sectionDay] count];
     }
     
 }
@@ -118,12 +120,13 @@
     }
 	else
 	{
-        NSDate *sectionDay = [[[LAEventDatabase sharedEventsDatabase] uniqueDays] objectAtIndex: indexPath.section];
-        event = [[[LAEventDatabase sharedEventsDatabase] eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
+        NSDate *sectionDay = [[eventDatabase uniqueDays] objectAtIndex: indexPath.section];
+        event = [[eventDatabase eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
     }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
+		//NSLog(@"EPIC");
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
@@ -144,7 +147,7 @@
     }
 	else
 	{
-        NSDate *sectionDay = [[[LAEventDatabase sharedEventsDatabase] uniqueDays] objectAtIndex: section];
+        NSDate *sectionDay = [[eventDatabase uniqueDays] objectAtIndex: section];
         
         NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
         [dateFormatter setDateFormat: @"EEEE, MMMM d yyyy"];
@@ -167,8 +170,8 @@
     }
 	else
 	{
-        NSDate *sectionDay = [[[LAEventDatabase sharedEventsDatabase] uniqueDays] objectAtIndex: indexPath.section];
-        selectedEvent = [[[LAEventDatabase sharedEventsDatabase] eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
+        NSDate *sectionDay = [[eventDatabase uniqueDays] objectAtIndex: indexPath.section];
+        selectedEvent = [[eventDatabase eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
     }
     
     LAEventDetailViewController *eventDetailViewController = [[LAEventDetailViewController alloc] initWithNibName: @"LAEventDetailViewController" bundle: [NSBundle mainBundle]];
@@ -233,7 +236,7 @@
 	/*
 	 Search the main list for events whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
 	 */
-	for (LAEvent *event in [[LAEventDatabase sharedEventsDatabase] events])
+	for (LAEvent *event in [eventDatabase events])
 	{
 		
         NSRange titleResult = [[event title] rangeOfString: searchText options: (NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)];
@@ -263,7 +266,7 @@
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self filterContentForSearchText:searchString scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+	 [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
     
     // Return YES to cause the search result table view to be reloaded.
     return YES;

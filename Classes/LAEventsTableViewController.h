@@ -14,6 +14,11 @@
 #import "LAEvent.h"
 
 @interface LAEventsTableViewController : UITableViewController {
+	
+	LAEventDatabase *eventDatabase;
     NSMutableArray *filteredEvents;
 }
+
+@property (assign) LAEventDatabase *eventDatabase;
+
 @end

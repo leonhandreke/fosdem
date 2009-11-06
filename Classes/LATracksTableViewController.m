@@ -106,6 +106,17 @@
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
+	
+	LAEventsTableViewController *eventTableViewController = [[LAEventsTableViewController alloc] initWithNibName: @"LAEventsTableViewController" bundle: [NSBundle mainBundle]];
+	LAEventDatabase *trackEventDatabase = [[LAEventDatabase alloc] init];
+	NSString *selectedTrack = [[[LAEventDatabase sharedEventsDatabase] tracks] objectAtIndex: [indexPath row]];
+	[trackEventDatabase setEvents: [NSMutableArray arrayWithArray: [[LAEventDatabase sharedEventsDatabase] eventsForTrack: selectedTrack]]];
+    [eventTableViewController setEventDatabase: trackEventDatabase];
+	[[self navigationController] pushViewController: eventTableViewController animated: YES];
+    [eventTableViewController release];
+	
+	NSLog(@"%@", [trackEventDatabase events]);
+	
 }
 
 

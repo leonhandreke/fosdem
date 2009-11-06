@@ -10,8 +10,9 @@
 
 #import "LAEventDatabase.h"
 #import "LAEvent.h"
-@interface LATracksTableViewController : UITableViewController {
+#import "LAEventsTableViewController.h"
 
+@interface LATracksTableViewController : UITableViewController {
 }
 
 @end

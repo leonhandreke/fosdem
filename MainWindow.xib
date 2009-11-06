@@ -53,13 +53,13 @@
 			<object class="IBUITabBarController" id="1034742383">
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="88984083">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="821619331">
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="994330669">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="696883410">
 						<reference key="IBUITabBar"/>
 					</object>
 					<reference key="IBUIParentViewController" ref="1034742383"/>
 					<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="741589553">
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="154510914">
 						<nil key="NSNextResponder"/>
 						<int key="NSvFlags">256</int>
 						<string key="NSFrameSize">{0, 0}</string>
@@ -69,13 +69,13 @@
 					</object>
 					<object class="NSMutableArray" key="IBUIViewControllers">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUIViewController" id="252563057">
+						<object class="IBUIViewController" id="86716312">
 							<string key="IBUITitle">Tracks</string>
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="456833456">
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="261954926">
 								<reference key="IBUINavigationBar"/>
 								<string key="IBUITitle">Tracks</string>
 							</object>
-							<reference key="IBUIParentViewController" ref="88984083"/>
+							<reference key="IBUIParentViewController" ref="994330669"/>
 							<string key="IBUINibName">LATracksTableViewController</string>
 						</object>
 					</object>
@@ -109,7 +109,7 @@
 							</object>
 						</object>
 					</object>
-					<reference ref="88984083"/>
+					<reference ref="994330669"/>
 				</object>
 				<object class="IBUITabBar" key="IBUITabBar" id="795333663">
 					<nil key="NSNextResponder"/>
@@ -150,6 +150,14 @@
 					</object>
 					<int key="connectionID">128</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">eventsTableViewController</string>
+						<reference key="source" ref="664661524"/>
+						<reference key="destination" ref="1024858337"/>
+					</object>
+					<int key="connectionID">144</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -185,7 +193,7 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="795333663"/>
-							<reference ref="88984083"/>
+							<reference ref="994330669"/>
 							<reference ref="28588800"/>
 						</object>
 						<reference key="parent" ref="0"/>
@@ -237,38 +245,38 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">138</int>
-						<reference key="object" ref="88984083"/>
+						<reference key="object" ref="994330669"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="741589553"/>
-							<reference ref="252563057"/>
-							<reference ref="821619331"/>
+							<reference ref="154510914"/>
+							<reference ref="86716312"/>
+							<reference ref="696883410"/>
 						</object>
 						<reference key="parent" ref="1034742383"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">140</int>
-						<reference key="object" ref="741589553"/>
-						<reference key="parent" ref="88984083"/>
+						<reference key="object" ref="154510914"/>
+						<reference key="parent" ref="994330669"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">139</int>
-						<reference key="object" ref="252563057"/>
+						<reference key="object" ref="86716312"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="456833456"/>
+							<reference ref="261954926"/>
 						</object>
-						<reference key="parent" ref="88984083"/>
+						<reference key="parent" ref="994330669"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">142</int>
-						<reference key="object" ref="821619331"/>
-						<reference key="parent" ref="88984083"/>
+						<reference key="object" ref="696883410"/>
+						<reference key="parent" ref="994330669"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">141</int>
-						<reference key="object" ref="456833456"/>
-						<reference key="parent" ref="252563057"/>
+						<reference key="object" ref="261954926"/>
+						<reference key="parent" ref="86716312"/>
 					</object>
 				</object>
 			</object>
@@ -301,7 +309,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIApplication</string>
 					<string>UIResponder</string>
-					<string>{{927, 276}, {320, 480}}</string>
+					<string>{{423, 276}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>LAEventsTableViewController</string>
@@ -343,7 +351,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">142</int>
+			<int key="maxID">144</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -378,11 +386,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>eventsTableViewController</string>
 							<string>tabBarController</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>LAEventsTableViewController</string>
 							<string>UITabBarController</string>
 							<string>UIWindow</string>
 						</object>

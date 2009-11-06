@@ -122,12 +122,9 @@ static LAEventDatabase *mainEventsDatabase = nil;
 
 - (NSArray *) eventsOnDay: (NSDate *) dayDate {
 	
-	NSString *dictKey = [[NSString alloc] initWithString: [NSString stringWithFormat: @"%@", dayDate]];
-		
-	if ([eventsOnDayCache objectForKey: dictKey] != NULL) {
-	
-		return [eventsOnDayCache objectForKey: dictKey];
-	
+	// Not really the way to do it but it probably works fine
+	if ([eventsOnDayCache objectForKey: [dayDate description]] != nil) {
+		return [eventsOnDayCache objectForKey: [dayDate description]];
 	}
 	
     NSEnumerator *eventsEnumerator = [events objectEnumerator];
@@ -149,8 +146,8 @@ static LAEventDatabase *mainEventsDatabase = nil;
         }
     }
 	
-	[eventsOnDayCache setObject: eventsOnDay forKey: dictKey];
-	NSLog(@"BOOM");
+	[eventsOnDayCache setObject: eventsOnDay forKey: [dayDate description]];
+	//NSLog(@"BOOM");
     return eventsOnDay;
 }
 
@@ -182,7 +179,7 @@ static LAEventDatabase *mainEventsDatabase = nil;
 	
 	while (currentEvent = [eventsEnumerator nextObject]){
 		
-		if (![[currentEvent track] isEqualToString: trackName]) {
+		if ([[currentEvent track] isEqualToString: trackName]) {
 			[eventsForTrackName addObject: currentEvent];
 		}
 		
@@ -211,6 +208,5 @@ static LAEventDatabase *mainEventsDatabase = nil;
     [events release];
     [super dealloc];
 }
-
 
 @end

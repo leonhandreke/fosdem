@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "LAEventDatabase.h"
+#import "LAEventsTableViewController.h"
+
 @interface fosdemAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
     UIWindow *window;
     UITabBarController *tabBarController;
+	
+	IBOutlet LAEventsTableViewController *eventsTableViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
