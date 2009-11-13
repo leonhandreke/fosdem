@@ -1,2 +1,11 @@
-- Events taking place NOW.
+- Events taking place now or in the near future view.
+	- Work out a way to find events happening now and coming up and cache them. (NSDictionary containing date and event array, updated if older than 5 minutes or on launch?)
+	- TableView with Sections for now, 1 hour away, 2 hours away.
+
 - Redesign details view controller.
+	- Make sure the space is correct between the title and the track name (is it still practical to have the track name in this place?)
+	- Rework content view (is the webview necessary or do we want to design a custom view for it?)
+	- Do we wan't to have pictures of the concerned person?
+
+- Database caching (would allow us to restore our caches as well)
+	- Save caches to plist file with md5 of database checking the database for changes on start.
