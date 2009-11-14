@@ -83,7 +83,7 @@
     }
 	else
 	{
-        NSLog(@"%d", [[eventDatabase uniqueDays] count]);
+        //NSLog(@"%d", [[eventDatabase uniqueDays] count]);
         return [[eventDatabase uniqueDays] count];
     }
     
@@ -111,7 +111,7 @@
     
     
     static NSString *CellIdentifier = @"EventCell";
-
+    
     
     LAEvent *event = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView)
@@ -147,11 +147,26 @@
     }
 	else
 	{
-        NSDate *sectionDay = [[eventDatabase uniqueDays] objectAtIndex: section];
+        if (tableHeaderStrings != nil) {
+            return [tableHeaderStrings objectAtIndex: section];
+        }
         
-        NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+        [tableHeaderStrings release];
+        tableHeaderStrings = [[NSMutableArray alloc] init];
+        // Generate new table view headers
+        NSEnumerator *uniqueDaysEnumerator = [[eventDatabase uniqueDays] objectEnumerator];
+        NSDate *currentDate;
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat: @"EEEE, MMMM d yyyy"];
-        return [dateFormatter stringFromDate: sectionDay];
+        
+        while (currentDate = [uniqueDaysEnumerator nextObject]) {
+            [tableHeaderStrings addObject: [dateFormatter stringFromDate: currentDate]];
+        }
+        
+        [dateFormatter release];
+        
+        return [self tableView: tableView titleForHeaderInSection: section];
     }
     
     

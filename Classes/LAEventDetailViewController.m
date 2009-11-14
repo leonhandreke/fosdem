@@ -85,7 +85,7 @@
 
 -(IBAction) bookmarkItem: (id) sender {
 
-	NSLog(@"Star");
+	//NSLog(@"Star");
 
 }
 

@@ -115,7 +115,7 @@
 	[[self navigationController] pushViewController: eventTableViewController animated: YES];
     [eventTableViewController release];
 	
-	NSLog(@"%@", [trackEventDatabase events]);
+	//NSLog(@"%@", [trackEventDatabase events]);
 	
 }
 

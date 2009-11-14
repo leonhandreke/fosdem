@@ -27,6 +27,7 @@
 
 - (LAEventDatabase *) initWithData: (NSData *) xmlData;
 - (void) parser: (LAEventsXMLParser *) parser foundEvent: (LAEvent *) event;
+- (void) parserFinishedParsing:(LAEventsXMLParser *)parser;
 
 - (NSArray *) uniqueDays;
 - (NSArray *) eventsOnDay: (NSDate *) dayDate;

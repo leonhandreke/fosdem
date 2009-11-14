@@ -17,6 +17,8 @@
 	
 	LAEventDatabase *eventDatabase;
     NSMutableArray *filteredEvents;
+    
+    NSMutableArray *tableHeaderStrings;
 }
 
 @property (assign) LAEventDatabase *eventDatabase;

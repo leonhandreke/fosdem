@@ -24,3 +24,11 @@
 
 @property (assign) id delegate;
 @end
+
+
+// The delegate interface
+@interface NSObject (LAEventsXMLParser)
+
+- (void) parser: (LAEventsXMLParser *) parser foundEvent: (LAEvent *) event;
+- (void) parserFinishedParsing:(LAEventsXMLParser *)parser;
+@end

@@ -127,7 +127,7 @@
     }
     
     if ([elementName isEqualToString: @"schedule"]) {
-        [delegate parserDidEndDocument: self];
+        [delegate parserFinishedParsing: self];
     }
     
 

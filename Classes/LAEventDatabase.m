@@ -66,7 +66,7 @@ static LAEventDatabase *mainEventsDatabase = nil;
     [events addObject: event];
 }
 
-- (void) parserDidEndDocument:(LAEventsXMLParser *)parser {
+- (void) parserFinishedParsing:(LAEventsXMLParser *)parser {
     [[NSNotificationCenter defaultCenter] postNotificationName: @"LAEventDatabaseUpdated" object: self];
 }
 
