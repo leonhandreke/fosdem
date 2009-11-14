@@ -123,8 +123,8 @@ static LAEventDatabase *mainEventsDatabase = nil;
 - (NSArray *) eventsOnDay: (NSDate *) dayDate {
 	
 	// Not really the way to do it but it probably works fine
-	if ([eventsOnDayCache objectForKey: [dayDate description]] != nil) {
-		return [eventsOnDayCache objectForKey: [dayDate description]];
+	if ([eventsOnDayCache objectForKey: dayDate] != nil) {
+		return [eventsOnDayCache objectForKey: dayDate];
 	}
 	
     NSEnumerator *eventsEnumerator = [events objectEnumerator];
@@ -146,7 +146,7 @@ static LAEventDatabase *mainEventsDatabase = nil;
         }
     }
 	
-	[eventsOnDayCache setObject: eventsOnDay forKey: [dayDate description]];
+	[eventsOnDayCache setObject: eventsOnDay forKey: dayDate];
 	//NSLog(@"BOOM");
     return eventsOnDay;
 }
