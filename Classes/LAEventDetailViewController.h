@@ -19,7 +19,8 @@
     
 }
 
-- (BOOL)hidesBottomBarWhenPushed;
+-(BOOL)hidesBottomBarWhenPushed;
+-(IBAction) bookmarkItem: (id) sender;
 
 @property (assign) LAEvent *event;
 @end

@@ -83,5 +83,11 @@
     [super dealloc];
 }
 
+-(IBAction) bookmarkItem: (id) sender {
+
+	NSLog(@"Star");
+
+}
+
 
 @end

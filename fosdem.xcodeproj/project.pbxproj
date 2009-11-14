@@ -12,8 +12,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		233CA63610A478A800D84609 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 233CA63510A478A800D84609 /* TODO */; };
-		23CEF31A10A43030003D5BD4 /* LANowTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CEF31810A43030003D5BD4 /* LANowTableViewController.m */; };
-		23CEF31B10A43030003D5BD4 /* LANowTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23CEF31910A43030003D5BD4 /* LANowTableViewController.xib */; };
 		23F864A410A2C451000B39DA /* LATracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F864A210A2C451000B39DA /* LATracksTableViewController.m */; };
 		23F864A510A2C451000B39DA /* LATracksTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F864A310A2C451000B39DA /* LATracksTableViewController.xib */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
@@ -43,9 +41,6 @@
 		1D6058910D05DD3D006BFB54 /* fosdem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fosdem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		233CA63510A478A800D84609 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
-		23CEF31710A43030003D5BD4 /* LANowTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANowTableViewController.h; sourceTree = "<group>"; };
-		23CEF31810A43030003D5BD4 /* LANowTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANowTableViewController.m; sourceTree = "<group>"; };
-		23CEF31910A43030003D5BD4 /* LANowTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LANowTableViewController.xib; path = Classes/LANowTableViewController.xib; sourceTree = "<group>"; };
 		23F864A110A2C451000B39DA /* LATracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LATracksTableViewController.h; sourceTree = "<group>"; };
 		23F864A210A2C451000B39DA /* LATracksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LATracksTableViewController.m; sourceTree = "<group>"; };
 		23F864A310A2C451000B39DA /* LATracksTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LATracksTableViewController.xib; path = Classes/LATracksTableViewController.xib; sourceTree = "<group>"; };
@@ -110,8 +105,6 @@
 				357675DE1089D2400042806B /* LAEventsTableViewController.m */,
 				23F864A110A2C451000B39DA /* LATracksTableViewController.h */,
 				23F864A210A2C451000B39DA /* LATracksTableViewController.m */,
-				23CEF31710A43030003D5BD4 /* LANowTableViewController.h */,
-				23CEF31810A43030003D5BD4 /* LANowTableViewController.m */,
 				357675DF1089D2400042806B /* LAEventsXMLParser.h */,
 				357675E01089D2400042806B /* LAEventsXMLParser.m */,
 				1D3623240D0F684500981E51 /* fosdemAppDelegate.h */,
@@ -157,7 +150,6 @@
 				357675D11089D2310042806B /* LAEventDetailViewController.xib */,
 				357675D31089D2310042806B /* LAEventsTableViewController.xib */,
 				23F864A310A2C451000B39DA /* LATracksTableViewController.xib */,
-				23CEF31910A43030003D5BD4 /* LANowTableViewController.xib */,
 				35D23BC8106F8DD3003D9E0A /* TapkuLibrary.bundle */,
 				35D23B80106F87C3003D9E0A /* descriptionPage.css */,
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
@@ -245,7 +237,6 @@
 				357675D61089D2310042806B /* LAEventsTableViewController.xib in Resources */,
 				357676011089D2EC0042806B /* fosdem_schedule.xml in Resources */,
 				23F864A510A2C451000B39DA /* LATracksTableViewController.xib in Resources */,
-				23CEF31B10A43030003D5BD4 /* LANowTableViewController.xib in Resources */,
 				233CA63610A478A800D84609 /* TODO in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,7 +262,6 @@
 				357675E41089D2400042806B /* LAEventsTableViewController.m in Sources */,
 				357675E51089D2400042806B /* LAEventsXMLParser.m in Sources */,
 				23F864A410A2C451000B39DA /* LATracksTableViewController.m in Sources */,
-				23CEF31A10A43030003D5BD4 /* LANowTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
