@@ -18,6 +18,7 @@
     //Caching CPU-intensive operations
     NSArray *cachedUniqueDays;
 	NSMutableDictionary *eventsOnDayCache;
+    NSArray *tracksCache;
 }
 
 + (NSString *) eventDatabaseLocation;

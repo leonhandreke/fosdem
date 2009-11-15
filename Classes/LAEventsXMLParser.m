@@ -39,7 +39,9 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict {
     if ([elementName isEqualToString: @"event"]) {
-        
+        /*if (currentEvent) {
+            [currentEvent release];
+        }*/
         currentEvent = [[LAEvent alloc] init];
         [currentEvent setIdentifier: [attributeDict objectForKey: @"id"]];
     }
@@ -95,6 +97,7 @@
         }
 
         [currentEvent setEndDate: eventEndDate];
+        [eventEndDate release];
     }
     
     if ([elementName isEqualToString: @"room"]) {
@@ -123,14 +126,24 @@
     }
     
     if ([elementName isEqualToString: @"event"]) {
-        [delegate parser: self foundEvent: [currentEvent autorelease]];
+        [delegate parser: self foundEvent: currentEvent];
     }
     
     if ([elementName isEqualToString: @"schedule"]) {
-        [delegate parserFinishedParsing: self];
+        [delegate parserDidFinishSchedule: self];
     }
-    
 
+}
+
+- (void)parserDidEndDocument:(NSXMLParser *)parser {
+    [delegate parserFinishedParsing: self];
+}
+
+- (void) dealloc {
+    [eventsXMLParser release];
+    //[currentDayString release];
+    //[currentStringValue release];
+    [super dealloc];
 }
 
 @end

@@ -67,7 +67,13 @@ static LAEventDatabase *mainEventsDatabase = nil;
 }
 
 - (void) parserFinishedParsing:(LAEventsXMLParser *)parser {
+    [parser release];
     [[NSNotificationCenter defaultCenter] postNotificationName: @"LAEventDatabaseUpdated" object: self];
+    
+}
+
+- (void) parserDidFinishSchedule:(LAEventsXMLParser *)parser {
+    
 }
 
 - (NSArray *) uniqueDays {
@@ -153,10 +159,14 @@ static LAEventDatabase *mainEventsDatabase = nil;
 
 -(NSArray *) tracks {
 	
+    if (tracksCache != nil) {
+        return tracksCache;
+    }
+    
 	NSEnumerator *eventsEnumerator = [events objectEnumerator];
     LAEvent *currentEvent;
     
-    NSMutableArray *tracks = [NSMutableArray array];
+    NSMutableArray *tracks = [[NSMutableArray alloc] init];
 	
 	while (currentEvent = [eventsEnumerator nextObject]){
 	
@@ -166,6 +176,8 @@ static LAEventDatabase *mainEventsDatabase = nil;
 	
 	}
 	
+    tracksCache = tracks;
+    
 	return tracks;
 
 }
@@ -190,7 +202,7 @@ static LAEventDatabase *mainEventsDatabase = nil;
 }
 
 + (NSString *) eventDatabaseLocation {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *cachesDirectory = [paths objectAtIndex:0];
     NSString *cacheFileLocation = [cachesDirectory stringByAppendingPathComponent:@"fosdem_schedule.xml"];
     
@@ -203,6 +215,10 @@ static LAEventDatabase *mainEventsDatabase = nil;
     return resourceFileLocation;
     
 }
+
+//- (void) updateUserDataForEvent: (LAEvent *) {
+
+//}
 
 - (void) dealloc {
     [events release];

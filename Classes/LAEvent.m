@@ -11,7 +11,7 @@
 
 @implementation LAEvent
 
-@synthesize identifier, title, subtitle, speaker, room, track, type, contentAbstract, contentDescription, startDate, endDate;
+@synthesize identifier, title, subtitle, speaker, room, track, type, contentAbstract, contentDescription, startDate, endDate, starred;
 
 - (LAEvent *)init {
     if (self = [super init]) {
@@ -24,9 +24,17 @@
         [self setContentDescription: @""];
         [self setStartDate: [NSDate date]];
         [self setEndDate: [NSDate date]];
+        [self setStarred: NO];
     }
     return self;
 }
+/*
+- (void) setStarred:(BOOL) isStarred {
+    starred = isStarred;
+    
+    // Write back to preferences
+    [[LAEventDatabase sharedEventsDatabase] 
+}*/
 /*
 - (LAEvent *) initWithDictionary: (NSDictionary *) dictionary {
     if (self = [self init]) {

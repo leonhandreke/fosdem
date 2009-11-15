@@ -26,20 +26,24 @@
     
     NSDate *startDate;
     NSDate *endDate;
+    
+    BOOL starred;
 }
 
-@property (copy) NSString *identifier;
-@property (copy) NSString *title;
-@property (copy) NSString *subtitle;
-@property (copy) NSString *speaker;
-@property (copy) NSString *room;
-@property (copy) NSString *track;
-@property (copy) NSString *type;
-@property (copy) NSString *contentAbstract;
-@property (copy) NSString *contentDescription;
+@property (retain) NSString *identifier;
+@property (retain) NSString *title;
+@property (retain) NSString *subtitle;
+@property (retain) NSString *speaker;
+@property (retain) NSString *room;
+@property (retain) NSString *track;
+@property (retain) NSString *type;
+@property (retain) NSString *contentAbstract;
+@property (retain) NSString *contentDescription;
 
-@property (copy) NSDate *startDate;
-@property (copy) NSDate *endDate;
+@property (retain) NSDate *startDate;
+@property (retain) NSDate *endDate;
+
+@property (assign) BOOL starred;
 
 
 @end

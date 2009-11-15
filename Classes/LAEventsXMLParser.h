@@ -31,4 +31,5 @@
 
 - (void) parser: (LAEventsXMLParser *) parser foundEvent: (LAEvent *) event;
 - (void) parserFinishedParsing:(LAEventsXMLParser *)parser;
+- (void) parserDidFinishSchedule: (LAEventsXMLParser *) parser;
 @end
