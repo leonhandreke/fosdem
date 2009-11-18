@@ -30,6 +30,8 @@
     BOOL starred;
 }
 
+- (NSMutableDictionary *) userData;
+
 @property (retain) NSString *identifier;
 @property (retain) NSString *title;
 @property (retain) NSString *subtitle;

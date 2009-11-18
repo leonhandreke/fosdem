@@ -14,7 +14,10 @@
 @interface LAEventDatabase : NSObject {
 
     NSMutableArray *events;
+	//NSMutableArray *stared;
     
+	NSMutableDictionary *eventsUserData;
+	
     //Caching CPU-intensive operations
     NSArray *cachedUniqueDays;
 	NSMutableDictionary *eventsOnDayCache;
@@ -36,6 +39,11 @@
 -(NSArray *) tracks;
 -(NSArray *) eventsForTrack: (NSString*) trackName;
 
-@property (copy) NSMutableArray *events;
+//-(NSArray *) staredEvents;
+//-(void) addStaredEventWithUUID: (NSString *) UUID;
+//-(void) removeStaredEventWithUUID: (NSString *) UUID;
+
+@property (retain) NSMutableArray *events;
+@property (retain) NSMutableDictionary *eventsUserData;
 
 @end

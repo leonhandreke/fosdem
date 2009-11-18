@@ -7,6 +7,7 @@
 //
 
 #import "LAEvent.h"
+#import "LAEventDatabase.h"
 
 
 @implementation LAEvent
@@ -25,16 +26,30 @@
         [self setStartDate: [NSDate date]];
         [self setEndDate: [NSDate date]];
         [self setStarred: NO];
+		[[NSNotificationCenter defaultCenter] addObserver: self 
+												 selector: @selector(updateWithUserData:) 
+													 name: @"LAEventUserDataUpdated"  
+												   object: nil];
     }
     return self;
 }
-/*
+
+- (NSMutableDictionary *) userData {
+	return [[LAEventDatabase sharedEventsDatabase] userDataForEventWithIdentifier: [self identifier]];
+}
+
+
 - (void) setStarred:(BOOL) isStarred {
-    starred = isStarred;
-    
-    // Write back to preferences
-    [[LAEventDatabase sharedEventsDatabase] 
-}*/
+	[[self userData] setObject: [NSNumber numberWithBool: isStarred] forKey: @"starred"];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"LAEventUserDataUpdated" 
+														object: self 
+													  userInfo: [NSDictionary dictionaryWithObjectsAndKeys: identifier, @"eventIdentifier"]];
+}
+
+- (void) updateWithUserData {
+	[self setStarred: [(NSNumber *)[[self userData] objectForKey: @"starred"] boolValue]];
+}
+
 /*
 - (LAEvent *) initWithDictionary: (NSDictionary *) dictionary {
     if (self = [self init]) {

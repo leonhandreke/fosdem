@@ -36,10 +36,19 @@ static LAEventDatabase *mainEventsDatabase = nil;
 - (LAEventDatabase*) init {
     if (self = [super init]) {
         events = [[NSMutableArray alloc] init];
+		//stared = [[NSMutableArray alloc] init];
         eventsOnDayCache = [[NSMutableDictionary alloc] init];
+		
+		[[NSNotificationCenter defaultCenter] addObserver: self 
+												 selector: @selector(updateWithUserData:) 
+													 name: @"LAEventUserDataUpdated"  
+												   object: nil];
     }
     return self;
 }
+		 
+
+
 /*
  - (LAEventDatabase*) initWithDictionary: (NSDictionary *) dictionary {
  if (self = [super init]) {
@@ -216,9 +225,33 @@ static LAEventDatabase *mainEventsDatabase = nil;
     
 }
 
-//- (void) updateUserDataForEvent: (LAEvent *) {
 
-//}
+- (void) updateUserDataForEvent: (LAEvent *) {
+
+}
+/*
+-(NSArray *) staredEvents {
+
+	return stared;
+}
+
+-(void) addStaredEventWithUUID: (NSString *) UUID {
+
+	[stared addObject: UUID];
+}
+
+-(void) removeStaredEventWithUUID: (NSString *) UUID {
+
+	[stared removeObject: UUID];
+
+}*/
+
+- (NSMutableDictionary *) userDataForEventWithIdentifier: (NSString *) identifier {
+	if ([eventsUserData objectForKey: identifier] == nil) {
+		[eventsUserData setObject: [NSMutableDictionary dictionary] forKey: identifier];
+	}
+	return [eventsUserData objectForKey: identifier];
+}
 
 - (void) dealloc {
     [events release];

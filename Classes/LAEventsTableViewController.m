@@ -131,7 +131,7 @@
     }
     
     // Set up the cell...
-	
+	NSLog(@"%@", [[LAEventDatabase sharedEventsDatabase] staredEvents]);
     [[cell textLabel] setText: [event title]];
     [[cell detailTextLabel] setText: [event speaker]];
     [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
