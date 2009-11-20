@@ -25,6 +25,8 @@
 }
 
 + (NSString *) eventDatabaseLocation;
++ (NSString *) userDataFileLocation;
+
 + (LAEventDatabase *) sharedEventsDatabase;
 
 //- (LAEventDatabase*) initWithDictionary: (NSDictionary *) dictionary;

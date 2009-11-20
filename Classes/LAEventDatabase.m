@@ -27,7 +27,9 @@ static LAEventDatabase *mainEventsDatabase = nil;
         }
         else {
             mainEventsDatabase = [[LAEventDatabase alloc] init];
-        }		
+        }
+		
+		[self setEventsUserData: [NSDictionary dictionaryWithContentsOfFile: [self userDataFileLocation]]];
     }
     return mainEventsDatabase;	
 }
@@ -226,7 +228,7 @@ static LAEventDatabase *mainEventsDatabase = nil;
 }
 
 
-- (void) updateUserDataForEvent: (LAEvent *) {
+- (void) updateUserDataForEvent: (LAEvent *) event {
 
 }
 /*
@@ -246,11 +248,25 @@ static LAEventDatabase *mainEventsDatabase = nil;
 
 }*/
 
+
+- (NSString *) userDataFileLocation {
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    NSString *uderDataFileLocation = [documentDirectory stringByAppendingPathComponent:@"userData.plist"];
+	
+	
+}
+
+
 - (NSMutableDictionary *) userDataForEventWithIdentifier: (NSString *) identifier {
 	if ([eventsUserData objectForKey: identifier] == nil) {
 		[eventsUserData setObject: [NSMutableDictionary dictionary] forKey: identifier];
 	}
 	return [eventsUserData objectForKey: identifier];
+}
+
+- (void) userDataUpdated {
+	[[self eventsUserData] writeToFile: [[self class] userDataFileLocation] atomically: NO];
 }
 
 - (void) dealloc {

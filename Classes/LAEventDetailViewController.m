@@ -83,10 +83,13 @@
     [super dealloc];
 }
 
--(IBAction) bookmarkItem: (id) sender {
-
-	//NSLog(@"Star");
-
+-(IBAction) toggleStarred: (id) sender {
+	if ([[self event] starred]) {
+		[[self event] setStarred: NO];
+	}
+	else {
+		[[self event] setStarred: YES];
+	}	
 }
 
 
