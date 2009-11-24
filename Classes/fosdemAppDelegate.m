@@ -21,8 +21,7 @@
     [window addSubview:tabBarController.view];
     //[navigationController pushViewController: tabBarController animated: NO];
 	
-	[eventsTableViewController setEventDatabase: [LAEventDatabase sharedEventsDatabase]];
-	 
+	[eventsTableViewController setEventDatabase: [LAEventDatabase sharedEventDatabase]];
 }
 
 

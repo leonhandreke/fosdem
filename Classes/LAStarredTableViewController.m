@@ -1,15 +1,15 @@
 //
-//  LATracksTableViewController.m
+//  LAStarredTableViewController.m
 //  fosdem
 //
-//  Created by Adam Ziolkowski on 05/11/09.
+//  Created by Leon on 11/24/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "LATracksTableViewController.h"
+#import "LAStarredTableViewController.h"
 
 
-@implementation LATracksTableViewController
+@implementation LAStarredTableViewController
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -23,11 +23,18 @@
 /*
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}*/
+
+- (void) eventDatabaseUpdated {
+    [super eventDatabaseUpdated];
+    LAEventDatabase *starredDatabase = [[LAEventDatabase alloc] init];
+    [starredDatabase setEvents: [[LAEventDatabase sharedEventDatabase] starredEvents]];
+    [self setEventDatabase: starredDatabase];
+    [[self tableView] reloadData];
 }
-*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -57,7 +64,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
-
+/*
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -80,7 +87,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return [[[LAEventDatabase sharedEventDatabase] tracks] count];
+    return 0;
 }
 
 
@@ -96,7 +103,6 @@
     
     // Set up the cell...
 	
-	[[cell textLabel] setText: [[[LAEventDatabase sharedEventDatabase] tracks] objectAtIndex: [indexPath row]]];
     return cell;
 }
 
@@ -106,19 +112,8 @@
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
-	
-	LAEventsTableViewController *eventTableViewController = [[LAEventsTableViewController alloc] initWithNibName: @"LAEventsTableViewController" bundle: [NSBundle mainBundle]];
-	LAEventDatabase *trackEventDatabase = [[LAEventDatabase alloc] init];
-	NSString *selectedTrack = [[[LAEventDatabase sharedEventDatabase] tracks] objectAtIndex: [indexPath row]];
-	[trackEventDatabase setEvents: [NSMutableArray arrayWithArray: [[LAEventDatabase sharedEventDatabase] eventsForTrack: selectedTrack]]];
-    [eventTableViewController setEventDatabase: trackEventDatabase];
-	[[self navigationController] pushViewController: eventTableViewController animated: YES];
-    [eventTableViewController release];
-	
-	//NSLog(@"%@", [trackEventDatabase events]);
-	
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -159,11 +154,11 @@
 }
 */
 
-
+/*
 - (void)dealloc {
     [super dealloc];
 }
-
+*/
 
 @end
 

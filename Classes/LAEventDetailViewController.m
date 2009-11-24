@@ -78,7 +78,7 @@
 }
 
 -(IBAction) toggleStarred: (id) sender {
-	if ([[self event] starred]) {
+	if ([[self event] isStarred]) {
 		[[self event] setStarred: NO];
 	}
 	else {
@@ -91,8 +91,7 @@
     
     UIBarButtonItem *button;
     UIBarButtonItem *flexibleSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace target: nil action: nil] autorelease];
-    
-    if([[self event] starred]) {
+    if([[self event] isStarred]) {
         button = [[[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"StarOn.png"] style:UIBarButtonItemStylePlain target: self action: @selector(toggleStarred:)] autorelease];
         
     }

@@ -27,8 +27,33 @@
     [super viewDidLoad];
     
     filteredEvents = [[NSMutableArray alloc] init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self 
+                                             selector: @selector(eventDatabaseUpdated) 
+                                                 name: @"LAEventUpdated"  
+                                               object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self 
+                                             selector: @selector(eventDatabaseUpdated) 
+                                                 name: @"LAEventDatabaseUpdated"  
+                                               object: nil];
+    
+    [self eventDatabaseUpdated];
     //NSLog(@"eventDatabase: %@", [eventDatabase events]);
     //[[NSNotificationCenter defaultCenter] addObserver: [self tableView] selector: @selector(reloadData) name: @"LAEventsDatabaseUpdated" object: nil];
+}
+
+- (void) eventDatabaseUpdated {
+    if (filteredEvents) {
+        [filteredEvents release];
+        filteredEvents = nil;
+    }
+
+    if (tableHeaderStrings) {
+        [tableHeaderStrings release];
+        tableHeaderStrings = nil;
+    }
+
+    [[self tableView] reloadData];
 }
 
 
@@ -132,7 +157,7 @@
     }
     
     // Set up the cell...
-	//NSLog(@"%@", [[LAEventDatabase sharedEventsDatabase] starredEvents]);
+	//NSLog(@"%@", [[LAEventDatabase sharedEventDatabase] starredEvents]);
     [[cell textLabel] setText: [event title]];
     [[cell detailTextLabel] setText: [event speaker]];
     [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];

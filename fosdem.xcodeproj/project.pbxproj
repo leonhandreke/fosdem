@@ -17,6 +17,8 @@
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
 		3525421D10BC4D66007D9C6B /* LAEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3525421B10BC4D66007D9C6B /* LAEventDetailViewController.xib */; };
 		3525421E10BC4D66007D9C6B /* LATracksTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3525421C10BC4D66007D9C6B /* LATracksTableViewController.xib */; };
+		3525422210BC4DA5007D9C6B /* LAStarredTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3525422110BC4DA5007D9C6B /* LAStarredTableViewController.xib */; };
+		3525422910BC4DD5007D9C6B /* LAStarredTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3525422810BC4DD5007D9C6B /* LAStarredTableViewController.m */; };
 		3535FC0710B93F480057FF8E /* StarOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 3535FC0510B93F480057FF8E /* StarOff.png */; };
 		3535FC0810B93F480057FF8E /* StarOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3535FC0610B93F480057FF8E /* StarOn.png */; };
 		357675D61089D2310042806B /* LAEventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357675D31089D2310042806B /* LAEventsTableViewController.xib */; };
@@ -51,6 +53,9 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3525421B10BC4D66007D9C6B /* LAEventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LAEventDetailViewController.xib; sourceTree = "<group>"; };
 		3525421C10BC4D66007D9C6B /* LATracksTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LATracksTableViewController.xib; sourceTree = "<group>"; };
+		3525422110BC4DA5007D9C6B /* LAStarredTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LAStarredTableViewController.xib; sourceTree = "<group>"; };
+		3525422710BC4DD5007D9C6B /* LAStarredTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAStarredTableViewController.h; sourceTree = "<group>"; };
+		3525422810BC4DD5007D9C6B /* LAStarredTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAStarredTableViewController.m; sourceTree = "<group>"; };
 		3535FC0510B93F480057FF8E /* StarOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarOff.png; sourceTree = "<group>"; };
 		3535FC0610B93F480057FF8E /* StarOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarOn.png; sourceTree = "<group>"; };
 		357675D31089D2310042806B /* LAEventsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LAEventsTableViewController.xib; sourceTree = "<group>"; };
@@ -113,6 +118,8 @@
 				357675E01089D2400042806B /* LAEventsXMLParser.m */,
 				1D3623240D0F684500981E51 /* fosdemAppDelegate.h */,
 				1D3623250D0F684500981E51 /* fosdemAppDelegate.m */,
+				3525422710BC4DD5007D9C6B /* LAStarredTableViewController.h */,
+				3525422810BC4DD5007D9C6B /* LAStarredTableViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -150,6 +157,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3525422110BC4DA5007D9C6B /* LAStarredTableViewController.xib */,
 				3525421B10BC4D66007D9C6B /* LAEventDetailViewController.xib */,
 				3525421C10BC4D66007D9C6B /* LATracksTableViewController.xib */,
 				3535FC0510B93F480057FF8E /* StarOff.png */,
@@ -246,6 +254,7 @@
 				3535FC0810B93F480057FF8E /* StarOn.png in Resources */,
 				3525421D10BC4D66007D9C6B /* LAEventDetailViewController.xib in Resources */,
 				3525421E10BC4D66007D9C6B /* LATracksTableViewController.xib in Resources */,
+				3525422210BC4DA5007D9C6B /* LAStarredTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +279,7 @@
 				357675E41089D2400042806B /* LAEventsTableViewController.m in Sources */,
 				357675E51089D2400042806B /* LAEventsXMLParser.m in Sources */,
 				23F864A410A2C451000B39DA /* LATracksTableViewController.m in Sources */,
+				3525422910BC4DD5007D9C6B /* LAStarredTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +321,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos2.2.1;
 			};
 			name = Debug;
 		};
@@ -324,7 +334,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos2.2.1;
 			};
 			name = Release;
 		};

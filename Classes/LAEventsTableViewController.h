@@ -21,6 +21,8 @@
     NSMutableArray *tableHeaderStrings;
 }
 
+- (void) eventDatabaseUpdated;
+
 @property (assign) LAEventDatabase *eventDatabase;
 
 @end

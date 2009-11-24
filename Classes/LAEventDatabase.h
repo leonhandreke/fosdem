@@ -22,12 +22,13 @@
     NSArray *cachedUniqueDays;
 	NSMutableDictionary *eventsOnDayCache;
     NSArray *tracksCache;
+    //NSArray *starredCache;
 }
 
 + (NSString *) eventDatabaseLocation;
 + (NSString *) userDataFileLocation;
 
-+ (LAEventDatabase *) sharedEventsDatabase;
++ (LAEventDatabase *) sharedEventDatabase;
 
 //- (LAEventDatabase*) initWithDictionary: (NSDictionary *) dictionary;
 
@@ -38,13 +39,16 @@
 - (NSArray *) uniqueDays;
 - (NSArray *) eventsOnDay: (NSDate *) dayDate;
 
--(NSArray *) tracks;
--(NSArray *) eventsForTrack: (NSString*) trackName;
+- (NSArray *) tracks;
+- (NSArray *) eventsForTrack: (NSString*) trackName;
+- (NSMutableArray *) starredEvents;
 
 - (NSMutableDictionary *) userDataForEventWithIdentifier: (NSString *) identifier;
 - (void) eventUpdated: (NSNotification *) notification;
 - (void) updateEventWithUserData: (LAEvent *) event;
 
+// Clear out the caches
+- (void) eventDatabaseUpdated: (NSNotification *) notification;
 
 @property (retain) NSMutableArray *events;
 @property (retain) NSMutableDictionary *eventsUserData;

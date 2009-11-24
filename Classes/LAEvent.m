@@ -20,16 +20,16 @@
 }*/
 /*
 - (NSMutableDictionary *) userData {
-	return [[LAEventDatabase sharedEventsDatabase] userDataForEventWithIdentifier: [self identifier]];
+	return [[LAEventDatabase sharedEventDatabase] userDataForEventWithIdentifier: [self identifier]];
 }*/
 
 
 - (void) setStarred:(BOOL) isStarred {
+    starred = isStarred;
     NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys: [self identifier], @"identifier", [NSNumber  numberWithBool: isStarred], @"starred", nil];
     [[NSNotificationCenter defaultCenter] postNotificationName: @"LAEventUpdated" 
                                                         object: self 
                                                       userInfo: infoDict];
-    starred = isStarred;
 }
 
 

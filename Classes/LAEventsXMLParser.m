@@ -19,6 +19,7 @@
         
         eventsXMLParser = [[NSXMLParser alloc] initWithData: xmlData];
         [eventsXMLParser setDelegate: self];
+        [eventsXMLParser retain];
     }
     
     return self;

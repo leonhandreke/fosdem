@@ -45,7 +45,7 @@
 @property (retain) NSDate *startDate;
 @property (retain) NSDate *endDate;
 
-@property (assign) BOOL starred;
+@property (assign, getter=isStarred) BOOL starred;
 
 
 @end

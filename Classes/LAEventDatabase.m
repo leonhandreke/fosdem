@@ -14,23 +14,26 @@
 
 @synthesize events, eventsUserData;
 
-static LAEventDatabase *mainEventsDatabase = nil;
+static LAEventDatabase *mainEventDatabase = nil;
 
-+ (LAEventDatabase *) sharedEventsDatabase
++ (LAEventDatabase *) sharedEventDatabase
 {
-	if(mainEventsDatabase == nil) {
+	if(mainEventDatabase == nil) {
         //NSLog(@"Loading event DB");
         /*// Try to load from the resource bundle first
          NSDictionary *eventsDictionary = [NSDictionary dictionaryWithContentsOfFile: [self eventsDatabaseLocation]];*/
         NSData *eventXMLData = [NSData dataWithContentsOfFile: [self eventDatabaseLocation]];
         if (eventXMLData != nil) {
-            mainEventsDatabase = [[LAEventDatabase alloc] initWithData: eventXMLData];
+            mainEventDatabase = [[LAEventDatabase alloc] initWithData: eventXMLData];
         }
         else {
-            mainEventsDatabase = [[LAEventDatabase alloc] init];
+            mainEventDatabase = [[LAEventDatabase alloc] init];
         }
+
+        
+
     }
-    return mainEventsDatabase;	
+    return mainEventDatabase;	
 }
 
 
@@ -40,26 +43,35 @@ static LAEventDatabase *mainEventsDatabase = nil;
 		//stared = [[NSMutableArray alloc] init];
         eventsOnDayCache = [[NSMutableDictionary alloc] init];
 		
-		[[NSNotificationCenter defaultCenter] addObserver: self 
-												 selector: @selector(eventUpdated:) 
-													 name: @"LAEventUpdated"  
+        [[NSNotificationCenter defaultCenter] addObserver: self 
+												 selector: @selector(eventDatabaseUpdated:) 
+													 name: @"LAEventDatabaseUpdated"  
 												   object: nil];
-        
-        NSMutableDictionary *userDataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile: [[self class] userDataFileLocation]];
-        if (!userDataDictionary) {
-            userDataDictionary = [[NSMutableDictionary alloc] init];
-        }
-		[self setEventsUserData: userDataDictionary];
-        
     }
     return self;
 }
 
 - (LAEventDatabase *) initWithData: (NSData *) xmlData {
     if (self = [self init]) {
+        
+        // Before the parsing because the userInfo dict is needed to set the properties
+        NSMutableDictionary *userDataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile: [LAEventDatabase userDataFileLocation]];
+        if (!userDataDictionary) {
+            userDataDictionary = [[NSMutableDictionary alloc] init];
+        }
+        
+		[self setEventsUserData: userDataDictionary];
+        
         LAEventsXMLParser *xmlParser = [[LAEventsXMLParser alloc] initWithData: xmlData delegate: self];
         [xmlParser parse];
+        
+        // After parsing because we don't want to rewrite what has just been read while parsing
+        [[NSNotificationCenter defaultCenter] addObserver: self 
+												 selector: @selector(eventUpdated:) 
+													 name: @"LAEventUpdated"  
+												   object: nil];
     }
+    
     return self;
 }
 
@@ -181,6 +193,29 @@ static LAEventDatabase *mainEventsDatabase = nil;
     tracksCache = tracks;
     
 	return tracks;
+}
+
+- (NSMutableArray *) starredEvents {
+    
+    /*if (starredCache != nil) {
+        return starredCache;
+    }*/
+    
+	NSEnumerator *eventsEnumerator = [events objectEnumerator];
+    LAEvent *currentEvent;
+    
+    NSMutableArray *starredEvents = [NSMutableArray array];
+	
+	while (currentEvent = [eventsEnumerator nextObject]){
+        
+		if ([currentEvent isStarred]) {
+            [starredEvents addObject: currentEvent];        
+        }
+	}
+	
+    //starredCache = starredEvents;
+    
+	return starredEvents;
     
 }
 
@@ -244,15 +279,27 @@ static LAEventDatabase *mainEventsDatabase = nil;
         [userData setObject: [infoDict objectForKey: @"starred"] forKey: @"starred"];
     }
     
+    [[NSFileManager defaultManager] createDirectoryAtPath: [[[self class] userDataFileLocation] stringByDeletingLastPathComponent] attributes: nil];
     [[self eventsUserData] writeToFile: [[self class] userDataFileLocation] atomically: NO];
 }
 
 - (void) updateEventWithUserData: (LAEvent *) event {
     NSMutableDictionary *userData = [self userDataForEventWithIdentifier: [event identifier]];
-    
     if ([userData objectForKey: @"starred"]) {
         [event setStarred: [(NSNumber *)[userData objectForKey: @"starred"] boolValue]];
     }
+}
+
+- (void) eventDatabaseUpdated: (NSNotification *) notification {
+    // Clear out all the caches
+    [tracksCache release];
+    tracksCache = nil;
+    //[starredCache release];
+    [cachedUniqueDays release];
+    cachedUniqueDays = nil;
+    [eventsOnDayCache release];
+    eventsOnDayCache = nil;
+    eventsOnDayCache = [[NSMutableDictionary alloc] init];
 }
 
 - (void) dealloc {
