@@ -46,6 +46,7 @@
     if (filteredEvents) {
         [filteredEvents release];
         filteredEvents = nil;
+        filteredEvents = [[NSMutableArray alloc] init];
     }
 
     if (tableHeaderStrings) {
