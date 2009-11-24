@@ -27,6 +27,7 @@
     [super viewDidLoad];
     
     filteredEvents = [[NSMutableArray alloc] init];
+    //NSLog(@"eventDatabase: %@", [eventDatabase events]);
     //[[NSNotificationCenter defaultCenter] addObserver: [self tableView] selector: @selector(reloadData) name: @"LAEventsDatabaseUpdated" object: nil];
 }
 
@@ -131,7 +132,7 @@
     }
     
     // Set up the cell...
-	NSLog(@"%@", [[LAEventDatabase sharedEventsDatabase] staredEvents]);
+	//NSLog(@"%@", [[LAEventDatabase sharedEventsDatabase] starredEvents]);
     [[cell textLabel] setText: [event title]];
     [[cell detailTextLabel] setText: [event speaker]];
     [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];

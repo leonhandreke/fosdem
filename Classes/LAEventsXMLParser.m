@@ -95,9 +95,8 @@
         else {
             eventEndDate = [[NSDate alloc] init];
         }
-
         [currentEvent setEndDate: eventEndDate];
-        [eventEndDate release];
+        //[eventEndDate autorelease];
     }
     
     if ([elementName isEqualToString: @"room"]) {

@@ -12,13 +12,14 @@
 @implementation LAEventDatabase
 
 
-@synthesize events;
+@synthesize events, eventsUserData;
 
 static LAEventDatabase *mainEventsDatabase = nil;
 
 + (LAEventDatabase *) sharedEventsDatabase
 {
 	if(mainEventsDatabase == nil) {
+        //NSLog(@"Loading event DB");
         /*// Try to load from the resource bundle first
          NSDictionary *eventsDictionary = [NSDictionary dictionaryWithContentsOfFile: [self eventsDatabaseLocation]];*/
         NSData *eventXMLData = [NSData dataWithContentsOfFile: [self eventDatabaseLocation]];
@@ -28,8 +29,6 @@ static LAEventDatabase *mainEventsDatabase = nil;
         else {
             mainEventsDatabase = [[LAEventDatabase alloc] init];
         }
-		
-		[self setEventsUserData: [NSDictionary dictionaryWithContentsOfFile: [self userDataFileLocation]]];
     }
     return mainEventsDatabase;	
 }
@@ -42,28 +41,19 @@ static LAEventDatabase *mainEventsDatabase = nil;
         eventsOnDayCache = [[NSMutableDictionary alloc] init];
 		
 		[[NSNotificationCenter defaultCenter] addObserver: self 
-												 selector: @selector(updateWithUserData:) 
-													 name: @"LAEventUserDataUpdated"  
+												 selector: @selector(eventUpdated:) 
+													 name: @"LAEventUpdated"  
 												   object: nil];
+        
+        NSMutableDictionary *userDataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile: [[self class] userDataFileLocation]];
+        if (!userDataDictionary) {
+            userDataDictionary = [[NSMutableDictionary alloc] init];
+        }
+		[self setEventsUserData: userDataDictionary];
+        
     }
     return self;
 }
-		 
-
-
-/*
- - (LAEventDatabase*) initWithDictionary: (NSDictionary *) dictionary {
- if (self = [super init]) {
- events = [[NSMutableArray alloc] init];
- NSEnumerator *dictionaryEnumetator = [[dictionary allValues] objectEnumerator];
- NSDictionary *currentDictionary;
- 
- while (currentDictionary = [dictionaryEnumetator nextObject]) {
- [events addObject: [[LAEvent alloc] initWithDictionary: currentDictionary]];
- }
- }
- return self;
- }*/
 
 - (LAEventDatabase *) initWithData: (NSData *) xmlData {
     if (self = [self init]) {
@@ -75,6 +65,7 @@ static LAEventDatabase *mainEventsDatabase = nil;
 
 - (void) parser: (LAEventsXMLParser *) parser foundEvent: (LAEvent *) event {
     [events addObject: event];
+    [self updateEventWithUserData: event];
 }
 
 - (void) parserFinishedParsing:(LAEventsXMLParser *)parser {
@@ -101,7 +92,7 @@ static LAEventDatabase *mainEventsDatabase = nil;
     
     while (currentEvent = [eventsEnumerator nextObject]) {
         NSDateComponents *currentEventDateComponents = [calendar components: (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate: [currentEvent startDate]];
-
+        
         // We have the date of the event. Now we have to loop through the existing unique dates to see if there already is a date like that.
         NSEnumerator *uniqueDaysEnumerator = [uniqueDays objectEnumerator];
         NSDate *currentUniqueDay;
@@ -180,17 +171,17 @@ static LAEventDatabase *mainEventsDatabase = nil;
     NSMutableArray *tracks = [[NSMutableArray alloc] init];
 	
 	while (currentEvent = [eventsEnumerator nextObject]){
-	
+        
 		if (![tracks containsObject: [NSString stringWithFormat: @"%@", [currentEvent track]]]) {
 			[tracks addObject: [NSString stringWithFormat: @"%@", [currentEvent track]]];
 		}
-	
+        
 	}
 	
     tracksCache = tracks;
     
 	return tracks;
-
+    
 }
 
 -(NSArray *) eventsForTrack: (NSString*) trackName {
@@ -207,7 +198,7 @@ static LAEventDatabase *mainEventsDatabase = nil;
 		}
 		
 	}
-		
+    
 	return eventsForTrackName;
 	
 }
@@ -228,33 +219,12 @@ static LAEventDatabase *mainEventsDatabase = nil;
 }
 
 
-- (void) updateUserDataForEvent: (LAEvent *) event {
-
-}
-/*
--(NSArray *) staredEvents {
-
-	return stared;
-}
-
--(void) addStaredEventWithUUID: (NSString *) UUID {
-
-	[stared addObject: UUID];
-}
-
--(void) removeStaredEventWithUUID: (NSString *) UUID {
-
-	[stared removeObject: UUID];
-
-}*/
-
-
-- (NSString *) userDataFileLocation {
++ (NSString *) userDataFileLocation {
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [paths objectAtIndex:0];
-    NSString *uderDataFileLocation = [documentDirectory stringByAppendingPathComponent:@"userData.plist"];
-	
-	
+    NSString *userDataFileLocation = [documentDirectory stringByAppendingPathComponent:@"userData.plist"];
+    
+    return userDataFileLocation;
 }
 
 
@@ -265,8 +235,24 @@ static LAEventDatabase *mainEventsDatabase = nil;
 	return [eventsUserData objectForKey: identifier];
 }
 
-- (void) userDataUpdated {
-	[[self eventsUserData] writeToFile: [[self class] userDataFileLocation] atomically: NO];
+- (void) eventUpdated: (NSNotification *) notification {
+    NSDictionary *infoDict = [notification userInfo];
+    NSMutableDictionary *userData = [self userDataForEventWithIdentifier: [infoDict objectForKey: @"identifier"]];
+    
+    if ([infoDict objectForKey: @"starred"]) {
+        // Change in the starred property
+        [userData setObject: [infoDict objectForKey: @"starred"] forKey: @"starred"];
+    }
+    
+    [[self eventsUserData] writeToFile: [[self class] userDataFileLocation] atomically: NO];
+}
+
+- (void) updateEventWithUserData: (LAEvent *) event {
+    NSMutableDictionary *userData = [self userDataForEventWithIdentifier: [event identifier]];
+    
+    if ([userData objectForKey: @"starred"]) {
+        [event setStarred: [(NSNumber *)[userData objectForKey: @"starred"] boolValue]];
+    }
 }
 
 - (void) dealloc {

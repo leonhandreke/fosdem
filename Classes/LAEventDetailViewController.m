@@ -13,17 +13,6 @@
 
 @synthesize event;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,6 +26,7 @@
     [dateFormatter setDateFormat: @"EEEE"];
     NSString *dayString = [dateFormatter stringFromDate: [event startDate]];
     [dateFormatter setDateFormat: @"H:mm"];
+    //NSLog(@"dayString: %@", dayString);
     NSString *timeString = [NSString stringWithFormat: @"%@ - %@", [dateFormatter stringFromDate: [event startDate]], [dateFormatter stringFromDate: [event endDate]]];
     
     [[overviewHeaderView subtitle] setText: [NSString stringWithFormat: @"%@, %@", dayString, timeString]];
@@ -50,7 +40,11 @@
     NSString *resourcePath = [[NSBundle mainBundle] bundlePath];
     NSURL *resourceURL = [NSURL fileURLWithPath: resourcePath];
     [webView loadHTMLString: [event contentDescription] baseURL: resourceURL];
+    
+    // Initialize the toolbar
+    [self updateToolbar];
 }
+
 
 
 /*
@@ -89,8 +83,25 @@
 	}
 	else {
 		[[self event] setStarred: YES];
-	}	
+	}
+    [self updateToolbar];
 }
 
+- (void) updateToolbar {
+    
+    UIBarButtonItem *button;
+    UIBarButtonItem *flexibleSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace target: nil action: nil] autorelease];
+    
+    if([[self event] starred]) {
+        button = [[[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"StarOn.png"] style:UIBarButtonItemStylePlain target: self action: @selector(toggleStarred:)] autorelease];
+        
+    }
+    else {
+        button = [[[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"StarOff.png"] style: UIBarButtonItemStylePlain target: self action: @selector(toggleStarred:)] autorelease];
+    }
+    NSArray *toolbarItems = [NSArray arrayWithObjects: flexibleSpace, button, flexibleSpace, nil];
+    [toolbar setItems: toolbarItems];
+    
+}
 
 @end

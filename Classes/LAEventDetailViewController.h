@@ -17,10 +17,15 @@
     IBOutlet UIView *headerHolderView;
     IBOutlet UIWebView *webView;
     
+    IBOutlet UIToolbar *toolbar;
+    
 }
 
--(BOOL)hidesBottomBarWhenPushed;
--(IBAction) bookmarkItem: (id) sender;
+- (BOOL)hidesBottomBarWhenPushed;
+
+- (IBAction) toggleStarred: (id) sender;
+- (void) updateToolbar;
 
 @property (assign) LAEvent *event;
+
 @end

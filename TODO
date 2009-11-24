@@ -9,3 +9,5 @@
 
 - Database caching (would allow us to restore our caches as well)
 	- Save caches to plist file with md5 of database checking the database for changes on start.
+    
+- Starred icon: Contact Byline developer about using the icons!

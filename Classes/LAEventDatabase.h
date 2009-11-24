@@ -41,9 +41,10 @@
 -(NSArray *) tracks;
 -(NSArray *) eventsForTrack: (NSString*) trackName;
 
-//-(NSArray *) staredEvents;
-//-(void) addStaredEventWithUUID: (NSString *) UUID;
-//-(void) removeStaredEventWithUUID: (NSString *) UUID;
+- (NSMutableDictionary *) userDataForEventWithIdentifier: (NSString *) identifier;
+- (void) eventUpdated: (NSNotification *) notification;
+- (void) updateEventWithUserData: (LAEvent *) event;
+
 
 @property (retain) NSMutableArray *events;
 @property (retain) NSMutableDictionary *eventsUserData;
