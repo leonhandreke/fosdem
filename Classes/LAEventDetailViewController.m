@@ -39,7 +39,10 @@
     
     NSString *resourcePath = [[NSBundle mainBundle] bundlePath];
     NSURL *resourceURL = [NSURL fileURLWithPath: resourcePath];
-    [webView loadHTMLString: [event contentDescription] baseURL: resourceURL];
+    
+    NSString *templateString = [NSString stringWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: @"template.html"]];
+    NSString *HTMLString = [NSString stringWithFormat: templateString, [event title], [event contentAbstract], [event contentDescription]];
+    [webView loadHTMLString: HTMLString  baseURL: resourceURL];
     
     // Initialize the toolbar
     [self updateToolbar];

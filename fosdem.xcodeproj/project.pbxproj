@@ -19,6 +19,7 @@
 		3525421E10BC4D66007D9C6B /* LATracksTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3525421C10BC4D66007D9C6B /* LATracksTableViewController.xib */; };
 		3525422210BC4DA5007D9C6B /* LAStarredTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3525422110BC4DA5007D9C6B /* LAStarredTableViewController.xib */; };
 		3525422910BC4DD5007D9C6B /* LAStarredTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3525422810BC4DD5007D9C6B /* LAStarredTableViewController.m */; };
+		3525449010BC7ED0007D9C6B /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 3525448F10BC7ED0007D9C6B /* template.html */; };
 		3535FC0710B93F480057FF8E /* StarOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 3535FC0510B93F480057FF8E /* StarOff.png */; };
 		3535FC0810B93F480057FF8E /* StarOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3535FC0610B93F480057FF8E /* StarOn.png */; };
 		357675D61089D2310042806B /* LAEventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357675D31089D2310042806B /* LAEventsTableViewController.xib */; };
@@ -56,6 +57,7 @@
 		3525422110BC4DA5007D9C6B /* LAStarredTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LAStarredTableViewController.xib; sourceTree = "<group>"; };
 		3525422710BC4DD5007D9C6B /* LAStarredTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAStarredTableViewController.h; sourceTree = "<group>"; };
 		3525422810BC4DD5007D9C6B /* LAStarredTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAStarredTableViewController.m; sourceTree = "<group>"; };
+		3525448F10BC7ED0007D9C6B /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		3535FC0510B93F480057FF8E /* StarOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarOff.png; sourceTree = "<group>"; };
 		3535FC0610B93F480057FF8E /* StarOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarOn.png; sourceTree = "<group>"; };
 		357675D31089D2310042806B /* LAEventsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LAEventsTableViewController.xib; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3525448F10BC7ED0007D9C6B /* template.html */,
 				3525422110BC4DA5007D9C6B /* LAStarredTableViewController.xib */,
 				3525421B10BC4D66007D9C6B /* LAEventDetailViewController.xib */,
 				3525421C10BC4D66007D9C6B /* LATracksTableViewController.xib */,
@@ -255,6 +258,7 @@
 				3525421D10BC4D66007D9C6B /* LAEventDetailViewController.xib in Resources */,
 				3525421E10BC4D66007D9C6B /* LATracksTableViewController.xib in Resources */,
 				3525422210BC4DA5007D9C6B /* LAStarredTableViewController.xib in Resources */,
+				3525449010BC7ED0007D9C6B /* template.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
