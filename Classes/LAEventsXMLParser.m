@@ -39,32 +39,102 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict {
-    if ([elementName isEqualToString: @"event"]) {
-        /*if (currentEvent) {
-            [currentEvent release];
-        }*/
-        currentEvent = [[LAEvent alloc] init];
-        [currentEvent setIdentifier: [attributeDict objectForKey: @"id"]];
+    if ([elementName isEqualToString: @"vevent"]) {
+		currentEvent = [[LAEvent alloc] init];
+        [currentEvent setIdentifier: [attributeDict objectForKey: @"pentabarf:event-id"]];
     }
     
-    if ([elementName isEqualToString: @"day"]) {
-        currentDayString = [attributeDict objectForKey: @"date"];
-    }
-    
-    if ([elementName isEqualToString: @"start"] || [elementName isEqualToString: @"duration"] || 
+	if ([elementName isEqualToString: @"pentabarf:start"] || [elementName isEqualToString: @"pentabarf:end"] || [elementName isEqualToString: @"pentabarf:title"] || [elementName isEqualToString: @"location"] ||
+		[elementName isEqualToString: @"pentabarf:subtitle"] || [elementName isEqualToString: @"abstract"] ||
+		[elementName isEqualToString: @"track"] || [elementName isEqualToString: @"type"] ||
+		[elementName isEqualToString: @"description"] || [elementName isEqualToString: @"attendee"]) {
+	 
+		[currentStringValue setString: @""];
+	
+	}
+	
+   /* if ([elementName isEqualToString: @"start"] || [elementName isEqualToString: @"duration"] || 
         [elementName isEqualToString: @"room"] || [elementName isEqualToString: @"title"] ||
         [elementName isEqualToString: @"subtitle"] || [elementName isEqualToString: @"track"] ||
         [elementName isEqualToString: @"type"] || [elementName isEqualToString: @"abstract"] ||
         [elementName isEqualToString: @"description"] || [elementName isEqualToString: @"person"]) {
         [currentStringValue setString: @""];
-    }
+    }*/
     
     
 }
                                         
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
 
-    if ([elementName isEqualToString: @"start"]) {
+	if ([elementName isEqualToString: @"pentabarf:start"]) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss vvvv"];
+       
+        NSDate *eventStartDate = [dateFormatter dateFromString: currentStringValue];
+        [currentEvent setStartDate: eventStartDate];
+        
+        [dateFormatter release];
+    }
+	
+	if ([elementName isEqualToString: @"pentabarf:end"]) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss vvvv"];
+		
+        NSDate *eventEndDate = [dateFormatter dateFromString: currentStringValue];
+		[currentEvent setEndDate: eventEndDate];
+        
+        [dateFormatter release];
+    }
+	
+	if ([elementName isEqualToString: @"pentabarf:title"]) {
+        [currentEvent setTitle: [NSString stringWithString: currentStringValue]];
+    }
+	
+	if ([elementName isEqualToString: @"location"]) {
+        [currentEvent setRoom: [NSString stringWithString: currentStringValue]];
+    }
+	
+	if ([elementName isEqualToString: @"pentabarf:subtitle"]) {
+        [currentEvent setSubtitle: [NSString stringWithString: currentStringValue]];
+    }
+	
+	// Currently there dosn't seem to be an abstract object
+	if ([elementName isEqualToString: @"abstract"]) {
+        //[currentEvent setContentAbstract: [NSString stringWithString: currentStringValue]];
+    }
+	
+	// Currently there dosn't seem to be a track object returning emtpy string atm
+	if ([elementName isEqualToString: @"track"]) {
+        //[currentEvent setTrack: [NSString stringWithString: currentStringValue]];
+		[currentEvent setTrack: [NSString stringWithString: @""]];
+    }
+	
+	// Currently there dosn't seem to be a type object returning emtpy string atm
+	if ([elementName isEqualToString: @"type"]) {
+        //[currentEvent setType: [NSString stringWithString: currentStringValue]];
+		[currentEvent setType: [NSString stringWithString: @""]];
+    }
+	
+	if ([elementName isEqualToString: @"description"]) {
+        [currentEvent setContentDescription: [NSString stringWithString: currentStringValue]];
+    }
+	
+    if ([elementName isEqualToString: @"attendee"]) {
+        [currentEvent setSpeaker: [NSString stringWithString: currentStringValue]];
+    }
+	
+	if ([elementName isEqualToString: @"vevent"]) {
+        [delegate parser: self foundEvent: currentEvent];
+    }
+    
+    if ([elementName isEqualToString: @"iCalendar"]) {
+        [delegate parserDidFinishSchedule: self];
+    }
+	
+
+	
+	
+    /*if ([elementName isEqualToString: @"start"]) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm"];
         
@@ -131,7 +201,7 @@
     
     if ([elementName isEqualToString: @"schedule"]) {
         [delegate parserDidFinishSchedule: self];
-    }
+    }*/
 
 }
 

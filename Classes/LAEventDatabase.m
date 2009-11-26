@@ -241,14 +241,14 @@ static LAEventDatabase *mainEventDatabase = nil;
 + (NSString *) eventDatabaseLocation {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *cachesDirectory = [paths objectAtIndex:0];
-    NSString *cacheFileLocation = [cachesDirectory stringByAppendingPathComponent:@"fosdem_schedule.xml"];
+    NSString *cacheFileLocation = [cachesDirectory stringByAppendingPathComponent:@"fosdem_schedule.xcal"];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath: cacheFileLocation]) {
         return cacheFileLocation;
     }
     
     NSString *resourcesDirectory = [[NSBundle mainBundle] bundlePath];
-    NSString *resourceFileLocation = [resourcesDirectory stringByAppendingPathComponent:@"fosdem_schedule.xml"];
+    NSString *resourceFileLocation = [resourcesDirectory stringByAppendingPathComponent:@"fosdem_schedule.xcal"];
     return resourceFileLocation;
     
 }
@@ -265,7 +265,7 @@ static LAEventDatabase *mainEventDatabase = nil;
 
 - (NSMutableDictionary *) userDataForEventWithIdentifier: (NSString *) identifier {
 	if ([eventsUserData objectForKey: identifier] == nil) {
-		[eventsUserData setObject: [NSMutableDictionary dictionary] forKey: identifier];
+		//[eventsUserData setObject: [NSMutableDictionary dictionary] forKey: identifier];
 	}
 	return [eventsUserData objectForKey: identifier];
 }
