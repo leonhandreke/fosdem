@@ -265,7 +265,7 @@ static LAEventDatabase *mainEventDatabase = nil;
 
 - (NSMutableDictionary *) userDataForEventWithIdentifier: (NSString *) identifier {
 	if ([eventsUserData objectForKey: identifier] == nil) {
-		//[eventsUserData setObject: [NSMutableDictionary dictionary] forKey: identifier];
+		[eventsUserData setObject: [NSMutableDictionary dictionary] forKey: identifier];
 	}
 	return [eventsUserData objectForKey: identifier];
 }

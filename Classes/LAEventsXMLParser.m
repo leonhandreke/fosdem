@@ -41,10 +41,10 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict {
     if ([elementName isEqualToString: @"vevent"]) {
 		currentEvent = [[LAEvent alloc] init];
-        [currentEvent setIdentifier: [attributeDict objectForKey: @"pentabarf:event-id"]];
+       // [currentEvent setIdentifier: [attributeDict objectForKey: @"pentabarf:event-id"]];
     }
     
-	if ([elementName isEqualToString: @"pentabarf:start"] || [elementName isEqualToString: @"pentabarf:end"] || [elementName isEqualToString: @"pentabarf:title"] || [elementName isEqualToString: @"location"] ||
+	if ([elementName isEqualToString: @"pentabarf:event-id"] || [elementName isEqualToString: @"pentabarf:start"] || [elementName isEqualToString: @"pentabarf:end"] || [elementName isEqualToString: @"pentabarf:title"] || [elementName isEqualToString: @"location"] ||
 		[elementName isEqualToString: @"pentabarf:subtitle"] || [elementName isEqualToString: @"abstract"] ||
 		[elementName isEqualToString: @"track"] || [elementName isEqualToString: @"type"] ||
 		[elementName isEqualToString: @"description"] || [elementName isEqualToString: @"attendee"]) {
@@ -66,6 +66,10 @@
                                         
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
 
+	if ([elementName isEqualToString: @"pentabarf:event-id"]) {
+		[currentEvent setIdentifier: [NSString stringWithString: currentStringValue]];
+	}
+	
 	if ([elementName isEqualToString: @"pentabarf:start"]) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
