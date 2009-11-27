@@ -68,7 +68,7 @@
 
 	if ([elementName isEqualToString: @"pentabarf:start"]) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss vvvv"];
+        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
        
         NSDate *eventStartDate = [dateFormatter dateFromString: currentStringValue];
         [currentEvent setStartDate: eventStartDate];
@@ -78,7 +78,7 @@
 	
 	if ([elementName isEqualToString: @"pentabarf:end"]) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss vvvv"];
+        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
 		
         NSDate *eventEndDate = [dateFormatter dateFromString: currentStringValue];
 		[currentEvent setEndDate: eventEndDate];
