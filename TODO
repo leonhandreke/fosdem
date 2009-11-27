@@ -3,11 +3,12 @@
 	- TableView with Sections for now, 1 hour away, 2 hours away.
 
 - Redesign details view controller.
-	- Make sure the space is correct between the title and the track name (is it still practical to have the track name in this place?)
-	- Rework content view (is the webview necessary or do we want to design a custom view for it?)
+	- Make sure the space is correct between the title and the track name (is it still practical to have the track name in this place?) - Has this been done yet ?
 	- Do we wan't to have pictures of the concerned person?
 
 - Database caching (would allow us to restore our caches as well)
 	- Save caches to plist file with md5 of database checking the database for changes on start.
     
 - Starred icon: Contact Byline developer about using the icons!
+
+- Fix tracks (new xcal database broke the old tracks as there is no longer a tracks field, have to ask and see if it can be included as <track>)
