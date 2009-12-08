@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		233CA63610A478A800D84609 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 233CA63510A478A800D84609 /* TODO */; };
 		2377DBC710BECE68008FDE65 /* fosdem_schedule.xcal in Resources */ = {isa = PBXBuildFile; fileRef = 2377DBC610BECE68008FDE65 /* fosdem_schedule.xcal */; };
+		239B8E4D10CE6038005FF2CB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 239B8E4C10CE6038005FF2CB /* Default.png */; };
 		23F864A410A2C451000B39DA /* LATracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F864A210A2C451000B39DA /* LATracksTableViewController.m */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
@@ -48,6 +49,7 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		233CA63510A478A800D84609 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		2377DBC610BECE68008FDE65 /* fosdem_schedule.xcal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fosdem_schedule.xcal; sourceTree = "<group>"; };
+		239B8E4C10CE6038005FF2CB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		23F864A110A2C451000B39DA /* LATracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LATracksTableViewController.h; sourceTree = "<group>"; };
 		23F864A210A2C451000B39DA /* LATracksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LATracksTableViewController.m; sourceTree = "<group>"; };
 		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -161,6 +163,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				239B8E4C10CE6038005FF2CB /* Default.png */,
 				3525448F10BC7ED0007D9C6B /* template.html */,
 				3525422110BC4DA5007D9C6B /* LAStarredTableViewController.xib */,
 				3525421B10BC4D66007D9C6B /* LAEventDetailViewController.xib */,
@@ -263,6 +266,7 @@
 				3525422210BC4DA5007D9C6B /* LAStarredTableViewController.xib in Resources */,
 				3525449010BC7ED0007D9C6B /* template.html in Resources */,
 				2377DBC710BECE68008FDE65 /* fosdem_schedule.xcal in Resources */,
+				239B8E4D10CE6038005FF2CB /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

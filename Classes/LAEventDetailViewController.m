@@ -41,8 +41,17 @@
     NSString *resourcePath = [[NSBundle mainBundle] bundlePath];
     NSURL *resourceURL = [NSURL fileURLWithPath: resourcePath];
     
+	// Define description incase is returns blank for the database
+	
+	NSString *description;	
+	if ([event contentDescription]){
+		description = [event contentDescription];
+	} else {
+		description = @"No description could be found!";
+	}
+	
     NSString *templateString = [NSString stringWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: @"template.html"]];
-    NSString *HTMLString = [NSString stringWithFormat: templateString, [event title], [event contentDescription]];
+    NSString *HTMLString = [NSString stringWithFormat: templateString, [event title], description];
     [webView loadHTMLString: HTMLString  baseURL: resourceURL];
     
     // Initialize the toolbar
