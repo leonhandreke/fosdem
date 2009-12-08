@@ -2619,7 +2619,7 @@
   <duration>1H</duration>
   <summary>Hacking with modular hardware: the BUG</summary>
 
-<description><a href="http://buglabs.net">BUG</a> is a device that takes the concept of a standard PC, turns it inside out, and makes it fit in your hand. Using open source hardware and software, applications can be created with previously non-existent device configurations. This talk will discuss the BUG platform in general, and our use of OpenEmbedded and Poky Linux. No proprietary or commercial tools, drivers, or applications are used. If there is interest we may also get into some application development and show some existing apps. More information on BUG is available at <a href="http:<i>buglabs.net">http:</i>buglabs.net</a>. Also giving away two BUGS in the devroom.</description>
+<description><a href="http://buglabs.net">BUG</a> is a device that takes the concept of a standard PC, turns it inside out, and makes it fit in your hand. Using open source hardware and software, applications can be created with previously non-existent device configurations. This talk will discuss the BUG platform in general, and our use of OpenEmbedded and Poky Linux. No proprietary or commercial tools, drivers, or applications are used. If there is interest we may also get into some application development and show some existing apps. More information on BUG is available at. Also giving away two BUGS in the devroom.</description>
 
   <class>PUBLIC</class>
   <status>CONFIRMED</status>
