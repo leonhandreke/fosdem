@@ -295,13 +295,13 @@ static LAEventDatabase *mainEventDatabase = nil;
 	NSEnumerator *eventsEnumerator = [events objectEnumerator];
     LAEvent *currentEvent;
 	NSMutableArray *returnEvents = [NSMutableArray array];
+	double nowSeconds = [[NSDate date] timeIntervalSince1970];
 	
 	while (currentEvent = [eventsEnumerator nextObject]) {
 		
 		double eventStartSeconds = [[currentEvent startDate] timeIntervalSince1970];
 		double eventEndSeconds = [[currentEvent endDate] timeIntervalSince1970];
-		double nowSeconds = [[NSDate date] timeIntervalSince1970];
-		
+				
 		if(nowSeconds > eventStartSeconds && nowSeconds < eventEndSeconds){
 			
 			[returnEvents addObject: currentEvent];
@@ -312,6 +312,32 @@ static LAEventDatabase *mainEventDatabase = nil;
 	
 	return returnEvents;
 
+}
+
+-(NSArray*) eventsWithSeconds: (int) seconds {
+	
+	NSEnumerator *eventsEnumerator = [events objectEnumerator];
+    LAEvent *currentEvent;
+	NSMutableArray *returnEvents = [NSMutableArray array];
+	double thenSeconds = ([[NSDate date] timeIntervalSince1970]) + seconds;
+	double nowSeconds = [[NSDate date] timeIntervalSince1970];
+	
+	while (currentEvent = [eventsEnumerator nextObject]) {
+		
+		double eventStartSeconds = [[currentEvent startDate] timeIntervalSince1970];
+		double eventEndSeconds = [[currentEvent endDate] timeIntervalSince1970];
+		
+		
+		if(eventStartSeconds < thenSeconds && nowSeconds < eventStartSeconds){
+			
+			[returnEvents addObject: currentEvent];
+			
+		}
+		
+	}
+	
+	return returnEvents;
+	
 }
 
 - (void) eventDatabaseUpdated: (NSNotification *) notification {

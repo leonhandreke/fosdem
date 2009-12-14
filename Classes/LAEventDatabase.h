@@ -51,6 +51,7 @@
 - (void) eventDatabaseUpdated: (NSNotification *) notification;
 
 -(NSArray*) eventsTakingPlaceNow;
+-(NSArray*) eventsWithSeconds: (int) seconds;
 
 @property (retain) NSMutableArray *events;
 @property (retain) NSMutableDictionary *eventsUserData;
