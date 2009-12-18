@@ -30,7 +30,6 @@
 		357675E31089D2400042806B /* LAEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 357675DC1089D2400042806B /* LAEventDetailViewController.m */; };
 		357675E41089D2400042806B /* LAEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 357675DE1089D2400042806B /* LAEventsTableViewController.m */; };
 		357675E51089D2400042806B /* LAEventsXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 357675E01089D2400042806B /* LAEventsXMLParser.m */; };
-		357676011089D2EC0042806B /* fosdem_schedule.xml in Resources */ = {isa = PBXBuildFile; fileRef = 357676001089D2EC0042806B /* fosdem_schedule.xml */; };
 		35A443C110DB5EF700DA30A3 /* TKOverviewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A443BE10DB5EF700DA30A3 /* TKOverviewHeaderView.m */; };
 		35A443C210DB5EF700DA30A3 /* TKOverviewIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A443C010DB5EF700DA30A3 /* TKOverviewIndicatorView.m */; };
 		35A443D110DB5F6000DA30A3 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A443D010DB5F6000DA30A3 /* libxml2.2.dylib */; };
@@ -73,7 +72,6 @@
 		357675DE1089D2400042806B /* LAEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAEventsTableViewController.m; sourceTree = "<group>"; };
 		357675DF1089D2400042806B /* LAEventsXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAEventsXMLParser.h; sourceTree = "<group>"; };
 		357675E01089D2400042806B /* LAEventsXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAEventsXMLParser.m; sourceTree = "<group>"; };
-		357676001089D2EC0042806B /* fosdem_schedule.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fosdem_schedule.xml; sourceTree = "<group>"; };
 		35A443BD10DB5EF700DA30A3 /* TKOverviewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKOverviewHeaderView.h; path = ../tapkulibrary/src/TapkuLibrary/TKOverviewHeaderView.h; sourceTree = SOURCE_ROOT; };
 		35A443BE10DB5EF700DA30A3 /* TKOverviewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKOverviewHeaderView.m; path = ../tapkulibrary/src/TapkuLibrary/TKOverviewHeaderView.m; sourceTree = SOURCE_ROOT; };
 		35A443BF10DB5EF700DA30A3 /* TKOverviewIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKOverviewIndicatorView.h; path = ../tapkulibrary/src/TapkuLibrary/TKOverviewIndicatorView.h; sourceTree = SOURCE_ROOT; };
@@ -166,7 +164,6 @@
 				3525421C10BC4D66007D9C6B /* LATracksTableViewController.xib */,
 				3535FC0510B93F480057FF8E /* StarOff.png */,
 				3535FC0610B93F480057FF8E /* StarOn.png */,
-				357676001089D2EC0042806B /* fosdem_schedule.xml */,
 				2377DBC610BECE68008FDE65 /* fosdem_schedule.xcal */,
 				357675D31089D2310042806B /* LAEventsTableViewController.xib */,
 				35D23B80106F87C3003D9E0A /* descriptionPage.css */,
@@ -246,7 +243,6 @@
 				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
 				35D23B81106F87C3003D9E0A /* descriptionPage.css in Resources */,
 				357675D61089D2310042806B /* LAEventsTableViewController.xib in Resources */,
-				357676011089D2EC0042806B /* fosdem_schedule.xml in Resources */,
 				233CA63610A478A800D84609 /* TODO in Resources */,
 				3535FC0710B93F480057FF8E /* StarOff.png in Resources */,
 				3535FC0810B93F480057FF8E /* StarOn.png in Resources */,
