@@ -31,6 +31,7 @@
 }
 
 //- (NSMutableDictionary *) userData;
+- (NSComparisonResult) compareDateWithEvent: (LAEvent *) otherEvent;
 
 @property (retain) NSString *identifier;
 @property (retain) NSString *title;

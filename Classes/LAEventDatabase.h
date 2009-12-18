@@ -32,7 +32,7 @@
 
 //- (LAEventDatabase*) initWithDictionary: (NSDictionary *) dictionary;
 
-- (LAEventDatabase *) initWithData: (NSData *) xmlData;
+- (LAEventDatabase *) initWithContentsOfFile: (NSString *) filePath;
 - (void) parser: (LAEventsXMLParser *) parser foundEvent: (LAEvent *) event;
 - (void) parserFinishedParsing:(LAEventsXMLParser *)parser;
 
@@ -50,8 +50,6 @@
 // Clear out the caches
 - (void) eventDatabaseUpdated: (NSNotification *) notification;
 
--(NSArray*) eventsTakingPlaceNow;
--(NSArray*) eventsWithSeconds: (int) seconds;
 
 @property (retain) NSMutableArray *events;
 @property (retain) NSMutableDictionary *eventsUserData;

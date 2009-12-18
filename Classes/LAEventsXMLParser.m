@@ -13,13 +13,17 @@
 
 @synthesize delegate;
 
-- (LAEventsXMLParser *) initWithData: (NSData *) xmlData delegate: (id) newDelegate {
+- (LAEventsXMLParser *) initWithContentsOfFile: (NSString *) path delegate: (id) newDelegate {
     if (self = [super init]) {
         [self setDelegate: newDelegate];
-        
-        eventsXMLParser = [[NSXMLParser alloc] initWithData: xmlData];
+		
+        eventsXMLParser = [[NSXMLParser alloc] initWithContentsOfURL: [NSURL fileURLWithPath: path]];
         [eventsXMLParser setDelegate: self];
         [eventsXMLParser retain];
+		
+		dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
+		
     }
     
     return self;
@@ -71,23 +75,13 @@
 	}
 	
 	if ([elementName isEqualToString: @"pentabarf:start"]) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
-       
         NSDate *eventStartDate = [dateFormatter dateFromString: currentStringValue];
         [currentEvent setStartDate: eventStartDate];
-        
-        [dateFormatter release];
     }
 	
 	if ([elementName isEqualToString: @"pentabarf:end"]) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
-		
         NSDate *eventEndDate = [dateFormatter dateFromString: currentStringValue];
 		[currentEvent setEndDate: eventEndDate];
-        
-        [dateFormatter release];
     }
 	
 	if ([elementName isEqualToString: @"pentabarf:title"]) {
@@ -128,7 +122,7 @@
     }
 	
 	if ([elementName isEqualToString: @"vevent"]) {
-        [delegate parser: self foundEvent: currentEvent];
+        [delegate parser: self foundEvent: [currentEvent autorelease]];
     }
     
     if ([elementName isEqualToString: @"iCalendar"]) {
@@ -215,6 +209,7 @@
 
 - (void) dealloc {
     [eventsXMLParser release];
+	[dateFormatter release];
     //[currentDayString release];
     //[currentStringValue release];
     [super dealloc];

@@ -22,16 +22,8 @@ static LAEventDatabase *mainEventDatabase = nil;
         //NSLog(@"Loading event DB");
         /*// Try to load from the resource bundle first
          NSDictionary *eventsDictionary = [NSDictionary dictionaryWithContentsOfFile: [self eventsDatabaseLocation]];*/
-        NSData *eventXMLData = [NSData dataWithContentsOfFile: [self eventDatabaseLocation]];
-        if (eventXMLData != nil) {
-            mainEventDatabase = [[LAEventDatabase alloc] initWithData: eventXMLData];
-        }
-        else {
-            mainEventDatabase = [[LAEventDatabase alloc] init];
-        }
-
-        
-
+		//NSDictionary *eventsDictionary = [NSDictionary dictionaryWithContentsOfFile: [self eventDatabaseLocation]];                                                                                                                     
+		mainEventDatabase = [[LAEventDatabase alloc] initWithContentsOfFile: [self eventDatabaseLocation]];
     }
     return mainEventDatabase;	
 }
@@ -51,7 +43,7 @@ static LAEventDatabase *mainEventDatabase = nil;
     return self;
 }
 
-- (LAEventDatabase *) initWithData: (NSData *) xmlData {
+- (LAEventDatabase *) initWithContentsOfFile: (NSString *) filePath {
     if (self = [self init]) {
         
         // Before the parsing because the userInfo dict is needed to set the properties
@@ -62,7 +54,7 @@ static LAEventDatabase *mainEventDatabase = nil;
         
 		[self setEventsUserData: userDataDictionary];
         
-        LAEventsXMLParser *xmlParser = [[LAEventsXMLParser alloc] initWithData: xmlData delegate: self];
+        LAEventsXMLParser *xmlParser = [[LAEventsXMLParser alloc] initWithContentsOfFile: filePath delegate: self];
         [xmlParser parse];
         
         // After parsing because we don't want to rewrite what has just been read while parsing
@@ -83,7 +75,7 @@ static LAEventDatabase *mainEventDatabase = nil;
 - (void) parserFinishedParsing:(LAEventsXMLParser *)parser {
     [parser release];
     [[NSNotificationCenter defaultCenter] postNotificationName: @"LAEventDatabaseUpdated" object: self];
-    
+	[events sortUsingSelector: @selector(compareDateWithEvent:)];
 }
 
 - (void) parserDidFinishSchedule:(LAEventsXMLParser *)parser {
@@ -284,61 +276,13 @@ static LAEventDatabase *mainEventDatabase = nil;
 }
 
 - (void) updateEventWithUserData: (LAEvent *) event {
+	
     NSMutableDictionary *userData = [self userDataForEventWithIdentifier: [event identifier]];
     if ([userData objectForKey: @"starred"]) {
         [event setStarred: [(NSNumber *)[userData objectForKey: @"starred"] boolValue]];
     }
 }
 
-- (NSArray*) eventsTakingPlaceNow {
-		
-	NSEnumerator *eventsEnumerator = [events objectEnumerator];
-    LAEvent *currentEvent;
-	NSMutableArray *returnEvents = [NSMutableArray array];
-	double nowSeconds = [[NSDate date] timeIntervalSince1970];
-	
-	while (currentEvent = [eventsEnumerator nextObject]) {
-		
-		double eventStartSeconds = [[currentEvent startDate] timeIntervalSince1970];
-		double eventEndSeconds = [[currentEvent endDate] timeIntervalSince1970];
-				
-		if(nowSeconds > eventStartSeconds && nowSeconds < eventEndSeconds){
-			
-			[returnEvents addObject: currentEvent];
-			
-		}
-		
-	}
-	
-	return returnEvents;
-
-}
-
--(NSArray*) eventsWithSeconds: (int) seconds {
-	
-	NSEnumerator *eventsEnumerator = [events objectEnumerator];
-    LAEvent *currentEvent;
-	NSMutableArray *returnEvents = [NSMutableArray array];
-	double thenSeconds = ([[NSDate date] timeIntervalSince1970]) + seconds;
-	double nowSeconds = [[NSDate date] timeIntervalSince1970];
-	
-	while (currentEvent = [eventsEnumerator nextObject]) {
-		
-		double eventStartSeconds = [[currentEvent startDate] timeIntervalSince1970];
-		double eventEndSeconds = [[currentEvent endDate] timeIntervalSince1970];
-		
-		
-		if(eventStartSeconds < thenSeconds && nowSeconds < eventStartSeconds){
-			
-			[returnEvents addObject: currentEvent];
-			
-		}
-		
-	}
-	
-	return returnEvents;
-	
-}
 
 - (void) eventDatabaseUpdated: (NSNotification *) notification {
     // Clear out all the caches

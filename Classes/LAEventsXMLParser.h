@@ -17,9 +17,10 @@
     NSString *currentDayString;
     NSMutableString *currentStringValue;
     LAEvent *currentEvent;
+	NSDateFormatter *dateFormatter;
 }
 
-- (LAEventsXMLParser *) initWithData: (NSData *) xmlData delegate: (id) newDelegate;
+- (LAEventsXMLParser *) initWithContentsOfFile: (NSString *) path delegate: (id) newDelegate;
 - (BOOL) parse;
 
 @property (assign) id delegate;

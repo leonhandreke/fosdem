@@ -32,5 +32,8 @@
                                                       userInfo: infoDict];
 }
 
+- (NSComparisonResult) compareDateWithEvent: (LAEvent *) otherEvent {
+	return [[self startDate] compare: [otherEvent startDate]];
+}
 
 @end
