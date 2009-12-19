@@ -35,6 +35,11 @@
 		35A443D110DB5F6000DA30A3 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A443D010DB5F6000DA30A3 /* libxml2.2.dylib */; };
 		35A443F810DB5FCE00DA30A3 /* TKGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A443F710DB5FCE00DA30A3 /* TKGlobal.m */; };
 		35A443FC10DB5FF600DA30A3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A443FB10DB5FF600DA30A3 /* CoreFoundation.framework */; };
+		35A444AE10DC2ACC00DA30A3 /* NSDate+Between.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A444AD10DC2ACC00DA30A3 /* NSDate+Between.m */; };
+		35A444C010DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A444BE10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.m */; };
+		35A444C110DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A444BF10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.xib */; };
+		35A4450610DCF56600DA30A3 /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A4450310DCF56600DA30A3 /* UIImageAdditions.m */; };
+		35A4450710DCF56600DA30A3 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A4450510DCF56600DA30A3 /* UIViewAdditions.m */; };
 		35D23B81106F87C3003D9E0A /* descriptionPage.css in Resources */ = {isa = PBXBuildFile; fileRef = 35D23B80106F87C3003D9E0A /* descriptionPage.css */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +85,15 @@
 		35A443F610DB5FCE00DA30A3 /* TKGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKGlobal.h; path = ../tapkulibrary/src/TapkuLibrary/TKGlobal.h; sourceTree = SOURCE_ROOT; };
 		35A443F710DB5FCE00DA30A3 /* TKGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKGlobal.m; path = ../tapkulibrary/src/TapkuLibrary/TKGlobal.m; sourceTree = SOURCE_ROOT; };
 		35A443FB10DB5FF600DA30A3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		35A444AC10DC2ACC00DA30A3 /* NSDate+Between.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Between.h"; sourceTree = "<group>"; };
+		35A444AD10DC2ACC00DA30A3 /* NSDate+Between.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Between.m"; sourceTree = "<group>"; };
+		35A444BD10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAUpcomingEventsTableViewController.h; path = ../LAUpcomingEventsTableViewController.h; sourceTree = "<group>"; };
+		35A444BE10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LAUpcomingEventsTableViewController.m; path = ../LAUpcomingEventsTableViewController.m; sourceTree = "<group>"; };
+		35A444BF10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LAUpcomingEventsTableViewController.xib; sourceTree = "<group>"; };
+		35A4450210DCF56600DA30A3 /* UIImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageAdditions.h; path = ../tapkulibrary/src/TapkuLibrary/UIImageAdditions.h; sourceTree = SOURCE_ROOT; };
+		35A4450310DCF56600DA30A3 /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageAdditions.m; path = ../tapkulibrary/src/TapkuLibrary/UIImageAdditions.m; sourceTree = SOURCE_ROOT; };
+		35A4450410DCF56600DA30A3 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewAdditions.h; path = ../tapkulibrary/src/TapkuLibrary/UIViewAdditions.h; sourceTree = SOURCE_ROOT; };
+		35A4450510DCF56600DA30A3 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewAdditions.m; path = ../tapkulibrary/src/TapkuLibrary/UIViewAdditions.m; sourceTree = SOURCE_ROOT; };
 		35D23B80106F87C3003D9E0A /* descriptionPage.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = descriptionPage.css; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* fosdem-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "fosdem-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,7 +133,11 @@
 				1D3623250D0F684500981E51 /* fosdemAppDelegate.m */,
 				3525422710BC4DD5007D9C6B /* LAStarredTableViewController.h */,
 				3525422810BC4DD5007D9C6B /* LAStarredTableViewController.m */,
+				35A444BD10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.h */,
+				35A444BE10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.m */,
 				35A443B710DB5EAE00DA30A3 /* Tapku */,
+				35A444AC10DC2ACC00DA30A3 /* NSDate+Between.h */,
+				35A444AD10DC2ACC00DA30A3 /* NSDate+Between.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -170,6 +188,7 @@
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* fosdem-Info.plist */,
 				233CA63510A478A800D84609 /* TODO */,
+				35A444BF10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -188,6 +207,10 @@
 		35A443B710DB5EAE00DA30A3 /* Tapku */ = {
 			isa = PBXGroup;
 			children = (
+				35A4450210DCF56600DA30A3 /* UIImageAdditions.h */,
+				35A4450310DCF56600DA30A3 /* UIImageAdditions.m */,
+				35A4450410DCF56600DA30A3 /* UIViewAdditions.h */,
+				35A4450510DCF56600DA30A3 /* UIViewAdditions.m */,
 				35A443F610DB5FCE00DA30A3 /* TKGlobal.h */,
 				35A443F710DB5FCE00DA30A3 /* TKGlobal.m */,
 				35A443BD10DB5EF700DA30A3 /* TKOverviewHeaderView.h */,
@@ -252,6 +275,7 @@
 				3525449010BC7ED0007D9C6B /* template.html in Resources */,
 				2377DBC710BECE68008FDE65 /* fosdem_schedule.xcal in Resources */,
 				239B8E4D10CE6038005FF2CB /* Default.png in Resources */,
+				35A444C110DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +298,10 @@
 				35A443C110DB5EF700DA30A3 /* TKOverviewHeaderView.m in Sources */,
 				35A443C210DB5EF700DA30A3 /* TKOverviewIndicatorView.m in Sources */,
 				35A443F810DB5FCE00DA30A3 /* TKGlobal.m in Sources */,
+				35A444AE10DC2ACC00DA30A3 /* NSDate+Between.m in Sources */,
+				35A444C010DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.m in Sources */,
+				35A4450610DCF56600DA30A3 /* UIImageAdditions.m in Sources */,
+				35A4450710DCF56600DA30A3 /* UIViewAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

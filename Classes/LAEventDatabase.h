@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "NSDate+Between.h"
+
 #import "LAEvent.h"
 #import "LAEventsXMLParser.h"
 
@@ -46,6 +48,9 @@
 - (NSMutableDictionary *) userDataForEventWithIdentifier: (NSString *) identifier;
 - (void) eventUpdated: (NSNotification *) notification;
 - (void) updateEventWithUserData: (LAEvent *) event;
+
+- (NSArray *) eventsWhile:(NSDate *)whileDate;
+- (NSArray *)eventsInTimeInterval:(NSTimeInterval) timeInterval afterDate:(NSDate *)startDate;
 
 // Clear out the caches
 - (void) eventDatabaseUpdated: (NSNotification *) notification;

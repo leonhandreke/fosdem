@@ -136,10 +136,8 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    static NSString *CellIdentifier = @"EventCell";
-    
-    
+	static NSString *CellIdentifier = @"EventCell";
+
     LAEvent *event = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
@@ -147,13 +145,11 @@
     }
 	else
 	{
-        NSDate *sectionDay = [[eventDatabase uniqueDays] objectAtIndex: indexPath.section];
-        event = [[eventDatabase eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
+        event = [self eventForRowAtIndexPath: indexPath];
     }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-		//NSLog(@"EPIC");
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
@@ -164,6 +160,15 @@
     [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
+}
+
+// Method to override if 
+- (LAEvent *)eventForRowAtIndexPath:(NSIndexPath *)indexPath {
+	LAEvent *event = nil;
+	NSDate *sectionDay = [[eventDatabase uniqueDays] objectAtIndex: indexPath.section];
+	event = [[eventDatabase eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
+
+	return event;
 }
 
 - (NSString *)tableView: (UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -212,8 +217,7 @@
     }
 	else
 	{
-        NSDate *sectionDay = [[eventDatabase uniqueDays] objectAtIndex: indexPath.section];
-        selectedEvent = [[eventDatabase eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
+        selectedEvent = [self eventForRowAtIndexPath: indexPath];
     }
     
     LAEventDetailViewController *eventDetailViewController = [[LAEventDetailViewController alloc] initWithNibName: @"LAEventDetailViewController" bundle: [NSBundle mainBundle]];

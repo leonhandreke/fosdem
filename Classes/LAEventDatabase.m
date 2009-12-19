@@ -283,6 +283,37 @@ static LAEventDatabase *mainEventDatabase = nil;
     }
 }
 
+- (NSArray *)eventsInTimeInterval:(NSTimeInterval) timeInterval afterDate:(NSDate *)startDate {
+	NSMutableArray *selectedEvents = [NSMutableArray array];
+	
+	NSEnumerator *eventsEnumerator = [events objectEnumerator];
+    LAEvent *currentEvent;
+	
+	while (currentEvent = [eventsEnumerator nextObject]){
+		
+		if ([[currentEvent startDate] isBetweenDate: startDate andDate: [startDate addTimeInterval:timeInterval]]) {
+			[selectedEvents addObject: currentEvent];
+		}
+	}
+	return selectedEvents;
+}
+
+- (NSArray *) eventsWhile:(NSDate *)whileDate {
+	
+	NSMutableArray *selectedEvents = [NSMutableArray array];
+	
+	NSEnumerator *eventsEnumerator = [events objectEnumerator];
+    LAEvent *currentEvent;
+	
+	while (currentEvent = [eventsEnumerator nextObject]){
+		
+		if ([whileDate isBetweenDate:[currentEvent startDate] andDate:[currentEvent endDate]]) {
+			[selectedEvents addObject: currentEvent];
+		}
+	}
+	return selectedEvents;
+}
+
 
 - (void) eventDatabaseUpdated: (NSNotification *) notification {
     // Clear out all the caches

@@ -1,15 +1,15 @@
 //
-//  LAStarredTableViewController.m
+//  LAUpcomingEventsTableViewController.m
 //  fosdem
 //
-//  Created by Leon on 11/24/09.
+//  Created by Leon on 12/18/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "LAStarredTableViewController.h"
+#import "LAUpcomingEventsTableViewController.h"
 
 
-@implementation LAStarredTableViewController
+@implementation LAUpcomingEventsTableViewController
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -20,27 +20,34 @@
 }
 */
 
-/*
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+	
+	eventDatabase = [LAEventDatabase sharedEventDatabase];
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}*/
-
-- (void) eventDatabaseUpdated {
-    [super eventDatabaseUpdated];
-    LAEventDatabase *starredDatabase = [[LAEventDatabase alloc] init];
-    [[self eventDatabase] setEvents: [[LAEventDatabase sharedEventDatabase] starredEvents]];
-    [self setEventDatabase: starredDatabase];
-    [[self tableView] reloadData];
 }
 
-/*
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+	
+	// Always use an up-to-date date
+	// DEBUG!
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
+	baseDate = [dateFormatter dateFromString: @"2009-02-08 14:01:00 +0000"];
+	[dateFormatter release];
+	
+	// I know caching it here is evil but I have deadlines :)
+	eventsNow = [[[self eventDatabase] eventsWhile: baseDate] retain];
+	eventsSoon = [[[self eventDatabase] eventsInTimeInterval: 3600 afterDate: baseDate] retain];
+	
+	[[self tableView] reloadData];
 }
-*/
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -64,7 +71,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
-/*
+
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -81,40 +88,40 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+	// One "Now", one next hour
+    return 2;
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+	if (section == 0) {
+		return [eventsNow count];
+	}
+	else {
+		return [eventsSoon count];
+	}
+}
+
+- (LAEvent *)eventForRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (indexPath.section == 0) {
+		return [eventsNow objectAtIndex: indexPath.row];
+	}
+	else {
+		return [eventsSoon objectAtIndex: indexPath.row];
+	}
 }
 
 
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    // Set up the cell...
-	
-    return cell;
+- (NSString *)tableView: (UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+		return @"Now";
+	}
+	else {
+		return @"Next hour";
+	}
+
 }
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
-}
-*/
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -154,11 +161,11 @@
 }
 */
 
-/*
+
 - (void)dealloc {
     [super dealloc];
 }
-*/
+
 
 @end
 

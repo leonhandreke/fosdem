@@ -23,6 +23,8 @@
 
 - (void) eventDatabaseUpdated;
 
+- (LAEvent *)eventForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 @property (assign) LAEventDatabase *eventDatabase;
 
 @end
