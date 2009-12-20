@@ -334,6 +334,69 @@
     [super dealloc];
 }
 
+- (IBAction) downloadDatabase: (id) sender {
+
+	UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(-140, -18, 280, 25)];
+    [progressView setProgress: 0.0];
+    [progressView setProgressViewStyle: UIProgressViewStyleBar];
+    progressView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
+                                     UIViewAutoresizingFlexibleRightMargin |
+                                     UIViewAutoresizingFlexibleTopMargin |
+                                     UIViewAutoresizingFlexibleBottomMargin);
+    downloadProgressBar = progressView;
+    UIActionSheet *menu = [[UIActionSheet alloc] initWithTitle:@"Downloading..."
+                                                      delegate:self
+                                             cancelButtonTitle:nil
+                                        destructiveButtonTitle: @"Cancel"
+                                             otherButtonTitles:nil];
+    downloadActionSheet = menu;
+    
+    [menu addSubview:progressView];
+    [menu showInView:self.view];
+    [menu setBounds:CGRectMake(0,0,320, 175)];
+    
+
+    
+    NSURLRequest *databaseDownloadRequest = [NSURLRequest requestWithURL: [NSURL URLWithString: @"http://roubaix.landasoftware.com/fosdem_schedule.xcal"]];
+    LADownload *fileDownload = [[LADownload alloc] initWithRequest:databaseDownloadRequest 
+                                                       destination: [[self cachedDatabaseLocation] path] 
+                                                          delegate: self];
+    download = fileDownload;
+    [fileDownload start];
+
+}
+
+
+- (NSURL*) cachedDatabaseLocation {
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths objectAtIndex:0];
+    NSString *cacheFileLocation = [cachesDirectory stringByAppendingPathComponent:@"fosdem_schedule.xcal"];
+	
+	return [NSURL URLWithString: cacheFileLocation];
+	
+}
+
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet {
+    [download cancel];
+    [download release];
+    download = nil;
+}
+
+- (void)downloadDidFinish: (LADownload *) aDownload {
+    [downloadActionSheet dismissWithClickedButtonIndex: 0 animated: YES];
+    [downloadActionSheet release];
+    downloadActionSheet = nil;
+    [downloadProgressBar release];
+    downloadProgressBar = nil;
+    
+    [download release];
+}
+
+- (void)download: (LADownload *) aDownload didReceiveDataOfLength: (NSUInteger) dataLength {
+    [downloadProgressBar setProgress: [download progress]];
+    [downloadActionSheet setTitle: [NSString stringWithFormat:@"Downloading (%.2fMB/%.2fMB)", [aDownload receivedLength]/1024/1024, [aDownload totalLength]/1024/1024]];
+}
 
 @end
 

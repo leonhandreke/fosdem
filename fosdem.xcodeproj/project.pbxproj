@@ -12,6 +12,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		233CA63610A478A800D84609 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 233CA63510A478A800D84609 /* TODO */; };
+		2348FD6510DE93C900021671 /* LADownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 2348FD6410DE93C900021671 /* LADownload.m */; };
 		2377DBC710BECE68008FDE65 /* fosdem_schedule.xcal in Resources */ = {isa = PBXBuildFile; fileRef = 2377DBC610BECE68008FDE65 /* fosdem_schedule.xcal */; };
 		239B8E4D10CE6038005FF2CB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 239B8E4C10CE6038005FF2CB /* Default.png */; };
 		23F864A410A2C451000B39DA /* LATracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F864A210A2C451000B39DA /* LATracksTableViewController.m */; };
@@ -50,6 +51,8 @@
 		1D6058910D05DD3D006BFB54 /* fosdem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fosdem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		233CA63510A478A800D84609 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		2348FD6310DE93C900021671 /* LADownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LADownload.h; path = ../LADownload.h; sourceTree = "<group>"; };
+		2348FD6410DE93C900021671 /* LADownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LADownload.m; path = ../LADownload.m; sourceTree = "<group>"; };
 		2377DBC610BECE68008FDE65 /* fosdem_schedule.xcal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fosdem_schedule.xcal; sourceTree = "<group>"; };
 		239B8E4C10CE6038005FF2CB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		23F864A110A2C451000B39DA /* LATracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LATracksTableViewController.h; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2348FD6310DE93C900021671 /* LADownload.h */,
+				2348FD6410DE93C900021671 /* LADownload.m */,
 				357675D71089D2400042806B /* LAEvent.h */,
 				357675D81089D2400042806B /* LAEvent.m */,
 				357675D91089D2400042806B /* LAEventDatabase.h */,
@@ -302,6 +307,7 @@
 				35A444C010DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.m in Sources */,
 				35A4450610DCF56600DA30A3 /* UIImageAdditions.m in Sources */,
 				35A4450710DCF56600DA30A3 /* UIViewAdditions.m in Sources */,
+				2348FD6510DE93C900021671 /* LADownload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
