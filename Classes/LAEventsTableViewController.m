@@ -384,13 +384,14 @@
 }
 
 - (void)downloadDidFinish: (LADownload *) aDownload {
-	[LAEventDatabase purgeEventDatabase];
+	[LAEventDatabase releaseMainEventDatabase];
     [downloadActionSheet dismissWithClickedButtonIndex: 0 animated: YES];
     [downloadActionSheet release];
     downloadActionSheet = nil;
     [downloadProgressBar release];
     downloadProgressBar = nil;
     
+	[[self tableView] reloadData];
     [download release];
 }
 

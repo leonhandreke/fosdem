@@ -28,7 +28,7 @@ static LAEventDatabase *mainEventDatabase = nil;
     return mainEventDatabase;	
 }
 
-+ (void) purgeEventDatabase {
++ (void) releaseMainEventDatabase {
 
 	mainEventDatabase = nil;
 
