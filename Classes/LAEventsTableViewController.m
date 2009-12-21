@@ -334,7 +334,7 @@
     [super dealloc];
 }
 
-- (IBAction) downloadDatabase: (id) sender {
+- (IBAction) refreshDatabase: (id) sender {
 
 	UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(-140, -18, 280, 25)];
     [progressView setProgress: 0.0];
@@ -373,7 +373,7 @@
     NSString *cachesDirectory = [paths objectAtIndex:0];
     NSString *cacheFileLocation = [cachesDirectory stringByAppendingPathComponent:@"fosdem_schedule.xcal"];
 	
-	return [NSURL URLWithString: cacheFileLocation];
+	return [NSURL fileURLWithPath: cacheFileLocation];
 	
 }
 

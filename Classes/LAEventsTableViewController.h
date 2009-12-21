@@ -14,7 +14,7 @@
 #import "LAEvent.h"
 #import "LADownload.h"
 
-@interface LAEventsTableViewController : UITableViewController {
+@interface LAEventsTableViewController : UITableViewController <UIActionSheetDelegate> {
 	
 	LAEventDatabase *eventDatabase;
     NSMutableArray *filteredEvents;
@@ -30,7 +30,7 @@
 
 - (LAEvent *)eventForRowAtIndexPath:(NSIndexPath *)indexPath;
 
-- (IBAction) downloadDatabase: (id) sender;
+- (IBAction) refreshDatabase: (id) sender;
 - (NSURL*) cachedDatabaseLocation;
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet;
