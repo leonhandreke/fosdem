@@ -55,6 +55,8 @@
 // Clear out the caches
 - (void) eventDatabaseUpdated: (NSNotification *) notification;
 
++ (void) purgeEventDatabase;
+
 @property (retain) NSMutableArray *events;
 @property (retain) NSMutableDictionary *eventsUserData;
 

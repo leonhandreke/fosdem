@@ -384,6 +384,7 @@
 }
 
 - (void)downloadDidFinish: (LADownload *) aDownload {
+	[LAEventDatabase purgeEventDatabase];
     [downloadActionSheet dismissWithClickedButtonIndex: 0 animated: YES];
     [downloadActionSheet release];
     downloadActionSheet = nil;

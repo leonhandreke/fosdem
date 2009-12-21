@@ -28,6 +28,11 @@ static LAEventDatabase *mainEventDatabase = nil;
     return mainEventDatabase;	
 }
 
++ (void) purgeEventDatabase {
+
+	mainEventDatabase = nil;
+
+}
 
 - (LAEventDatabase*) init {
     if (self = [super init]) {
