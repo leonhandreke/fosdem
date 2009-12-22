@@ -11,7 +11,6 @@
 
 @implementation LAEventsTableViewController
 
-@synthesize eventDatabase;
 
 /*
  - (id)initWithStyle:(UITableViewStyle)style {
@@ -28,10 +27,10 @@
     
     filteredEvents = [[NSMutableArray alloc] init];
     
-    [[NSNotificationCenter defaultCenter] addObserver: self 
+    /*[[NSNotificationCenter defaultCenter] addObserver: self 
                                              selector: @selector(eventDatabaseUpdated) 
                                                  name: @"LAEventUpdated"  
-                                               object: nil];
+                                               object: nil];*/
     [[NSNotificationCenter defaultCenter] addObserver: self 
                                              selector: @selector(eventDatabaseUpdated) 
                                                  name: @"LAEventDatabaseUpdated"  
@@ -54,7 +53,7 @@
         tableHeaderStrings = nil;
     }
 
-    [[self tableView] reloadData];
+    //[[self tableView] reloadData];
 }
 
 
@@ -111,7 +110,7 @@
 	else
 	{
         //NSLog(@"%d", [[eventDatabase uniqueDays] count]);
-        return [[eventDatabase uniqueDays] count];
+        return [[[LAEventDatabase sharedEventDatabase] uniqueDays] count];
     }
     
 }
@@ -126,8 +125,8 @@
     }
 	else
 	{
-        NSDate *sectionDay = [[eventDatabase uniqueDays] objectAtIndex: section];
-        return [[eventDatabase eventsOnDay: sectionDay] count];
+        NSDate *sectionDay = [[[LAEventDatabase sharedEventDatabase] uniqueDays] objectAtIndex: section];
+        return [[[LAEventDatabase sharedEventDatabase] eventsOnDay: sectionDay] count];
     }
     
 }
@@ -165,8 +164,8 @@
 // Method to override if 
 - (LAEvent *)eventForRowAtIndexPath:(NSIndexPath *)indexPath {
 	LAEvent *event = nil;
-	NSDate *sectionDay = [[eventDatabase uniqueDays] objectAtIndex: indexPath.section];
-	event = [[eventDatabase eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
+	NSDate *sectionDay = [[[LAEventDatabase sharedEventDatabase] uniqueDays] objectAtIndex: indexPath.section];
+	event = [[[LAEventDatabase sharedEventDatabase] eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
 
 	return event;
 }
@@ -186,7 +185,7 @@
         [tableHeaderStrings release];
         tableHeaderStrings = [[NSMutableArray alloc] init];
         // Generate new table view headers
-        NSEnumerator *uniqueDaysEnumerator = [[eventDatabase uniqueDays] objectEnumerator];
+        NSEnumerator *uniqueDaysEnumerator = [[[LAEventDatabase sharedEventDatabase] uniqueDays] objectEnumerator];
         NSDate *currentDate;
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -282,7 +281,7 @@
 	/*
 	 Search the main list for events whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
 	 */
-	for (LAEvent *event in [eventDatabase events])
+	for (LAEvent *event in [[LAEventDatabase sharedEventDatabase] events])
 	{
 		
         NSRange titleResult = [[event title] rangeOfString: searchText options: (NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)];
@@ -359,7 +358,7 @@
     
     NSURLRequest *databaseDownloadRequest = [NSURLRequest requestWithURL: [NSURL URLWithString: @"http://roubaix.landasoftware.com/fosdem_schedule.xcal"]];
     LADownload *fileDownload = [[LADownload alloc] initWithRequest:databaseDownloadRequest 
-                                                       destination: [[self cachedDatabaseLocation] path] 
+                                                       destination: [LAEventDatabase cachedDatabaseLocation] 
                                                           delegate: self];
     download = fileDownload;
     [fileDownload start];
@@ -367,15 +366,7 @@
 }
 
 
-- (NSURL*) cachedDatabaseLocation {
-	
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *cachesDirectory = [paths objectAtIndex:0];
-    NSString *cacheFileLocation = [cachesDirectory stringByAppendingPathComponent:@"fosdem_schedule.xcal"];
-	
-	return [NSURL fileURLWithPath: cacheFileLocation];
-	
-}
+
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet {
     [download cancel];
@@ -390,9 +381,9 @@
     downloadActionSheet = nil;
     [downloadProgressBar release];
     downloadProgressBar = nil;
-    
-	[[self tableView] reloadData];
     [download release];
+    
+    [[self tableView] reloadData];
 }
 
 - (void)download: (LADownload *) aDownload didReceiveDataOfLength: (NSUInteger) dataLength {

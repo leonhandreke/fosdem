@@ -19,15 +19,13 @@
     return self;
 }
 */
-
+/*
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
-	eventDatabase = [LAEventDatabase sharedEventDatabase];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
+}*/
 
 
 
@@ -42,8 +40,8 @@
 	[dateFormatter release];
 	
 	// I know caching it here is evil but I have deadlines :)
-	eventsNow = [[[self eventDatabase] eventsWhile: baseDate] retain];
-	eventsSoon = [[[self eventDatabase] eventsInTimeInterval: 3600 afterDate: baseDate] retain];
+	eventsNow = [[[LAEventDatabase sharedEventDatabase] eventsWhile: baseDate] retain];
+	eventsSoon = [[[LAEventDatabase sharedEventDatabase] eventsInTimeInterval: 3600 afterDate: baseDate] retain];
 	
 	[[self tableView] reloadData];
 }

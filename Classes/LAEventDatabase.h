@@ -29,6 +29,7 @@
 
 + (NSString *) eventDatabaseLocation;
 + (NSString *) userDataFileLocation;
++ (NSString* ) cachedDatabaseLocation;
 
 + (LAEventDatabase *) sharedEventDatabase;
 

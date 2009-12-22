@@ -30,7 +30,8 @@ static LAEventDatabase *mainEventDatabase = nil;
 
 + (void) releaseMainEventDatabase {
 
-	mainEventDatabase = nil;
+	[mainEventDatabase release];
+    mainEventDatabase = nil;
 
 }
 
@@ -236,10 +237,7 @@ static LAEventDatabase *mainEventDatabase = nil;
 }
 
 + (NSString *) eventDatabaseLocation {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *cachesDirectory = [paths objectAtIndex:0];
-    NSString *cacheFileLocation = [cachesDirectory stringByAppendingPathComponent:@"fosdem_schedule.xcal"];
-    
+    NSString *cacheFileLocation = [self cachedDatabaseLocation];
     if ([[NSFileManager defaultManager] fileExistsAtPath: cacheFileLocation]) {
         return cacheFileLocation;
     }
@@ -248,6 +246,16 @@ static LAEventDatabase *mainEventDatabase = nil;
     NSString *resourceFileLocation = [resourcesDirectory stringByAppendingPathComponent:@"fosdem_schedule.xcal"];
     return resourceFileLocation;
     
+}
+
++ (NSString* ) cachedDatabaseLocation {
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths objectAtIndex:0];
+    NSString *cacheFileLocation = [cachesDirectory stringByAppendingPathComponent:@"fosdem_schedule.xcal"];
+    
+    return cacheFileLocation;
+	
 }
 
 
@@ -333,6 +341,7 @@ static LAEventDatabase *mainEventDatabase = nil;
 }
 
 - (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
     [events release];
     [super dealloc];
 }

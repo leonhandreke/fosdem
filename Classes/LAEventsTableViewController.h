@@ -15,8 +15,6 @@
 #import "LADownload.h"
 
 @interface LAEventsTableViewController : UITableViewController <UIActionSheetDelegate> {
-	
-	LAEventDatabase *eventDatabase;
     NSMutableArray *filteredEvents;
     
     NSMutableArray *tableHeaderStrings;

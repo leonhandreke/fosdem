@@ -20,8 +20,6 @@
     // Add the tab bar controller's current view as a subview of the window
     [window addSubview:tabBarController.view];
     //[navigationController pushViewController: tabBarController animated: NO];
-	
-	[eventsTableViewController setEventDatabase: [LAEventDatabase sharedEventDatabase]];
 }
 
 
