@@ -29,13 +29,11 @@
 - (LAEvent *)eventForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (IBAction) refreshDatabase: (id) sender;
-- (NSURL*) cachedDatabaseLocation;
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet;
 - (void)downloadDidFinish: (LADownload *) aDownload;
 
 - (void)download: (LADownload *) aDownload didReceiveDataOfLength: (NSUInteger) dataLength;
 
-@property (assign) LAEventDatabase *eventDatabase;
 
 @end

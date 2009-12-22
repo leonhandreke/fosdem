@@ -17,7 +17,7 @@
     NSString *subtitle;
     NSString *speaker;
     
-    NSString *room;
+    NSString *location;
     NSString *track;
     NSString *type;
     
@@ -37,7 +37,7 @@
 @property (retain) NSString *title;
 @property (retain) NSString *subtitle;
 @property (retain) NSString *speaker;
-@property (retain) NSString *room;
+@property (retain) NSString *location;
 @property (retain) NSString *track;
 @property (retain) NSString *type;
 @property (retain) NSString *contentAbstract;

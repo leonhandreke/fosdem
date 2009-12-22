@@ -89,7 +89,7 @@
     }
 	
 	if ([elementName isEqualToString: @"location"]) {
-        [currentEvent setRoom: [NSString stringWithString: currentStringValue]];
+        [currentEvent setLocation: [NSString stringWithString: currentStringValue]];
     }
 	
 	if ([elementName isEqualToString: @"pentabarf:subtitle"]) {

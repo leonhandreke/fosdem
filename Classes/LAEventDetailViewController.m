@@ -33,8 +33,8 @@
     
     
     [[overviewHeaderView indicator] setColor: TKOverviewIndicatorViewColorBlue];
-    [[overviewHeaderView indicator] setText: [event track]];
-	[[overviewHeaderView indicator] setHidden: YES];
+    [[overviewHeaderView indicator] setText: [event location]];
+	//[[overviewHeaderView indicator] setHidden: YES];
     
     [headerHolderView addSubview: overviewHeaderView];
     

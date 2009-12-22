@@ -11,7 +11,7 @@
 
 @implementation LAEvent
 
-@synthesize identifier, title, subtitle, speaker, room, track, type, contentAbstract, contentDescription, startDate, endDate, starred;
+@synthesize identifier, title, subtitle, speaker, location, track, type, contentAbstract, contentDescription, startDate, endDate, starred;
 /*
 - (LAEvent *)init {
     if (self = [super init]) {
