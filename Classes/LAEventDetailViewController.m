@@ -50,7 +50,7 @@
 		description = @"No description could be found!";
 	}
 	
-    NSString *templateString = [NSString stringWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: @"template.html"]];
+    NSString *templateString = [NSString stringWithContentsOfFile: [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: @"template.html"] encoding: NSUTF8StringEncoding error:nil];
     NSString *HTMLString = [NSString stringWithFormat: templateString, [event title], description];
     [webView loadHTMLString: HTMLString  baseURL: resourceURL];
     

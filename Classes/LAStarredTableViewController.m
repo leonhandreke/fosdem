@@ -12,6 +12,16 @@
 @implementation LAStarredTableViewController
 
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver: self 
+                                             selector: @selector(eventDatabaseUpdated) 
+                                                 name: @"LAEventUpdated"  
+                                               object: nil];
+}
+
+
+
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

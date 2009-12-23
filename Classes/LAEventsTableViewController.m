@@ -27,6 +27,7 @@
     
     filteredEvents = [[NSMutableArray alloc] init];
     
+    // We do not need this here because we do not care about starred events in this table view
     /*[[NSNotificationCenter defaultCenter] addObserver: self 
                                              selector: @selector(eventDatabaseUpdated) 
                                                  name: @"LAEventUpdated"  
@@ -36,7 +37,7 @@
                                                  name: @"LAEventDatabaseUpdated"  
                                                object: nil];
     
-    [self eventDatabaseUpdated];
+    //[self eventDatabaseUpdated];
     //NSLog(@"eventDatabase: %@", [eventDatabase events]);
     //[[NSNotificationCenter defaultCenter] addObserver: [self tableView] selector: @selector(reloadData) name: @"LAEventsDatabaseUpdated" object: nil];
 }
@@ -52,8 +53,8 @@
         [tableHeaderStrings release];
         tableHeaderStrings = nil;
     }
-
-    //[[self tableView] reloadData];
+    
+    [[self tableView] reloadData];
 }
 
 
@@ -376,14 +377,15 @@
 
 - (void)downloadDidFinish: (LADownload *) aDownload {
 	[LAEventDatabase releaseMainEventDatabase];
+    // The hacky hacky way - access the DB once so it gets rebuilt
+    [LAEventDatabase sharedEventDatabase];
+    
     [downloadActionSheet dismissWithClickedButtonIndex: 0 animated: YES];
     [downloadActionSheet release];
     downloadActionSheet = nil;
     [downloadProgressBar release];
     downloadProgressBar = nil;
     [download release];
-    
-    [[self tableView] reloadData];
 }
 
 - (void)download: (LADownload *) aDownload didReceiveDataOfLength: (NSUInteger) dataLength {

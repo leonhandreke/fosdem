@@ -24,6 +24,7 @@ static LAEventDatabase *mainEventDatabase = nil;
          NSDictionary *eventsDictionary = [NSDictionary dictionaryWithContentsOfFile: [self eventsDatabaseLocation]];*/
 		//NSDictionary *eventsDictionary = [NSDictionary dictionaryWithContentsOfFile: [self eventDatabaseLocation]];                                                                                                                     
 		mainEventDatabase = [[LAEventDatabase alloc] initWithContentsOfFile: [self eventDatabaseLocation]];
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"LAEventDatabaseUpdated" object: self];
     }
     return mainEventDatabase;	
 }
@@ -80,7 +81,6 @@ static LAEventDatabase *mainEventDatabase = nil;
 
 - (void) parserFinishedParsing:(LAEventsXMLParser *)parser {
     [parser release];
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"LAEventDatabaseUpdated" object: self];
 	[events sortUsingSelector: @selector(compareDateWithEvent:)];
 }
 
