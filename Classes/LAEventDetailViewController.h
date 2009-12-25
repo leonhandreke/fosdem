@@ -10,6 +10,7 @@
 
 #import "TKOverviewHeaderView.h"
 #import "LAEvent.h"
+#import "LAEventDatabase.h"
 
 @interface LAEventDetailViewController : UIViewController {
 

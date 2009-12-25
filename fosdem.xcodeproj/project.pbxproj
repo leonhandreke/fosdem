@@ -218,6 +218,7 @@
 				237FF51910E2B36700DA34A8 /* lameere.png */,
 				237FF51A10E2B36700DA34A8 /* UA2.114.png */,
 			);
+			includeInIndex = 1;
 			path = maps;
 			sourceTree = "<group>";
 		};
