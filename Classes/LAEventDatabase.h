@@ -58,6 +58,8 @@
 
 + (void) releaseMainEventDatabase;
 
+- (NSString*) mapForEvent: (LAEvent*) event;
+
 @property (retain) NSMutableArray *events;
 @property (retain) NSMutableDictionary *eventsUserData;
 

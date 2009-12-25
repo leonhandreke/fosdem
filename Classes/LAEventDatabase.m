@@ -340,6 +340,27 @@ static LAEventDatabase *mainEventDatabase = nil;
     eventsOnDayCache = [[NSMutableDictionary alloc] init];
 }
 
+- (NSString*) mapForEvent: (LAEvent*) event {
+
+	//if ([[NSFileManager defaultManager] fileExistsAtPath: [NSString stringWithFormat: @"%@%@", [[NSBundle mainBundle] resourcePath], [event location]]])
+	//NSLog([NSString stringWithFormat: @"%@/%@.png", [[NSBundle mainBundle] resourcePath], [event location]]);
+	
+	/* String for the path
+	 
+	 [NSString stringWithFormat: @"%@/%@.png", [[NSBundle mainBundle] resourcePath], [event location]];
+	 
+	 */
+	
+	if ([[NSFileManager defaultManager] fileExistsAtPath: [NSString stringWithFormat: @"%@/%@.png", [[NSBundle mainBundle] resourcePath], [event location]]]) {
+	
+		return [NSString stringWithFormat: @"%@/%@.png", [[NSBundle mainBundle] resourcePath], [event location]];
+	
+	} 
+		
+	return nil;
+	
+}
+
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     [events release];
