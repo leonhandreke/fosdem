@@ -2,17 +2,17 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">768</int>
-		<string key="IBDocument.SystemVersion">10A432</string>
-		<string key="IBDocument.InterfaceBuilderVersion">732</string>
-		<string key="IBDocument.AppKitVersion">1038</string>
-		<string key="IBDocument.HIToolboxVersion">437.00</string>
+		<string key="IBDocument.SystemVersion">10C540</string>
+		<string key="IBDocument.InterfaceBuilderVersion">740</string>
+		<string key="IBDocument.AppKitVersion">1038.25</string>
+		<string key="IBDocument.HIToolboxVersion">458.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">58</string>
+			<string key="NS.object.0">62</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="160"/>
+			<integer value="159"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -53,14 +53,18 @@
 			<object class="IBUITabBarController" id="1034742383">
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="28588800">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="988374751">
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="206565188">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="322930467">
+						<string key="IBUITitle">Soon</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">clock.png</string>
+						</object>
 						<reference key="IBUITabBar"/>
-						<int key="IBUISystemItemIdentifier">8</int>
 					</object>
 					<reference key="IBUIParentViewController" ref="1034742383"/>
 					<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="486453273">
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="68627016">
 						<nil key="NSNextResponder"/>
 						<int key="NSvFlags">256</int>
 						<string key="NSFrameSize">{0, 0}</string>
@@ -70,32 +74,27 @@
 					</object>
 					<object class="NSMutableArray" key="IBUIViewControllers">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUIViewController" id="1024858337">
-							<string key="IBUITitle">Events</string>
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="920749748">
+						<object class="IBUIViewController" id="143331072">
+							<string key="IBUITitle">Soon</string>
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="908558134">
 								<reference key="IBUINavigationBar"/>
-								<string key="IBUITitle">Lectures</string>
-								<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="427043529">
-									<int key="IBUIStyle">1</int>
-									<int key="IBUISystemItemIdentifier">13</int>
-								</object>
+								<string key="IBUITitle">Soon</string>
 							</object>
-							<reference key="IBUIParentViewController" ref="28588800"/>
-							<string key="IBUINibName">LAEventsTableViewController</string>
+							<reference key="IBUIParentViewController" ref="206565188"/>
+							<string key="IBUINibName">LAUpcomingEventsTableViewController</string>
 						</object>
 					</object>
 				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<reference ref="28588800"/>
-					<object class="IBUINavigationController" id="206565188">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="322930467">
-							<string key="IBUITitle">Soon</string>
+					<object class="IBUINavigationController" id="28588800">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="988374751">
 							<reference key="IBUITabBar"/>
+							<int key="IBUISystemItemIdentifier">8</int>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
 						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-						<object class="IBUINavigationBar" key="IBUINavigationBar" id="68627016">
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="486453273">
 							<nil key="NSNextResponder"/>
 							<int key="NSvFlags">256</int>
 							<string key="NSFrameSize">{0, 0}</string>
@@ -105,16 +104,21 @@
 						</object>
 						<object class="NSMutableArray" key="IBUIViewControllers">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIViewController" id="143331072">
-								<string key="IBUITitle">Soon</string>
-								<object class="IBUINavigationItem" key="IBUINavigationItem" id="908558134">
-									<string key="IBUITitle">Soon</string>
+							<object class="IBUIViewController" id="1024858337">
+								<string key="IBUITitle">Events</string>
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="920749748">
+									<string key="IBUITitle">Lectures</string>
+									<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="427043529">
+										<int key="IBUIStyle">1</int>
+										<int key="IBUISystemItemIdentifier">13</int>
+									</object>
 								</object>
-								<reference key="IBUIParentViewController" ref="206565188"/>
-								<string key="IBUINibName">LAUpcomingEventsTableViewController</string>
+								<reference key="IBUIParentViewController" ref="28588800"/>
+								<string key="IBUINibName">LAEventsTableViewController</string>
 							</object>
 						</object>
 					</object>
+					<reference ref="206565188"/>
 					<object class="IBUINavigationController" id="308653882">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="137002917">
 							<reference key="IBUITabBar"/>
@@ -797,6 +801,6 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<string key="IBDocument.LastKnownRelativeProjectPath">fosdem.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">3.0</string>
+		<string key="IBCocoaTouchPluginVersion">3.1</string>
 	</data>
 </archive>

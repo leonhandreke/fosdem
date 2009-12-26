@@ -33,6 +33,7 @@
 		237FF52B10E2B36700DA34A8 /* lameere.png in Resources */ = {isa = PBXBuildFile; fileRef = 237FF51910E2B36700DA34A8 /* lameere.png */; };
 		237FF52C10E2B36700DA34A8 /* UA2.114.png in Resources */ = {isa = PBXBuildFile; fileRef = 237FF51A10E2B36700DA34A8 /* UA2.114.png */; };
 		239B8E4D10CE6038005FF2CB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 239B8E4C10CE6038005FF2CB /* Default.png */; };
+		23DFA07610E639E600794712 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 23DFA07510E639E600794712 /* clock.png */; };
 		23F864A410A2C451000B39DA /* LATracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F864A210A2C451000B39DA /* LATracksTableViewController.m */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
@@ -93,6 +94,7 @@
 		237FF51910E2B36700DA34A8 /* lameere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lameere.png; sourceTree = "<group>"; };
 		237FF51A10E2B36700DA34A8 /* UA2.114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UA2.114.png; sourceTree = "<group>"; };
 		239B8E4C10CE6038005FF2CB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		23DFA07510E639E600794712 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		23F864A110A2C451000B39DA /* LATracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LATracksTableViewController.h; sourceTree = "<group>"; };
 		23F864A210A2C451000B39DA /* LATracksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LATracksTableViewController.m; sourceTree = "<group>"; };
 		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -247,6 +249,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				23DFA07510E639E600794712 /* clock.png */,
 				237FF50810E2B36700DA34A8 /* maps */,
 				35152FCF10E1841E0089466A /* TapkuLibrary.bundle */,
 				239B8E4C10CE6038005FF2CB /* Default.png */,
@@ -371,6 +374,7 @@
 				237FF52A10E2B36700DA34A8 /* janson.png in Resources */,
 				237FF52B10E2B36700DA34A8 /* lameere.png in Resources */,
 				237FF52C10E2B36700DA34A8 /* UA2.114.png in Resources */,
+				23DFA07610E639E600794712 /* clock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
