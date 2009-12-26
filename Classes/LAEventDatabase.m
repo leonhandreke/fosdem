@@ -340,7 +340,7 @@ static LAEventDatabase *mainEventDatabase = nil;
     eventsOnDayCache = [[NSMutableDictionary alloc] init];
 }
 
-- (NSString*) mapForEvent: (LAEvent*) event {
+- (NSString*) mapHTMLForEvent: (LAEvent*) event {
 
 	//if ([[NSFileManager defaultManager] fileExistsAtPath: [NSString stringWithFormat: @"%@%@", [[NSBundle mainBundle] resourcePath], [event location]]])
 	//NSLog([NSString stringWithFormat: @"%@/%@.png", [[NSBundle mainBundle] resourcePath], [event location]]);
@@ -353,11 +353,11 @@ static LAEventDatabase *mainEventDatabase = nil;
 	
 	if ([[NSFileManager defaultManager] fileExistsAtPath: [NSString stringWithFormat: @"%@/%@.png", [[NSBundle mainBundle] resourcePath], [event location]]]) {
 	
-		return [NSString stringWithFormat: @"%@/%@.png", [[NSBundle mainBundle] resourcePath], [event location]];
+		return [NSString stringWithFormat: @"<img src=\"%@/%@.png\" />", [[NSBundle mainBundle] resourcePath], [event location]];
 	
 	} 
 		
-	return nil;
+	return @"Map Not Found!";
 	
 }
 

@@ -24,6 +24,8 @@ p.map {
 	margin-left: auto;
     margin-right: auto;
 	width: 310px;
+	font-size: 10pt;
+	text-align: justify;
 }
 
 .spacer {
