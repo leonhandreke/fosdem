@@ -2,6 +2,7 @@ body {
 	list-style-position: outside;
 	list-style-type: disc;
 	font-family: Helvetica;
+	
 }
 
 .title {
@@ -19,10 +20,14 @@ body {
 	text-align: justify;
 }
 
-.map {
+p.map {
+	margin-left: auto;
+    margin-right: auto;
+	width: 310px;
+}
 
-	
-
+.spacer {
+	height: 2px;
 }
 
 img {
