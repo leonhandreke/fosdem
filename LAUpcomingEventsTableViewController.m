@@ -34,11 +34,12 @@
 	
 	// Always use an up-to-date date
 	// DEBUG!
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	/*NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
 	baseDate = [dateFormatter dateFromString: @"2009-02-08 14:01:00 +0000"];
-	[dateFormatter release];
-	
+	[dateFormatter release];*/
+	baseDate = [NSDate date];
+    
 	// I know caching it here is evil but I have deadlines :)
 	eventsNow = [[[LAEventDatabase sharedEventDatabase] eventsWhile: baseDate] retain];
 	eventsSoon = [[[LAEventDatabase sharedEventDatabase] eventsInTimeInterval: 3600 afterDate: baseDate] retain];
