@@ -357,7 +357,7 @@
     
 
     
-    NSURLRequest *databaseDownloadRequest = [NSURLRequest requestWithURL: [NSURL URLWithString: @"http://roubaix.landasoftware.com/fosdem_schedule.xcal"]];
+    NSURLRequest *databaseDownloadRequest = [NSURLRequest requestWithURL: [NSURL URLWithString: @"http://fosdem.org/2010/schedule/xcal"]];
     LADownload *fileDownload = [[LADownload alloc] initWithRequest:databaseDownloadRequest 
                                                        destination: [LAEventDatabase cachedDatabaseLocation] 
                                                           delegate: self];
