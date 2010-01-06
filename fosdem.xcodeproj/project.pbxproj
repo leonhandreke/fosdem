@@ -47,6 +47,7 @@
 		3525449010BC7ED0007D9C6B /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 3525448F10BC7ED0007D9C6B /* template.html */; };
 		3535FC0710B93F480057FF8E /* StarOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 3535FC0510B93F480057FF8E /* StarOff.png */; };
 		3535FC0810B93F480057FF8E /* StarOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3535FC0610B93F480057FF8E /* StarOn.png */; };
+		3540AE1310F4A5DC00B0BF70 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 3540AE1210F4A5DC00B0BF70 /* LICENSE */; };
 		357675D61089D2310042806B /* LAEventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357675D31089D2310042806B /* LAEventsTableViewController.xib */; };
 		357675E11089D2400042806B /* LAEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 357675D81089D2400042806B /* LAEvent.m */; };
 		357675E21089D2400042806B /* LAEventDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 357675DA1089D2400042806B /* LAEventDatabase.m */; };
@@ -114,6 +115,7 @@
 		3525448F10BC7ED0007D9C6B /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		3535FC0510B93F480057FF8E /* StarOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarOff.png; sourceTree = "<group>"; };
 		3535FC0610B93F480057FF8E /* StarOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarOn.png; sourceTree = "<group>"; };
+		3540AE1210F4A5DC00B0BF70 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		357675D31089D2310042806B /* LAEventsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LAEventsTableViewController.xib; sourceTree = "<group>"; };
 		357675D71089D2400042806B /* LAEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAEvent.h; sourceTree = "<group>"; };
 		357675D81089D2400042806B /* LAEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAEvent.m; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				8D1107310486CEB800E47090 /* fosdem-Info.plist */,
 				233CA63510A478A800D84609 /* TODO */,
 				35A444BF10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.xib */,
+				3540AE1210F4A5DC00B0BF70 /* LICENSE */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				237FF52C10E2B36700DA34A8 /* UA2.114.png in Resources */,
 				23DFA07610E639E600794712 /* clock.png in Resources */,
 				23FF00D810F1181A00D1137F /* icon.png in Resources */,
+				3540AE1310F4A5DC00B0BF70 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
