@@ -1,17 +1,6 @@
-- Events taking place now or in the near future view.
-	- Work out a way to find events happening now and coming up and cache them. (NSDictionary containing date and event array, updated if older than 5 minutes or on launch?)
-	- TableView with Sections for now, 1 hour away, 2 hours away.
-
 - Redesign details view controller.
 	- Make sure the space is correct between the title and the track name (is it still practical to have the track name in this place?) - Has this been done yet ?
 	- Do we wan't to have pictures of the concerned person?
 
-- Database caching (would allow us to restore our caches as well)
-    
-- Starred icon: Contact Byline developer about using the icons!
 
 - Fix tracks (new xcal database broke the old tracks as there is no longer a tracks field, have to ask and see if it can be included as <track>)
-
-- Dynamic database loading - live update of the relevant views. As far as I can see, LAEventsTableViewController doesn't do that yet - Leon 18.12.2009
-
-- Take the debug date out of the upcoming table view
