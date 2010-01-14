@@ -24,6 +24,7 @@
 	UIProgressView *downloadProgressBar;
     UIActionSheet *downloadActionSheet;
     LADownload *download;
+	NSDateFormatter *timeDateFormatter;
 	
 	IBOutlet LAEventTableViewCell *eventCell;
 	

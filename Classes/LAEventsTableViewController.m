@@ -30,6 +30,9 @@
     
     filteredEvents = [[NSMutableArray alloc] init];
     
+	timeDateFormatter = [[NSDateFormatter alloc] init];
+	[timeDateFormatter setDateFormat: @"HH:mm"];
+	
     // We do not need this here because we do not care about starred events in this table view
     /*[[NSNotificationCenter defaultCenter] addObserver: self 
 	 selector: @selector(eventDatabaseUpdated) 
@@ -174,9 +177,8 @@
 //NSLog(@"%@", [[LAEventDatabase sharedEventDatabase] starredEvents]);
 	[[cell titleLabel] setText: [event title]];
 	[[cell subtitleLabel] setText: [event speaker]];
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat: @"HH:mm"];
-	[[cell timeLabel] setText: [dateFormatter stringFromDate: [event startDate]]];
+	
+	[[cell timeLabel] setText: [timeDateFormatter stringFromDate: [event startDate]]];
 
 return cell;
 }
