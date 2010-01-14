@@ -34,6 +34,8 @@
 		237FF52C10E2B36700DA34A8 /* UA2.114.png in Resources */ = {isa = PBXBuildFile; fileRef = 237FF51A10E2B36700DA34A8 /* UA2.114.png */; };
 		239B8E4D10CE6038005FF2CB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 239B8E4C10CE6038005FF2CB /* Default.png */; };
 		23DFA07610E639E600794712 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 23DFA07510E639E600794712 /* clock.png */; };
+		23F7D4B110FF40C400CCDAA1 /* LAEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F7D4B010FF40C400CCDAA1 /* LAEventTableViewCell.m */; };
+		23F7D4BD10FF414700CCDAA1 /* LAEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F7D4BC10FF414700CCDAA1 /* LAEventTableViewCell.xib */; };
 		23F864A410A2C451000B39DA /* LATracksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F864A210A2C451000B39DA /* LATracksTableViewController.m */; };
 		23FF00D810F1181A00D1137F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 23FF00D710F1181A00D1137F /* icon.png */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
@@ -96,6 +98,9 @@
 		237FF51A10E2B36700DA34A8 /* UA2.114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UA2.114.png; sourceTree = "<group>"; };
 		239B8E4C10CE6038005FF2CB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		23DFA07510E639E600794712 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		23F7D4AF10FF40C400CCDAA1 /* LAEventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAEventTableViewCell.h; sourceTree = "<group>"; };
+		23F7D4B010FF40C400CCDAA1 /* LAEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAEventTableViewCell.m; sourceTree = "<group>"; };
+		23F7D4BC10FF414700CCDAA1 /* LAEventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LAEventTableViewCell.xib; sourceTree = "<group>"; };
 		23F864A110A2C451000B39DA /* LATracksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LATracksTableViewController.h; sourceTree = "<group>"; };
 		23F864A210A2C451000B39DA /* LATracksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LATracksTableViewController.m; sourceTree = "<group>"; };
 		23FF00D710F1181A00D1137F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -185,6 +190,8 @@
 				3525422810BC4DD5007D9C6B /* LAStarredTableViewController.m */,
 				35A444BD10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.h */,
 				35A444BE10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.m */,
+				23F7D4AF10FF40C400CCDAA1 /* LAEventTableViewCell.h */,
+				23F7D4B010FF40C400CCDAA1 /* LAEventTableViewCell.m */,
 				35A443B710DB5EAE00DA30A3 /* Tapku */,
 				35A444AC10DC2ACC00DA30A3 /* NSDate+Between.h */,
 				35A444AD10DC2ACC00DA30A3 /* NSDate+Between.m */,
@@ -269,6 +276,7 @@
 				8D1107310486CEB800E47090 /* fosdem-Info.plist */,
 				233CA63510A478A800D84609 /* TODO */,
 				35A444BF10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.xib */,
+				23F7D4BC10FF414700CCDAA1 /* LAEventTableViewCell.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -379,6 +387,7 @@
 				237FF52C10E2B36700DA34A8 /* UA2.114.png in Resources */,
 				23DFA07610E639E600794712 /* clock.png in Resources */,
 				23FF00D810F1181A00D1137F /* icon.png in Resources */,
+				23F7D4BD10FF414700CCDAA1 /* LAEventTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +416,7 @@
 				35A4450710DCF56600DA30A3 /* UIViewAdditions.m in Sources */,
 				2348FD6510DE93C900021671 /* LADownload.m in Sources */,
 				35152FC010E183C30089466A /* NSStringAdditions.m in Sources */,
+				23F7D4B110FF40C400CCDAA1 /* LAEventTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

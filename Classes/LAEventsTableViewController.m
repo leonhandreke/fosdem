@@ -11,6 +11,7 @@
 
 @implementation LAEventsTableViewController
 
+@synthesize eventCell;
 
 /*
  - (id)initWithStyle:(UITableViewStyle)style {
@@ -29,9 +30,9 @@
     
     // We do not need this here because we do not care about starred events in this table view
     /*[[NSNotificationCenter defaultCenter] addObserver: self 
-                                             selector: @selector(eventDatabaseUpdated) 
-                                                 name: @"LAEventUpdated"  
-                                               object: nil];*/
+	 selector: @selector(eventDatabaseUpdated) 
+	 name: @"LAEventUpdated"  
+	 object: nil];*/
     [[NSNotificationCenter defaultCenter] addObserver: self 
                                              selector: @selector(eventDatabaseUpdated) 
                                                  name: @"LAEventDatabaseUpdated"  
@@ -48,7 +49,7 @@
         filteredEvents = nil;
         filteredEvents = [[NSMutableArray alloc] init];
     }
-
+	
     if (tableHeaderStrings) {
         [tableHeaderStrings release];
         tableHeaderStrings = nil;
@@ -137,7 +138,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	static NSString *CellIdentifier = @"EventCell";
-
+	
     LAEvent *event = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
@@ -150,16 +151,32 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    // Set up the cell...
-	//NSLog(@"%@", [[LAEventDatabase sharedEventDatabase] starredEvents]);
-    [[cell textLabel] setText: [event title]];
-    [[cell detailTextLabel] setText: [event speaker]];
-    [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-    
-    return cell;
+		
+		//cell = [[[LAEventTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		[[NSBundle mainBundle] loadNibNamed:@"LAEventTableViewCell" owner:self options:nil];
+		cell = eventCell;
+		self.eventCell = nil;
+        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		/*NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"LAEventTableViewCell" owner:nil options:nil];
+		for(id currentObject in topLevelObjects)
+		{
+			if([currentObject isKindOfClass:[LAEventTableViewCell class]])
+			{
+				cell = (LAEventTableViewCell *)currentObject;
+				break;
+			}
+		}*/
+	}
+
+// Set up the cell...
+//NSLog(@"%@", [[LAEventDatabase sharedEventDatabase] starredEvents]);
+	[[cell titleLabel] setText: [event title]];
+	[[cell subtitleLabel] setText: [event speaker]];
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat: @"HH:mm"];
+	[[cell timeLabel] setText: [dateFormatter stringFromDate: [event startDate]]];
+
+return cell;
 }
 
 // Method to override if 
@@ -167,7 +184,7 @@
 	LAEvent *event = nil;
 	NSDate *sectionDay = [[[LAEventDatabase sharedEventDatabase] uniqueDays] objectAtIndex: indexPath.section];
 	event = [[[LAEventDatabase sharedEventDatabase] eventsOnDay: sectionDay] objectAtIndex: indexPath.row];
-
+	
 	return event;
 }
 
@@ -335,7 +352,7 @@
 }
 
 - (IBAction) refreshDatabase: (id) sender {
-
+	
 	UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(-140, -18, 280, 25)];
     [progressView setProgress: 0.0];
     [progressView setProgressViewStyle: UIProgressViewStyleBar];
@@ -355,7 +372,7 @@
     [menu showInView:self.view];
     [menu setBounds:CGRectMake(0,0,320, 175)];
     
-
+	
     
     NSURLRequest *databaseDownloadRequest = [NSURLRequest requestWithURL: [NSURL URLWithString: @"http://fosdem.org/2010/schedule/xcal"]];
     LADownload *fileDownload = [[LADownload alloc] initWithRequest:databaseDownloadRequest 
@@ -363,7 +380,7 @@
                                                           delegate: self];
     download = fileDownload;
     [fileDownload start];
-
+	
 }
 
 
