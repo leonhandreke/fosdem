@@ -175,10 +175,10 @@
 
 // Set up the cell...
 //NSLog(@"%@", [[LAEventDatabase sharedEventDatabase] starredEvents]);
-	[[cell titleLabel] setText: [event title]];
-	[[cell subtitleLabel] setText: [event speaker]];
+	[[(LAEventTableViewCell*) cell titleLabel] setText: [event title]];
+	[[(LAEventTableViewCell*) cell subtitleLabel] setText: [event speaker]];
 	
-	[[cell timeLabel] setText: [timeDateFormatter stringFromDate: [event startDate]]];
+	[[(LAEventTableViewCell*) cell timeLabel] setText: [timeDateFormatter stringFromDate: [event startDate]]];
 
 return cell;
 }
