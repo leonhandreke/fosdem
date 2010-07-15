@@ -1,6 +1,8 @@
-- Redesign details view controller.
-	- Make sure the space is correct between the title and the track name (is it still practical to have the track name in this place?) - Has this been done yet ?
-	- Do we wan't to have pictures of the concerned person?
+- Event still to come view
+	- Allows people to view evens still to come with having to scroll through all of the lectures that have already taken place.
 
+- Get a symbolic link to the database file (allows updating the database without having to resubmit the app to the appstore)
+
+- Reachability code for downloading database
 
 - Fix tracks (new xcal database broke the old tracks as there is no longer a tracks field, have to ask and see if it can be included as <track>)
