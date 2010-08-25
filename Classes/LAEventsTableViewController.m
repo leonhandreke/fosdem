@@ -116,6 +116,7 @@
     }
 	else
 	{
+        //NSLog(@"%d", [[eventDatabase uniqueDays] count]);
         return [[[LAEventDatabase sharedEventDatabase] uniqueDays] count];
     }
     
@@ -155,20 +156,34 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
+		
+		//cell = [[[LAEventTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
 		[[NSBundle mainBundle] loadNibNamed:@"LAEventTableViewCell" owner:self options:nil];
-		cell = [[self eventCell] copy];
-		//self.eventCell = nil;
+		cell = eventCell;
+		self.eventCell = nil;
+        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		/*NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"LAEventTableViewCell" owner:nil options:nil];
+		for(id currentObject in topLevelObjects)
+		{
+			if([currentObject isKindOfClass:[LAEventTableViewCell class]])
+			{
+				cell = (LAEventTableViewCell *)currentObject;
+				break;
+			}
+		}*/
 	}
-	
-	// Set up the cell contents...
-	
+
+// Set up the cell...
+//NSLog(@"%@", [[LAEventDatabase sharedEventDatabase] starredEvents]);
 	[[(LAEventTableViewCell*) cell titleLabel] setText: [event title]];
 	[[(LAEventTableViewCell*) cell subtitleLabel] setText: [event speaker]];
-	[[(LAEventTableViewCell*) cell timeLabel] setText: [timeDateFormatter stringFromDate: [event startDate]]];
 	
-	return cell;
+	[[(LAEventTableViewCell*) cell timeLabel] setText: [timeDateFormatter stringFromDate: [event startDate]]];
+
+return cell;
 }
 
+// Method to override if 
 - (LAEvent *)eventForRowAtIndexPath:(NSIndexPath *)indexPath {
 	LAEvent *event = nil;
 	NSDate *sectionDay = [[[LAEventDatabase sharedEventDatabase] uniqueDays] objectAtIndex: indexPath.section];
@@ -188,12 +203,10 @@
         if (tableHeaderStrings != nil) {
             return [tableHeaderStrings objectAtIndex: section];
         }
-		
+        
         [tableHeaderStrings release];
         tableHeaderStrings = [[NSMutableArray alloc] init];
-		
         // Generate new table view headers
-		
         NSEnumerator *uniqueDaysEnumerator = [[[LAEventDatabase sharedEventDatabase] uniqueDays] objectEnumerator];
         NSDate *currentDate;
         
