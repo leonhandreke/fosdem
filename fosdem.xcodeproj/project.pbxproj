@@ -12,6 +12,9 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		233CA63610A478A800D84609 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 233CA63510A478A800D84609 /* TODO */; };
+		233DFA2C1226ABA900D7FD27 /* UIView+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 233DFA2B1226ABA900D7FD27 /* UIView+TKCategory.m */; };
+		233DFA301226ABCB00D7FD27 /* UIImage+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 233DFA2F1226ABCB00D7FD27 /* UIImage+TKCategory.m */; };
+		233DFA331226ABEF00D7FD27 /* NSString+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 233DFA321226ABEF00D7FD27 /* NSString+TKCategory.m */; };
 		2348FD6510DE93C900021671 /* LADownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 2348FD6410DE93C900021671 /* LADownload.m */; };
 		2377DBC710BECE68008FDE65 /* fosdem_schedule.xcal in Resources */ = {isa = PBXBuildFile; fileRef = 2377DBC610BECE68008FDE65 /* fosdem_schedule.xcal */; };
 		237FF51B10E2B36700DA34A8 /* AW1.105.png in Resources */ = {isa = PBXBuildFile; fileRef = 237FF50910E2B36700DA34A8 /* AW1.105.png */; };
@@ -40,7 +43,6 @@
 		23FF00D810F1181A00D1137F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 23FF00D710F1181A00D1137F /* icon.png */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
-		35152FC010E183C30089466A /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35152FBE10E183C30089466A /* NSStringAdditions.m */; };
 		35152FD010E1841E0089466A /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 35152FCF10E1841E0089466A /* TapkuLibrary.bundle */; };
 		3525421D10BC4D66007D9C6B /* LAEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3525421B10BC4D66007D9C6B /* LAEventDetailViewController.xib */; };
 		3525421E10BC4D66007D9C6B /* LATracksTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3525421C10BC4D66007D9C6B /* LATracksTableViewController.xib */; };
@@ -64,8 +66,6 @@
 		35A444AE10DC2ACC00DA30A3 /* NSDate+Between.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A444AD10DC2ACC00DA30A3 /* NSDate+Between.m */; };
 		35A444C010DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A444BE10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.m */; };
 		35A444C110DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A444BF10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.xib */; };
-		35A4450610DCF56600DA30A3 /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A4450310DCF56600DA30A3 /* UIImageAdditions.m */; };
-		35A4450710DCF56600DA30A3 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A4450510DCF56600DA30A3 /* UIViewAdditions.m */; };
 		35D23B81106F87C3003D9E0A /* descriptionPage.css in Resources */ = {isa = PBXBuildFile; fileRef = 35D23B80106F87C3003D9E0A /* descriptionPage.css */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +76,12 @@
 		1D6058910D05DD3D006BFB54 /* fosdem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fosdem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		233CA63510A478A800D84609 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		233DFA2A1226ABA900D7FD27 /* UIView+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+TKCategory.h"; path = "../tapkulibrary/src/TapkuLibrary/UIView+TKCategory.h"; sourceTree = SOURCE_ROOT; };
+		233DFA2B1226ABA900D7FD27 /* UIView+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+TKCategory.m"; path = "../tapkulibrary/src/TapkuLibrary/UIView+TKCategory.m"; sourceTree = SOURCE_ROOT; };
+		233DFA2E1226ABCB00D7FD27 /* UIImage+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+TKCategory.h"; path = "../tapkulibrary/src/TapkuLibrary/UIImage+TKCategory.h"; sourceTree = SOURCE_ROOT; };
+		233DFA2F1226ABCB00D7FD27 /* UIImage+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+TKCategory.m"; path = "../tapkulibrary/src/TapkuLibrary/UIImage+TKCategory.m"; sourceTree = SOURCE_ROOT; };
+		233DFA311226ABEF00D7FD27 /* NSString+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TKCategory.h"; path = "../tapkulibrary/src/TapkuLibrary/NSString+TKCategory.h"; sourceTree = SOURCE_ROOT; };
+		233DFA321226ABEF00D7FD27 /* NSString+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TKCategory.m"; path = "../tapkulibrary/src/TapkuLibrary/NSString+TKCategory.m"; sourceTree = SOURCE_ROOT; };
 		2348FD6310DE93C900021671 /* LADownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LADownload.h; path = ../LADownload.h; sourceTree = "<group>"; };
 		2348FD6410DE93C900021671 /* LADownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LADownload.m; path = ../LADownload.m; sourceTree = "<group>"; };
 		2377DBC610BECE68008FDE65 /* fosdem_schedule.xcal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = fosdem_schedule.xcal; sourceTree = "<group>"; };
@@ -109,8 +115,6 @@
 		28A0AB4B0D9B1048005BE974 /* fosdem_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fosdem_Prefix.pch; sourceTree = "<group>"; };
 		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		35152FBD10E183C30089466A /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringAdditions.h; path = ../tapkulibrary/src/TapkuLibrary/NSStringAdditions.h; sourceTree = SOURCE_ROOT; };
-		35152FBE10E183C30089466A /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringAdditions.m; path = ../tapkulibrary/src/TapkuLibrary/NSStringAdditions.m; sourceTree = SOURCE_ROOT; };
 		35152FCF10E1841E0089466A /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TapkuLibrary.bundle; path = ../tapkulibrary/src/TapkuLibrary.bundle; sourceTree = SOURCE_ROOT; };
 		3525421B10BC4D66007D9C6B /* LAEventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LAEventDetailViewController.xib; sourceTree = "<group>"; };
 		3525421C10BC4D66007D9C6B /* LATracksTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LATracksTableViewController.xib; sourceTree = "<group>"; };
@@ -145,10 +149,6 @@
 		35A444BD10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LAUpcomingEventsTableViewController.h; path = ../LAUpcomingEventsTableViewController.h; sourceTree = "<group>"; };
 		35A444BE10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LAUpcomingEventsTableViewController.m; path = ../LAUpcomingEventsTableViewController.m; sourceTree = "<group>"; };
 		35A444BF10DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LAUpcomingEventsTableViewController.xib; sourceTree = "<group>"; };
-		35A4450210DCF56600DA30A3 /* UIImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageAdditions.h; path = ../tapkulibrary/src/TapkuLibrary/UIImageAdditions.h; sourceTree = SOURCE_ROOT; };
-		35A4450310DCF56600DA30A3 /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageAdditions.m; path = ../tapkulibrary/src/TapkuLibrary/UIImageAdditions.m; sourceTree = SOURCE_ROOT; };
-		35A4450410DCF56600DA30A3 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewAdditions.h; path = ../tapkulibrary/src/TapkuLibrary/UIViewAdditions.h; sourceTree = SOURCE_ROOT; };
-		35A4450510DCF56600DA30A3 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewAdditions.m; path = ../tapkulibrary/src/TapkuLibrary/UIViewAdditions.m; sourceTree = SOURCE_ROOT; };
 		35D23B80106F87C3003D9E0A /* descriptionPage.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = descriptionPage.css; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* fosdem-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "fosdem-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -298,12 +298,12 @@
 		35A443B710DB5EAE00DA30A3 /* Tapku */ = {
 			isa = PBXGroup;
 			children = (
-				35152FBD10E183C30089466A /* NSStringAdditions.h */,
-				35152FBE10E183C30089466A /* NSStringAdditions.m */,
-				35A4450210DCF56600DA30A3 /* UIImageAdditions.h */,
-				35A4450310DCF56600DA30A3 /* UIImageAdditions.m */,
-				35A4450410DCF56600DA30A3 /* UIViewAdditions.h */,
-				35A4450510DCF56600DA30A3 /* UIViewAdditions.m */,
+				233DFA311226ABEF00D7FD27 /* NSString+TKCategory.h */,
+				233DFA321226ABEF00D7FD27 /* NSString+TKCategory.m */,
+				233DFA2E1226ABCB00D7FD27 /* UIImage+TKCategory.h */,
+				233DFA2F1226ABCB00D7FD27 /* UIImage+TKCategory.m */,
+				233DFA2A1226ABA900D7FD27 /* UIView+TKCategory.h */,
+				233DFA2B1226ABA900D7FD27 /* UIView+TKCategory.m */,
 				35A443F610DB5FCE00DA30A3 /* TKGlobal.h */,
 				35A443F710DB5FCE00DA30A3 /* TKGlobal.m */,
 				35A443BD10DB5EF700DA30A3 /* TKOverviewHeaderView.h */,
@@ -416,11 +416,11 @@
 				35A443F810DB5FCE00DA30A3 /* TKGlobal.m in Sources */,
 				35A444AE10DC2ACC00DA30A3 /* NSDate+Between.m in Sources */,
 				35A444C010DC2FEC00DA30A3 /* LAUpcomingEventsTableViewController.m in Sources */,
-				35A4450610DCF56600DA30A3 /* UIImageAdditions.m in Sources */,
-				35A4450710DCF56600DA30A3 /* UIViewAdditions.m in Sources */,
 				2348FD6510DE93C900021671 /* LADownload.m in Sources */,
-				35152FC010E183C30089466A /* NSStringAdditions.m in Sources */,
 				23F7D4B110FF40C400CCDAA1 /* LAEventTableViewCell.m in Sources */,
+				233DFA2C1226ABA900D7FD27 /* UIView+TKCategory.m in Sources */,
+				233DFA301226ABCB00D7FD27 /* UIImage+TKCategory.m in Sources */,
+				233DFA331226ABEF00D7FD27 /* NSString+TKCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,9 +461,10 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "94064858-A3F7-4998-8FFB-445B3AA3B77A";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Distribution;
 		};
@@ -488,8 +489,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -501,8 +503,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};
