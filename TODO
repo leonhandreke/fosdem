@@ -6,3 +6,5 @@
 - Reachability code for downloading database
 
 - Fix tracks (new xcal database broke the old tracks as there is no longer a tracks field, have to ask and see if it can be included as <track>)
+
+- New year reset favorites
