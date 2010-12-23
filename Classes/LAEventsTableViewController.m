@@ -378,7 +378,7 @@ return cell;
     
 	
     
-    NSURLRequest *databaseDownloadRequest = [NSURLRequest requestWithURL: [NSURL URLWithString: @"http://fosdem.org/2011/schedule/xcal"]];
+    NSURLRequest *databaseDownloadRequest = [NSURLRequest requestWithURL: [NSURL URLWithString: @"http://fosdem.org/schedule/xcal"]];
     LADownload *fileDownload = [[LADownload alloc] initWithRequest:databaseDownloadRequest 
                                                        destination: [LAEventDatabase cachedDatabaseLocation] 
                                                           delegate: self];
