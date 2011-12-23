@@ -14,12 +14,23 @@
 @implementation LAEvent
 
 @synthesize identifier, title, subtitle, speaker, location, track, type, contentAbstract, contentDescription, startDate, endDate;
-/*
+
 - (LAEvent *)init {
+
     if (self = [super init]) {
+
+        // Set the following to an empty string in case they are not defined in the schedule file
+        // Not doing this will reult in erroneous search results
+        
+        track = [[NSString alloc] init];
+        speaker = [[NSString alloc] init];
+        
     }
+    
     return self;
-}*/
+
+}
+
 /*
 - (NSMutableDictionary *) userData {
 	return [[LAEventDatabase sharedEventDatabase] userDataForEventWithIdentifier: [self identifier]];
