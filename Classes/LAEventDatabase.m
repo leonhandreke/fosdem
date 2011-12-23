@@ -286,7 +286,8 @@ static LAEventDatabase *mainEventDatabase = nil;
         [userData setObject: [infoDict objectForKey: @"starred"] forKey: @"starred"];
     }
     
-    [[NSFileManager defaultManager] createDirectoryAtPath: [[[self class] userDataFileLocation] stringByDeletingLastPathComponent] attributes: nil];
+    [[NSFileManager defaultManager] createDirectoryAtPath: [[[self class] userDataFileLocation] stringByDeletingLastPathComponent] withIntermediateDirectories: NO attributes: nil error: nil];
+    
     [[self eventsUserData] writeToFile: [[self class] userDataFileLocation] atomically: NO];
 }
 
