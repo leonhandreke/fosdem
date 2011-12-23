@@ -12,7 +12,7 @@
 
 #import "LAEvent.h"
 
-@interface LAEventsXMLParser : NSObject {
+@interface LAEventsXMLParser : NSObject <NSXMLParserDelegate> {
     id delegate;
     NSXMLParser *eventsXMLParser;
     
