@@ -13,7 +13,7 @@
 
 @implementation LAEvent
 
-@synthesize identifier, title, subtitle, speaker, location, track, type, contentAbstract, contentDescription, startDate, endDate, starred;
+@synthesize identifier, title, subtitle, speaker, location, track, type, contentAbstract, contentDescription, startDate, endDate;
 /*
 - (LAEvent *)init {
     if (self = [super init]) {
@@ -24,6 +24,12 @@
 - (NSMutableDictionary *) userData {
 	return [[LAEventDatabase sharedEventDatabase] userDataForEventWithIdentifier: [self identifier]];
 }*/
+
+- (BOOL) isStarred {
+
+    return starred;
+
+}
 
 
 - (void) setStarred:(BOOL) isStarred {
