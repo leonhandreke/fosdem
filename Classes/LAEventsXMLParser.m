@@ -24,7 +24,7 @@
         [eventsXMLParser retain];
 		
 		dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
+        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss vvvv"];
 		
     }
     
