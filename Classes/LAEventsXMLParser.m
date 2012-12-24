@@ -52,7 +52,7 @@
     
 	if ([elementName isEqualToString: @"pentabarf:event-id"] || [elementName isEqualToString: @"pentabarf:start"] || [elementName isEqualToString: @"pentabarf:end"] || [elementName isEqualToString: @"pentabarf:title"] || [elementName isEqualToString: @"location"] ||
 		[elementName isEqualToString: @"pentabarf:subtitle"] || [elementName isEqualToString: @"abstract"] ||
-		[elementName isEqualToString: @"track"] || [elementName isEqualToString: @"type"] ||
+		[elementName isEqualToString: @"pentabarf:track"] || [elementName isEqualToString: @"type"] ||
 		[elementName isEqualToString: @"description"] || [elementName isEqualToString: @"attendee"]) {
 	 
 		[currentStringValue setString: @""];
@@ -97,22 +97,20 @@
 	if ([elementName isEqualToString: @"pentabarf:subtitle"]) {
         [currentEvent setSubtitle: [NSString stringWithString: currentStringValue]];
     }
+    
+	if ([elementName isEqualToString: @"pentabarf:track"]) {
+		[currentEvent setTrack: [NSString stringWithString: currentStringValue]];
+    }
 	
 	// Currently there dosn't seem to be an abstract object
 	if ([elementName isEqualToString: @"abstract"]) {
         //[currentEvent setContentAbstract: [NSString stringWithString: currentStringValue]];
     }
 	
-	// Currently there dosn't seem to be a track object returning emtpy string atm
-	if ([elementName isEqualToString: @"track"]) {
-        //[currentEvent setTrack: [NSString stringWithString: currentStringValue]];
-		[currentEvent setTrack: [NSString stringWithString: @""]];
-    }
-	
 	// Currently there dosn't seem to be a type object returning emtpy string atm
 	if ([elementName isEqualToString: @"type"]) {
         //[currentEvent setType: [NSString stringWithString: currentStringValue]];
-		[currentEvent setType: [NSString stringWithString: @""]];
+		[currentEvent setType: @""];
     }
 	
 	if ([elementName isEqualToString: @"description"]) {
