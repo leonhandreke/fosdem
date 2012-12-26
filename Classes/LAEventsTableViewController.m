@@ -155,32 +155,20 @@
     }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
-		
-		//cell = [[[LAEventTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-		[[NSBundle mainBundle] loadNibNamed:@"LAEventTableViewCell" owner:self options:nil];
-		cell = eventCell;
-		self.eventCell = nil;
-        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-		/*NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"LAEventTableViewCell" owner:nil options:nil];
-		for(id currentObject in topLevelObjects)
-		{
-			if([currentObject isKindOfClass:[LAEventTableViewCell class]])
-			{
-				cell = (LAEventTableViewCell *)currentObject;
-				break;
-			}
-		}*/
-	}
+        
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LAEventTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex: 0];
+        
+    }
+    
+    [[(LAEventTableViewCell*)cell titleLabel] setText: [event title]];
+    [[(LAEventTableViewCell*)cell subtitleLabel] setText: [event speaker]];
+    [[(LAEventTableViewCell*)cell timeLabel] setText: [timeDateFormatter stringFromDate: [event startDate]]];
 
-// Set up the cell...
-//NSLog(@"%@", [[LAEventDatabase sharedEventDatabase] starredEvents]);
-	[[(LAEventTableViewCell*) cell titleLabel] setText: [event title]];
-	[[(LAEventTableViewCell*) cell subtitleLabel] setText: [event speaker]];
-	
-	[[(LAEventTableViewCell*) cell timeLabel] setText: [timeDateFormatter stringFromDate: [event startDate]]];
-
-return cell;
+    return cell;
+    
 }
 
 // Method to override if 
