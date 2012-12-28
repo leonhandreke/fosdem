@@ -11,4 +11,6 @@
 
 @interface NSDate (Extend)
 - (BOOL)isBetweenDate:(NSDate *)dateStart andDate:(NSDate *)dateEnd;
+- (BOOL)isBeforeDate:(NSDate *)date;
+- (NSDate*)getRoundedDate;
 @end

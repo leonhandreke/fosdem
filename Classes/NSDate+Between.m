@@ -20,4 +20,21 @@
 	return YES;
 }
 
+- (BOOL)isBeforeDate:(NSDate *)date {
+
+    if ([self compare:date] == NSOrderedAscending)
+        return YES;
+    
+    return NO;
+    
+}
+
+- (NSDate*)getRoundedDate {
+
+    NSDateComponents *dateComponents = [[NSCalendar autoupdatingCurrentCalendar] components: (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate: self];
+    
+    return [[NSCalendar autoupdatingCurrentCalendar] dateFromComponents:dateComponents];;
+
+}
+
 @end
