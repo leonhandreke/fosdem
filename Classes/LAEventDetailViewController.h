@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TKOverviewHeaderView.h"
+#import "LAHeaderView.h"
 #import "LAEvent.h"
 #import "LAEventDatabase.h"
 

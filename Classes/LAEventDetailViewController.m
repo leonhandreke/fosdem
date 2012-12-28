@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    TKOverviewHeaderView *overviewHeaderView = [[TKOverviewHeaderView alloc] init];
+    LAHeaderView *overviewHeaderView = [[LAHeaderView alloc] init];
     
     NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
    
@@ -34,9 +34,7 @@
     [[overviewHeaderView subtitle] setText: [NSString stringWithFormat: @"%@, %@", dayString, timeString]];
     
     
-    [[overviewHeaderView indicator] setColor: TKOverviewIndicatorViewColorBlue];
     [[overviewHeaderView indicator] setText: [event location]];
-	//[[overviewHeaderView indicator] setHidden: YES];
     
     [headerHolderView addSubview: overviewHeaderView];
     
