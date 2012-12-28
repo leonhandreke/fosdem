@@ -12,7 +12,7 @@
 
 #import "LAEventDatabase.h"
 #import "LAEvent.h"
-#import "LAEventsTableViewController.h"
+
 
 @interface LATracksTableViewController : UITableViewController {
 }
