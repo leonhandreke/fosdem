@@ -19,10 +19,10 @@
 - (id)init {
     
     self = [super initWithFrame: CGRectMake(0,0,320,70)];
-    //CGRectMake(0,0,320,70)
     
     if (self) {
         CGRect rect = CGRectMake(0,0,320,70);
+        
         // Create the title label and attach it to the view
         
         title = [[UILabel alloc] initWithFrame:CGRectMake(12, 10, 200, 23)];
@@ -42,7 +42,7 @@
         
         // Create an indicator for the room
         
-        indicator = [[UILabel alloc] initWithFrame:CGRectMake(rect.size.width*0.75, rect.size.height*0.25, rect.size.width*0.2, rect.size.height*0.5)];
+        indicator = [[UILabel alloc] initWithFrame:CGRectMake(rect.size.width*0.7, rect.size.height*0.25, rect.size.width*0.225, rect.size.height*0.5)];
         indicator.backgroundColor = [UIColor clearColor];
         indicator.font = [UIFont systemFontOfSize:16];
         indicator.textAlignment = NSTextAlignmentCenter;
@@ -70,8 +70,8 @@
     CAGradientLayer *backgroundGradient = [CAGradientLayer layer];
     [backgroundGradient setFrame: rect];
     NSArray *bgGradientColors = [NSArray arrayWithObjects:
-                                [[UIColor colorWithRed:0.7843 green:0.8117 blue:0.8313 alpha:1.0] CGColor],
-                                [[UIColor colorWithRed:0.6627 green:0.6980 blue:0.7254 alpha:1.0] CGColor],
+                                (id)[[UIColor colorWithRed:0.7843 green:0.8117 blue:0.8313 alpha:1.0] CGColor],
+                                (id)[[UIColor colorWithRed:0.6627 green:0.6980 blue:0.7254 alpha:1.0] CGColor],
                                  nil];
     [backgroundGradient setColors: bgGradientColors];
     
