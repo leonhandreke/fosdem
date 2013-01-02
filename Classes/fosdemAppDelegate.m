@@ -19,9 +19,10 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
     
-    // Add the tab bar controller's current view as a subview of the window
-    [window addSubview:tabBarController.view];
-    //[navigationController pushViewController: tabBarController animated: NO];
+    // Set the root view controller to the tab bar controller
+    
+    [[self window] setRootViewController: tabBarController];
+    
 }
 
 
