@@ -344,28 +344,38 @@
 }
 
 - (IBAction) refreshDatabase: (id) sender {
-	
-	UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(-140, -18, 280, 25)];
+    
+    // Create an action sheet to display while downloading
+    
+    UIActionSheet *menu = [[UIActionSheet alloc] initWithTitle:@"Downloading..."
+                                                      delegate:self
+                                             cancelButtonTitle:nil
+                                        destructiveButtonTitle: @"Cancel"
+                                             otherButtonTitles:nil];
+    
+    [menu showFromTabBar: [[self tabBarController] tabBar]];
+    [menu setBounds: CGRectMake(0,0,320, 175)];
+    
+    // Create a progress bar
+        
+    UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, 280, 90)];
+    [progressView setCenter: CGPointMake(menu.center.x,110)];
     [progressView setProgress: 0.0];
     [progressView setProgressViewStyle: UIProgressViewStyleBar];
     progressView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
                                      UIViewAutoresizingFlexibleRightMargin |
                                      UIViewAutoresizingFlexibleTopMargin |
                                      UIViewAutoresizingFlexibleBottomMargin);
+    
+    // Store pointers to the progress bar and the action sheet
+    
     downloadProgressBar = progressView;
-    UIActionSheet *menu = [[UIActionSheet alloc] initWithTitle:@"Downloading..."
-                                                      delegate:self
-                                             cancelButtonTitle:nil
-                                        destructiveButtonTitle: @"Cancel"
-                                             otherButtonTitles:nil];
     downloadActionSheet = menu;
     
+    // Add the progress view to the action sheet
+    
     [menu addSubview:progressView];
-    [menu showInView:self.view];
-    [menu setBounds:CGRectMake(0,0,320, 175)];
-    
-	
-    
+     
     NSURLRequest *databaseDownloadRequest = [NSURLRequest requestWithURL: [NSURL URLWithString: @"http://fosdem.org/schedule/xcal"]];
     LADownload *fileDownload = [[LADownload alloc] initWithRequest:databaseDownloadRequest 
                                                        destination: [LAEventDatabase cachedDatabaseLocation] 
