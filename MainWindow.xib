@@ -60,6 +60,7 @@
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIVisibleAtLaunch">YES</bool>
+				<bool key="IBUIResizesToFullScreen">YES</bool>
 			</object>
 			<object class="IBUITabBarController" id="1034742383">
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
@@ -70,10 +71,10 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="284220077">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="53535442">
-						<string key="IBUITitle">Tracks</string>
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="28588800">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="988374751">
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBUISystemItemIdentifier">8</int>
 					</object>
 					<reference key="IBUIParentViewController" ref="1034742383"/>
 					<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -83,7 +84,7 @@
 					</object>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					<bool key="IBUIHorizontal">NO</bool>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="922595409">
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="486453273">
 						<nil key="NSNextResponder"/>
 						<int key="NSvFlags">256</int>
 						<string key="NSFrameSize">{0, 0}</string>
@@ -94,14 +95,20 @@
 					</object>
 					<object class="NSMutableArray" key="IBUIViewControllers">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUIViewController" id="705338761">
+						<object class="IBUIViewController" id="1024858337">
 							<string key="IBUITitle">Events</string>
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="164969670">
-								<string key="IBUITitle">Tracks</string>
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="920749748">
+								<string key="IBUITitle">Lectures</string>
+								<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="427043529">
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+									<int key="IBUIStyle">1</int>
+									<reference key="IBUINavigationItem" ref="920749748"/>
+									<int key="IBUISystemItemIdentifier">13</int>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<reference key="IBUIParentViewController" ref="284220077"/>
-							<string key="IBUINibName">LATracksTableViewController</string>
+							<reference key="IBUIParentViewController" ref="28588800"/>
+							<string key="IBUINibName">LAEventsTableViewController</string>
 							<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 								<int key="IBUIInterfaceOrientation">1</int>
 								<int key="interfaceOrientation">1</int>
@@ -113,10 +120,15 @@
 				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUINavigationController" id="28588800">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="988374751">
+					<reference ref="28588800"/>
+					<object class="IBUINavigationController" id="284220077">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="53535442">
+							<string key="IBUITitle">Tracks</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">tracks.png</string>
+							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<int key="IBUISystemItemIdentifier">8</int>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
 						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -126,7 +138,7 @@
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIHorizontal">NO</bool>
-						<object class="IBUINavigationBar" key="IBUINavigationBar" id="486453273">
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="922595409">
 							<nil key="NSNextResponder"/>
 							<int key="NSvFlags">256</int>
 							<string key="NSFrameSize">{0, 0}</string>
@@ -137,20 +149,14 @@
 						</object>
 						<object class="NSMutableArray" key="IBUIViewControllers">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIViewController" id="1024858337">
+							<object class="IBUIViewController" id="705338761">
 								<string key="IBUITitle">Events</string>
-								<object class="IBUINavigationItem" key="IBUINavigationItem" id="920749748">
-									<string key="IBUITitle">Lectures</string>
-									<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="427043529">
-										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-										<int key="IBUIStyle">1</int>
-										<reference key="IBUINavigationItem" ref="920749748"/>
-										<int key="IBUISystemItemIdentifier">13</int>
-									</object>
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="164969670">
+									<string key="IBUITitle">Tracks</string>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
-								<reference key="IBUIParentViewController" ref="28588800"/>
-								<string key="IBUINibName">LAEventsTableViewController</string>
+								<reference key="IBUIParentViewController" ref="284220077"/>
+								<string key="IBUINibName">LATracksTableViewController</string>
 								<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 									<int key="IBUIInterfaceOrientation">1</int>
 									<int key="interfaceOrientation">1</int>
@@ -160,7 +166,6 @@
 							</object>
 						</object>
 					</object>
-					<reference ref="284220077"/>
 					<object class="IBUINavigationController" id="206565188">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="322930467">
 							<string key="IBUITitle">Soon</string>
@@ -629,8 +634,17 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">clock.png</string>
-			<string key="NS.object.0">{30, 30}</string>
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>clock.png</string>
+				<string>tracks.png</string>
+			</object>
+			<object class="NSArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{30, 30}</string>
+				<string>{16, 30}</string>
+			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">1930</string>
 	</data>
