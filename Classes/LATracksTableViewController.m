@@ -66,6 +66,7 @@
     
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
     }
 	
 	[[cell textLabel] setText: [[[LAEventDatabase sharedEventDatabase] tracks] objectAtIndex: [indexPath row]]];
