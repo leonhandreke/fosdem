@@ -18,15 +18,23 @@
 @implementation LATracksTableViewController
 
 
-/*
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(eventDatabaseUpdated)
+                                                 name: @"LAEventDatabaseUpdated"
+                                               object: nil];
+    
 }
-*/
 
+- (void)eventDatabaseUpdated {
+
+    [[self tableView] reloadData];
+
+}
 
 - (void)didReceiveMemoryWarning {
     
