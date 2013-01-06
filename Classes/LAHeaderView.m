@@ -36,6 +36,7 @@
         subtitle = [[UILabel alloc] initWithFrame:CGRectMake(12, 34, 200, 22)];
         subtitle.backgroundColor = [UIColor clearColor];
         subtitle.font = [UIFont systemFontOfSize:16];
+        subtitle.adjustsFontSizeToFitWidth = YES;
         subtitle.shadowColor = [UIColor whiteColor];
         subtitle.textColor = [UIColor colorWithRed:0.15 green:0.15 blue:0.15 alpha:1];
         subtitle.shadowOffset = CGSizeMake(0,1);
@@ -45,6 +46,7 @@
         indicator = [[UILabel alloc] initWithFrame:CGRectMake(rect.size.width*0.7, rect.size.height*0.25, rect.size.width*0.225, rect.size.height*0.5)];
         indicator.backgroundColor = [UIColor clearColor];
         indicator.font = [UIFont systemFontOfSize:16];
+        indicator.adjustsFontSizeToFitWidth = YES;
         indicator.textAlignment = NSTextAlignmentCenter;
         indicator.shadowColor = [UIColor whiteColor];
         indicator.textColor = [UIColor colorWithRed:0.15 green:0.15 blue:0.15 alpha:1];
