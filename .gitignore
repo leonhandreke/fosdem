@@ -3,6 +3,8 @@ build/*
 *.pbxuser
 *.mode1v3
 *.perspective*
+*.xcworkspace
+xcuserdata
 
 # old skool
 .svn
