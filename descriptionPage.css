@@ -35,9 +35,10 @@ p.map {
 
 img {
 	margin: 8px;
-	border-color: black;
+	border-color: #000000;
 	border-style: solid;
 	border-width: 1px;
 	float: right;
+    width: 300px;
 }
 
