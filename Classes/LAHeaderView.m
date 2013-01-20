@@ -25,7 +25,7 @@
         
         // Create the title label and attach it to the view
         
-        title = [[UILabel alloc] initWithFrame:CGRectMake(12, 10, 200, 23)];
+        title = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 200, 23)];
         title.backgroundColor = [UIColor clearColor];
         title.font = [UIFont boldSystemFontOfSize:22.0];
         title.adjustsFontSizeToFitWidth = YES;
@@ -33,7 +33,7 @@
         
         // Create the subtitle and attach it to the view
         
-        subtitle = [[UILabel alloc] initWithFrame:CGRectMake(12, 34, 200, 22)];
+        subtitle = [[UILabel alloc] initWithFrame:CGRectMake(12, 39, 200, 22)];
         subtitle.backgroundColor = [UIColor clearColor];
         subtitle.font = [UIFont systemFontOfSize:16];
         subtitle.adjustsFontSizeToFitWidth = YES;
