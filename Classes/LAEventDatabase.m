@@ -307,7 +307,7 @@ static LAEventDatabase *mainEventDatabase = nil;
 	
 	while (currentEvent = [eventsEnumerator nextObject]){
 		
-		if ([[currentEvent startDate] isBetweenDate: startDate andDate: [startDate addTimeInterval:timeInterval]]) {
+		if ([[currentEvent startDate] isBetweenDate: startDate andDate: [startDate dateByAddingTimeInterval:timeInterval]]) {
 			[selectedEvents addObject: currentEvent];
 		}
 	}
