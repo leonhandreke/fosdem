@@ -32,6 +32,7 @@
     
 	timeDateFormatter = [[NSDateFormatter alloc] init];
 	[timeDateFormatter setDateFormat: @"HH:mm"];
+    [timeDateFormatter setTimeZone: [NSTimeZone timeZoneForSecondsFromGMT: 3600]];
 	
     // We do not need this here because we do not care about starred events in this table view
     /*[[NSNotificationCenter defaultCenter] addObserver: self 

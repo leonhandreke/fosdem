@@ -36,10 +36,10 @@
 	
 	// Always use an up-to-date date
 	// DEBUG!
-	/*NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
-	baseDate = [dateFormatter dateFromString: @"2009-02-08 14:01:00 +0000"];
-	[dateFormatter release];*/
+	//NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	//[dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss +0000"];
+	//baseDate = [dateFormatter dateFromString: @"2013-02-02 14:00:00 +0000"];
+	//[dateFormatter release];
 	baseDate = [NSDate date];
     
 	// I know caching it here is evil but I have deadlines :)

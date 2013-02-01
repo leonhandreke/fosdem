@@ -26,8 +26,10 @@
     [[overviewHeaderView title] setText: [event speaker]];
 
     [dateFormatter setDateFormat: @"EEEE"];
+    [dateFormatter setTimeZone: [NSTimeZone timeZoneForSecondsFromGMT: 3600]];
     NSString *dayString = [dateFormatter stringFromDate: [event startDate]];
     [dateFormatter setDateFormat: @"H:mm"];
+    
     //NSLog(@"dayString: %@", dayString);
     NSString *timeString = [NSString stringWithFormat: @"%@ - %@", [dateFormatter stringFromDate: [event startDate]], [dateFormatter stringFromDate: [event endDate]]];
     

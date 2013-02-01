@@ -53,9 +53,11 @@
     
     timeDateFormatter = [[NSDateFormatter alloc] init];
 	[timeDateFormatter setDateFormat: @"HH:mm"];
+    [timeDateFormatter setTimeZone: [NSTimeZone timeZoneForSecondsFromGMT: 3600]];
     
     sectionDateFormatter = [[NSDateFormatter alloc] init];
     [sectionDateFormatter setDateFormat: @"EEEE, MMMM d yyyy"];
+    [sectionDateFormatter setTimeZone: [NSTimeZone timeZoneForSecondsFromGMT: 3600]];
     
 }
 
