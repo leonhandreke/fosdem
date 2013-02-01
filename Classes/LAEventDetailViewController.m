@@ -105,11 +105,11 @@
     UIBarButtonItem *button;
     UIBarButtonItem *flexibleSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace target: nil action: nil] autorelease];
     if([[self event] isStarred]) {
-        button = [[[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"StarOn.png"] style:UIBarButtonItemStylePlain target: self action: @selector(toggleStarred:)] autorelease];
+        button = [[[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"starOn.png"] style:UIBarButtonItemStylePlain target: self action: @selector(toggleStarred:)] autorelease];
         
     }
     else {
-        button = [[[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"StarOff.png"] style: UIBarButtonItemStylePlain target: self action: @selector(toggleStarred:)] autorelease];
+        button = [[[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"starOff.png"] style: UIBarButtonItemStylePlain target: self action: @selector(toggleStarred:)] autorelease];
     }
     NSArray *toolbarItems = [NSArray arrayWithObjects: flexibleSpace, button, flexibleSpace, nil];
     [toolbar setItems: toolbarItems];
