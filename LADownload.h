@@ -13,12 +13,11 @@
 
 @interface LADownload : NSObject {
 
-	id delegate;
     NSURLRequest *request;
     NSString *destination;
     
     NSURLConnection *connection;
-    NSFileHandle *fileHandle;
+   
     double totalLength;
     
     NSMutableData *downloadedData;
@@ -35,10 +34,12 @@
 
 
 @property (readonly) double totalLength;
-@property (assign) id delegate;
+@property (retain) id delegate;
 @property (retain) NSURLRequest *request;
 @property (retain) NSString *destination;
 @property (readonly) double receivedLength;
+
+@property (retain) NSFileHandle *fileHandle;
 
 @end
 

@@ -12,14 +12,15 @@
 
 #import "LAEventsTableViewController.h"
 
-@interface LAUpcomingEventsTableViewController : LAEventsTableViewController {
+@interface LAUpcomingEventsTableViewController : LAEventsTableViewController
 
-	// This is required - it has to be set before doing anything with the view
-	NSDate *baseDate;
-	// This is quite simplistic and inelegant for now; Sorry
-	NSArray *eventsNow;
-	NSArray *eventsSoon;
-}
+// Arrays in which to store the filtered data
 
-//@property (retain) NSDate *baseDate;
+@property (retain) NSArray *eventsNow;
+@property (retain) NSArray *eventsSoon;
+
+// A date in which to store the current reference date
+
+@property (retain) NSDate *baseDate;
+
 @end

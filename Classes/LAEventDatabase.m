@@ -20,21 +20,28 @@ static LAEventDatabase *mainEventDatabase = nil;
 
 + (LAEventDatabase *) sharedEventDatabase
 {
+    
 	if(mainEventDatabase == nil) {
-        //NSLog(@"Loading event DB");
-        /*// Try to load from the resource bundle first
-         NSDictionary *eventsDictionary = [NSDictionary dictionaryWithContentsOfFile: [self eventsDatabaseLocation]];*/
-		//NSDictionary *eventsDictionary = [NSDictionary dictionaryWithContentsOfFile: [self eventDatabaseLocation]];                                                                                                                     
+        
+        // Initialise the database with data from the stored xcal file
+        
 		mainEventDatabase = [[LAEventDatabase alloc] initWithContentsOfFile: [self eventDatabaseLocation]];
+        
+        // Register for notficiations of the database getting updated
+        
         [[NSNotificationCenter defaultCenter] postNotificationName: @"LAEventDatabaseUpdated" object: self];
     }
-    return mainEventDatabase;	
+    
+    return mainEventDatabase;
+    
 }
 
-+ (void) releaseMainEventDatabase {
-
-	[mainEventDatabase release];
++ (void) resetMainEventDatabase {
+    
+    // Get rid of the old shared instance and create a new one
+    
     mainEventDatabase = nil;
+    [LAEventDatabase sharedEventDatabase];
 
 }
 
@@ -82,7 +89,6 @@ static LAEventDatabase *mainEventDatabase = nil;
 }
 
 - (void) parserFinishedParsing:(LAEventsXMLParser *)parser {
-    [parser release];
 	[events sortUsingSelector: @selector(compareDateWithEvent:)];
 }
 
@@ -332,15 +338,15 @@ static LAEventDatabase *mainEventDatabase = nil;
 
 
 - (void) eventDatabaseUpdated: (NSNotification *) notification {
+    
     // Clear out all the caches
-    [tracksCache release];
+
     tracksCache = nil;
-    //[starredCache release];
-    [cachedUniqueDays release];
     cachedUniqueDays = nil;
-    [eventsOnDayCache release];
     eventsOnDayCache = nil;
+    
     eventsOnDayCache = [[NSMutableDictionary alloc] init];
+    
 }
 
 - (NSString*) mapHTMLForEvent: (LAEvent*) event {
@@ -362,12 +368,6 @@ static LAEventDatabase *mainEventDatabase = nil;
 		
 	return @"Map Not Found!";
 	
-}
-
-- (void) dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver: self];
-    [events release];
-    [super dealloc];
 }
 
 

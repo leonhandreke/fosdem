@@ -14,7 +14,6 @@
 #import "LAEvent.h"
 
 
-@interface LATracksTableViewController : UITableViewController {
-}
+@interface LATracksTableViewController : UITableViewController
 
 @end

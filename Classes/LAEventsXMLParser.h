@@ -13,8 +13,6 @@
 #import "LAEvent.h"
 
 @interface LAEventsXMLParser : NSObject <NSXMLParserDelegate> {
-    id delegate;
-    NSXMLParser *eventsXMLParser;
     
     NSString *currentDayString;
     NSMutableString *currentStringValue;
@@ -25,7 +23,8 @@
 - (LAEventsXMLParser *) initWithContentsOfFile: (NSString *) path delegate: (id) newDelegate;
 - (BOOL) parse;
 
-@property (assign) id delegate;
+@property (retain) id delegate;
+@property (retain) NSXMLParser *eventsXMLParser;
 @end
 
 

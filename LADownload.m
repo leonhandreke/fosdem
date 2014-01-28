@@ -12,7 +12,7 @@
 
 @implementation LADownload
 
-@synthesize request, delegate, destination, receivedLength, totalLength;
+@synthesize request, delegate, destination, receivedLength, totalLength, fileHandle;
 
 
 - (LADownload *) initWithRequest: (NSURLRequest *) newRequest destination: (NSString *) newDestination delegate: (id) newDelegate {
@@ -56,7 +56,7 @@
         [manager removeItemAtPath:[self destination] error:nil];
     }
     [manager createFileAtPath: [self destination] contents:nil attributes:nil];
-    fileHandle = [[NSFileHandle fileHandleForWritingAtPath:[self destination]] retain];
+    fileHandle = [NSFileHandle fileHandleForWritingAtPath:[self destination]];
     
     downloadedData = [[NSMutableData alloc] init];
     
@@ -81,7 +81,7 @@
     if( downloadedData.length > 1048576 && fileHandle != nil )
     {
         [fileHandle writeData: downloadedData];
-        [downloadedData release];
+        
         downloadedData = [[NSMutableData alloc] init];
     }
     
@@ -90,7 +90,6 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     [fileHandle writeData: downloadedData];
-    [downloadedData release];
     downloadedData = nil;
     
     NSString *newDestination = [[self destination] stringByDeletingPathExtension];

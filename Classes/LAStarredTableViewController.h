@@ -13,9 +13,6 @@
 #import "LAEventsTableViewController.h"
 #import "LAEventDatabase.h"
 
-@interface LAStarredTableViewController : LAEventsTableViewController {
-
-}
-
+@interface LAStarredTableViewController : LAEventsTableViewController
 
 @end

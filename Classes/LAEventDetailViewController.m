@@ -19,9 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Fix to allow for the bounds of the view to be restricted to
+    // the area between the navigation bar and the bottom of the screen
+    
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
+    
+        [self setEdgesForExtendedLayout: UIRectEdgeNone];
+        
+    }
+    
     LAHeaderView *overviewHeaderView = [[LAHeaderView alloc] init];
     
-    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
    
     [[overviewHeaderView title] setText: [event speaker]];
 
@@ -33,7 +42,7 @@
     //NSLog(@"dayString: %@", dayString);
     NSString *timeString = [NSString stringWithFormat: @"%@ - %@", [dateFormatter stringFromDate: [event startDate]], [dateFormatter stringFromDate: [event endDate]]];
     
-    [[overviewHeaderView subtitle] setText: [NSString stringWithFormat: @"%@, %@", dayString, timeString]];
+    [[overviewHeaderView subtitle] setText: [NSString stringWithFormat: @"%@ %@", dayString, timeString]];
     
     
     [[overviewHeaderView indicator] setText: [event location]];
@@ -87,11 +96,6 @@
 	// e.g. self.myOutlet = nil;
 }
 
-
-- (void)dealloc {
-    [super dealloc];
-}
-
 -(IBAction) toggleStarred: (id) sender {
 	if ([[self event] isStarred]) {
 		[[self event] setStarred: NO];
@@ -105,13 +109,13 @@
 - (void) updateToolbar {
     
     UIBarButtonItem *button;
-    UIBarButtonItem *flexibleSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace target: nil action: nil] autorelease];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace target: nil action: nil];
     if([[self event] isStarred]) {
-        button = [[[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"starOn.png"] style:UIBarButtonItemStylePlain target: self action: @selector(toggleStarred:)] autorelease];
+        button = [[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"starOn.png"] style:UIBarButtonItemStylePlain target: self action: @selector(toggleStarred:)];
         
     }
     else {
-        button = [[[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"starOff.png"] style: UIBarButtonItemStylePlain target: self action: @selector(toggleStarred:)] autorelease];
+        button = [[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"starOff.png"] style: UIBarButtonItemStylePlain target: self action: @selector(toggleStarred:)];
     }
     NSArray *toolbarItems = [NSArray arrayWithObjects: flexibleSpace, button, flexibleSpace, nil];
     [toolbar setItems: toolbarItems];

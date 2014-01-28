@@ -38,7 +38,7 @@
     
     if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
-        return [filteredEvents count];
+        return [[self filteredEvents] count];
     }
 	else
 	{
@@ -47,7 +47,7 @@
     
 }
 
-// Method to override if 
+
 - (LAEvent *)eventForRowAtIndexPath:(NSIndexPath *)indexPath {
 	LAEvent *event = nil;
 	event = [[[LAEventDatabase sharedEventDatabase] starredEvents] objectAtIndex: indexPath.row];

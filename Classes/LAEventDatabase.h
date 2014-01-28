@@ -58,7 +58,7 @@
 // Clear out the caches
 - (void) eventDatabaseUpdated: (NSNotification *) notification;
 
-+ (void) releaseMainEventDatabase;
++ (void) resetMainEventDatabase;
 
 - (NSString*) mapHTMLForEvent: (LAEvent*) event;
 

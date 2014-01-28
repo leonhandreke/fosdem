@@ -14,8 +14,8 @@
 
 -(id) init;
 
-@property (nonatomic, assign) LAEventCollection *events;
-@property (nonatomic, assign) NSDateFormatter *timeDateFormatter;
-@property (nonatomic, assign) NSDateFormatter *sectionDateFormatter;
+@property (nonatomic, retain) LAEventCollection *events;
+@property (nonatomic, retain) NSDateFormatter *timeDateFormatter;
+@property (nonatomic, retain) NSDateFormatter *sectionDateFormatter;
 
 @end

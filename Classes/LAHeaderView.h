@@ -15,6 +15,5 @@
 @property (nonatomic,retain) UILabel *title;
 @property (nonatomic,retain) UILabel *subtitle;
 @property (nonatomic,retain) UILabel *indicator;
-@property (nonatomic,retain) UIView *indicatorPlaceholder;
 
 @end

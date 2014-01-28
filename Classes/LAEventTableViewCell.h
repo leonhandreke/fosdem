@@ -10,17 +10,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface LAEventTableViewCell : UITableViewCell {
+@interface LAEventTableViewCell : UITableViewCell
 
-	IBOutlet UILabel *titleLabel;
-	IBOutlet UILabel *subtitleLabel;
-	IBOutlet UILabel *timeLabel;
-}
-
-
-@property (assign) IBOutlet UILabel *titleLabel;
-@property (assign) IBOutlet UILabel *subtitleLabel;
-@property (assign) IBOutlet UILabel *timeLabel;
-
+@property (nonatomic, retain) IBOutlet UILabel *titleLabel;
+@property (nonatomic, retain) IBOutlet UILabel *subtitleLabel;
+@property (nonatomic, retain) IBOutlet UILabel *timeLabel;
 
 @end

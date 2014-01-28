@@ -16,7 +16,6 @@
 
 @interface LAEventDetailViewController : UIViewController {
 
-    LAEvent *event;
     IBOutlet UIView *headerHolderView;
     IBOutlet UIWebView *webView;
     
@@ -29,6 +28,6 @@
 - (IBAction) toggleStarred: (id) sender;
 - (void) updateToolbar;
 
-@property (assign) LAEvent *event;
+@property (retain) LAEvent *event;
 
 @end

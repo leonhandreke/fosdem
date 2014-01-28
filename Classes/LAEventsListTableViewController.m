@@ -131,7 +131,6 @@
     
     [eventDetailViewController setEvent: selectedEvent];
     [[self navigationController] pushViewController: eventDetailViewController animated: YES];
-    [eventDetailViewController release];
     
 }
 

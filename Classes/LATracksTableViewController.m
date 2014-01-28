@@ -73,7 +73,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
     }
 	
@@ -101,12 +101,7 @@
     [eventTableViewController setEvents: eventCollection];
     [eventTableViewController setTitle: selectedTrack];
 	[[self navigationController] pushViewController: eventTableViewController animated: YES];
-    [eventTableViewController release];
 	
-}
-
-- (void)dealloc {
-    [super dealloc];
 }
 
 

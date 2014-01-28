@@ -15,7 +15,9 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        // Initialization code
+        
+        
+        
     }
     return self;
 }
@@ -28,10 +30,6 @@
     // Configure the view for the selected state
 }
 
-
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

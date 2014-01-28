@@ -18,8 +18,8 @@
 -(void) addEvent: (LAEvent*) newEvent;
 -(void) addEvents: (NSArray*) newEvents;
 
-@property (nonatomic, assign) NSMutableArray *events;
-@property (nonatomic, assign) NSMutableArray *uniqueDays;
-@property (nonatomic, assign) NSMutableDictionary *eventsOnDay;
+@property (nonatomic, retain) NSMutableArray *events;
+@property (nonatomic, retain) NSMutableArray *uniqueDays;
+@property (nonatomic, retain) NSMutableDictionary *eventsOnDay;
 
 @end

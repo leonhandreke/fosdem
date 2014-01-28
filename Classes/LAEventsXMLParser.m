@@ -14,6 +14,7 @@
 @implementation LAEventsXMLParser
 
 @synthesize delegate;
+@synthesize eventsXMLParser;
 
 - (LAEventsXMLParser *) initWithContentsOfFile: (NSString *) path delegate: (id) newDelegate {
     if (self = [super init]) {
@@ -21,7 +22,6 @@
 		
         eventsXMLParser = [[NSXMLParser alloc] initWithContentsOfURL: [NSURL fileURLWithPath: path]];
         [eventsXMLParser setDelegate: self];
-        [eventsXMLParser retain];
 		
 		dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss vvvv"];
@@ -122,97 +122,19 @@
     }
 	
 	if ([elementName isEqualToString: @"vevent"]) {
-        [delegate parser: self foundEvent: [currentEvent autorelease]];
+        [delegate parser: self foundEvent: currentEvent];
     }
     
     if ([elementName isEqualToString: @"iCalendar"]) {
         [delegate parserDidFinishSchedule: self];
     }
-	
-
-	
-	
-    /*if ([elementName isEqualToString: @"start"]) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm"];
-        
-        NSString *eventStartDateString = [NSString stringWithFormat: @"%@ %@", currentDayString, currentStringValue];
-        
-        NSDate *eventStartDate = [dateFormatter dateFromString: eventStartDateString];
-        
-        [currentEvent setStartDate: eventStartDate];
-        
-        [dateFormatter release];
-    }
-    
-    
-    if ([elementName isEqualToString: @"duration"]) {
-        // Crude XML format, crude parsing... here we go!
-        // The duration looks something like this HH:mm
-        
-        NSRange hoursRange = {0, 2};
-        NSRange minutesRange = {3, 2};
-        int hours = [[currentStringValue substringWithRange: hoursRange] intValue];
-        int minutes = [[currentStringValue substringWithRange: minutesRange] intValue];
-        
-        NSTimeInterval duration = (double) (hours * 3600) + (minutes * 60);
-        NSDate *eventEndDate;
-        
-        if ([currentEvent startDate] != nil) {
-            eventEndDate = [[currentEvent startDate] addTimeInterval: duration];
-        }
-        else {
-            eventEndDate = [[NSDate alloc] init];
-        }
-        [currentEvent setEndDate: eventEndDate];
-        //[eventEndDate autorelease];
-    }
-    
-    if ([elementName isEqualToString: @"room"]) {
-        [currentEvent setRoom: [NSString stringWithString: currentStringValue]];
-    }
-    if ([elementName isEqualToString: @"title"]) {
-        [currentEvent setTitle: [NSString stringWithString: currentStringValue]];
-    }
-    if ([elementName isEqualToString: @"subtitle"]) {
-        [currentEvent setSubtitle: [NSString stringWithString: currentStringValue]];
-    }
-    if ([elementName isEqualToString: @"track"]) {
-        [currentEvent setTrack: [NSString stringWithString: currentStringValue]];
-    }
-    if ([elementName isEqualToString: @"type"]) {
-        [currentEvent setType: [NSString stringWithString: currentStringValue]];
-    }
-    if ([elementName isEqualToString: @"abstract"]) {
-        [currentEvent setContentAbstract: [NSString stringWithString: currentStringValue]];
-    }
-    if ([elementName isEqualToString: @"description"]) {
-        [currentEvent setContentDescription: [NSString stringWithString: currentStringValue]];
-    }
-    if ([elementName isEqualToString: @"person"]) {
-        [currentEvent setSpeaker: [NSString stringWithString: currentStringValue]];
-    }
-    
-    if ([elementName isEqualToString: @"event"]) {
-        [delegate parser: self foundEvent: currentEvent];
-    }
-    
-    if ([elementName isEqualToString: @"schedule"]) {
-        [delegate parserDidFinishSchedule: self];
-    }*/
 
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    [delegate parserFinishedParsing: self];
-}
 
-- (void) dealloc {
-    [eventsXMLParser release];
-	[dateFormatter release];
-    //[currentDayString release];
-    //[currentStringValue release];
-    [super dealloc];
+    [delegate parserFinishedParsing: self];
+
 }
 
 @end

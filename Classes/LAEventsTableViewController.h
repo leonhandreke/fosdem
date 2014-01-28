@@ -17,18 +17,7 @@
 #import "LADownload.h"
 #import "LAEventTableViewCell.h"
 
-@interface LAEventsTableViewController : UITableViewController <UIActionSheetDelegate> {
-    NSMutableArray *filteredEvents;
-    
-    NSMutableArray *tableHeaderStrings;
-	UIProgressView *downloadProgressBar;
-    UIActionSheet *downloadActionSheet;
-    LADownload *download;
-	NSDateFormatter *timeDateFormatter;
-	
-	IBOutlet LAEventTableViewCell *eventCell;
-	
-}
+@interface LAEventsTableViewController : UITableViewController <UIActionSheetDelegate>
 
 - (void) eventDatabaseUpdated;
 
@@ -41,6 +30,13 @@
 
 - (void)download: (LADownload *) aDownload didReceiveDataOfLength: (NSUInteger) dataLength;
 
-@property (nonatomic, assign) IBOutlet LAEventTableViewCell *eventCell;
+@property (nonatomic, retain) IBOutlet LAEventTableViewCell *eventCell;
+@property (retain) NSDateFormatter *timeDateFormatter;
+@property (retain) NSMutableArray *filteredEvents;
+@property (retain) NSMutableArray *tableHeaderStrings;
+@property (retain) UIProgressView *downloadProgressBar;
+@property (retain) UIActionSheet *downloadActionSheet;
+@property (retain) LADownload *download;
+
 
 @end
